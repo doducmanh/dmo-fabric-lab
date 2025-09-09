@@ -1,0 +1,246 @@
+table 'UseCase Clusters and Tracking'
+	lineageTag: 79b194ed-75e1-4cc1-b492-0570be89314d
+
+	column 'Use Case Cluster'
+		dataType: string
+		lineageTag: ea2714f8-86f1-404b-96b4-03605db21e12
+		summarizeBy: none
+		sourceColumn: Use Case Cluster
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Impact Cluster'
+		dataType: string
+		lineageTag: 8dca841d-57a8-4da7-a8f6-05ff522740da
+		summarizeBy: none
+		sourceColumn: Impact Cluster
+
+		annotation SummarizationSetBy = Automatic
+
+	column Domain
+		dataType: string
+		lineageTag: b26873f4-5d7c-4a5c-85a5-a6adb82afdd1
+		summarizeBy: none
+		sourceColumn: Domain
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Team Lead'
+		dataType: string
+		lineageTag: e0bcb83d-a3cf-4c4d-aefe-5f990a7a2abd
+		summarizeBy: none
+		sourceColumn: Team Lead
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Team Members'
+		dataType: string
+		lineageTag: 679dcd91-d6e8-45d5-9f80-8c6608de8743
+		summarizeBy: none
+		sourceColumn: Team Members
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Use Case Title'
+		dataType: string
+		lineageTag: b452f974-794e-4906-9ed7-211a29905ec3
+		summarizeBy: none
+		sourceColumn: Use Case Title
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Use Case Summary'
+		dataType: string
+		lineageTag: 6b95b697-03bc-4db9-9690-3e41e2629aeb
+		summarizeBy: none
+		sourceColumn: Use Case Summary
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Problems to solve'
+		dataType: string
+		lineageTag: c814518e-1c73-4958-bd1a-28bebef1d80f
+		summarizeBy: none
+		sourceColumn: Problems to solve
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Idea''s Solution'
+		dataType: string
+		lineageTag: 962ddbd1-303d-49e4-b0f2-d0f1311cbd5f
+		summarizeBy: none
+		sourceColumn: Idea's Solution
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Bosch Tool'
+		dataType: string
+		lineageTag: a97d120e-2258-4e50-b7fb-48dde8850d3f
+		summarizeBy: none
+		sourceColumn: Bosch Tool
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Input Data'
+		dataType: string
+		lineageTag: dd909ec7-fb8d-43d6-9eb6-a2c43543592f
+		summarizeBy: none
+		sourceColumn: Input Data
+
+		annotation SummarizationSetBy = Automatic
+
+	column Prompt
+		dataType: string
+		lineageTag: 8ed29f2f-a2af-4db9-abd7-03f8892e6d76
+		summarizeBy: none
+		sourceColumn: Prompt
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Output Data'
+		dataType: string
+		lineageTag: cb576621-2cbe-4a9f-8a99-99e6d137dfe5
+		summarizeBy: none
+		sourceColumn: Output Data
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Value Proposition'
+		dataType: string
+		lineageTag: 4800a831-cb58-40c3-b2c5-b864f1d06870
+		summarizeBy: none
+		sourceColumn: Value Proposition
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Comment/ Issue'
+		dataType: string
+		lineageTag: e4a2951b-2458-4342-966d-8139ec920abf
+		summarizeBy: none
+		sourceColumn: Comment/ Issue
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Business Value (S;M;L)'
+		dataType: string
+		lineageTag: db04aee6-9daa-4d25-9cd2-ae4eabf9386a
+		summarizeBy: none
+		sourceColumn: Business Value (S;M;L)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Bosch Data to be Connected'
+		dataType: string
+		lineageTag: 86f9a65f-b48d-45c4-bd15-0173e6c9e55d
+		summarizeBy: none
+		sourceColumn: Bosch Data to be Connected
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Bosch Data Description'
+		dataType: string
+		lineageTag: 40429561-4de4-4417-838b-135a08bfb925
+		summarizeBy: none
+		sourceColumn: Bosch Data Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Time effort for manual task'
+		dataType: string
+		lineageTag: c02be3c9-347c-4041-8a11-24cac8252ab6
+		summarizeBy: none
+		sourceColumn: Time effort for manual task
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Estimated time effort with GenAI Tool'
+		dataType: string
+		lineageTag: 604feaf5-4937-4cb5-ba1d-94887658c144
+		summarizeBy: none
+		sourceColumn: Estimated time effort with GenAI Tool
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Calculated Effectiveness'
+		dataType: double
+		lineageTag: 0c7e7fe7-13f2-430e-82f4-800e29dd7f63
+		summarizeBy: sum
+		sourceColumn: Calculated Effectiveness
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Status
+		dataType: string
+		lineageTag: b3248a68-1e10-4287-8cc1-43d4d5dbdf22
+		summarizeBy: none
+		sourceColumn: Status
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'DIA Brain'
+		dataType: string
+		lineageTag: 281cbbfb-531e-4135-9fdc-006f502b54e8
+		summarizeBy: none
+		sourceColumn: DIA Brain
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Customer project'
+		dataType: string
+		lineageTag: 622c44a7-b9d6-486d-96fa-78576e0a6e1b
+		summarizeBy: none
+		sourceColumn: Customer project
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Estimated ROI'
+		dataType: string
+		lineageTag: ae70c091-6db4-4ee9-96dc-c35b0640fd11
+		summarizeBy: none
+		sourceColumn: Estimated ROI
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'UC value priorization matrix(High: score >30; medium: >20; low: >20)'
+		dataType: string
+		lineageTag: 68f4897b-e555-46ec-993a-65af8526f67e
+		summarizeBy: none
+		sourceColumn: UC value priorization matrix(High: score >30; medium: >20; low: >20)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Chapter Detailed'
+		dataType: string
+		lineageTag: 3688b3dd-e17f-4721-84c9-01b96d9fa34b
+		summarizeBy: none
+		sourceColumn: Chapter Detailed
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Chapter Short'
+		dataType: string
+		lineageTag: 1f556c55-5991-4127-818a-8cc71229aa31
+		summarizeBy: none
+		sourceColumn: Chapter Short
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'UseCase Clusters and Tracking' = m
+		mode: import
+		source =
+				let
+				    Source = Excel.Workbook(Web.Contents("https://bosch.sharepoint.com/sites/msteams_2839467/Shared%20Documents/General/Gen-AI Enablement/GenAI%20UseCase%20Tracking_BDVN%20DAD_2025-03-04.xlsx"), null, true),
+				    #"UseCase Clusters and Tracking_Sheet" = Source{[Item="UseCase Clusters and Tracking",Kind="Sheet"]}[Data],
+				    #"Promoted Headers" = Table.PromoteHeaders(#"UseCase Clusters and Tracking_Sheet", [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"Use Case Cluster", type text}, {"Impact Cluster", type text}, {"Domain", type text}, {"Team Lead", type text}, {"Team Members", type text}, {"Status", type text}, {"Use Case Title", type text}, {"Use Case Summary", type text}, {"Problems to solve", type text}, {"Idea's Solution", type text}, {"Bosch Tool", type text}, {"Input Data", type text}, {"Prompt", type any}, {"Output Data", type text}, {"Value Proposition", type text}, {"Comment/ Issue", type text}, {"Business Value (S;M;L)", type text}, {"Bosch Data to be Connected", type text}, {"Bosch Data Description", type text}, {"Time effort for manual task", type text}, {"Estimated time effort with GenAI Tool", type text}, {"Calculated Effectiveness", type any}}),
+				    #"Renamed Columns" = Table.RenameColumns(#"Changed Type",{{"DIA Brain (no need to fill out - only for Julia)", "DIA Brain"}}),
+				    #"Changed Type1" = Table.TransformColumnTypes(#"Renamed Columns",{{"Calculated Effectiveness", Percentage.Type}})
+				in
+				    #"Changed Type1"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

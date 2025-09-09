@@ -1,0 +1,349 @@
+table DimCustomer
+	lineageTag: f44631a7-854c-4d62-8ad5-8ad4692a580b
+
+	column CustomerKey
+		dataType: int64
+		formatString: 0
+		lineageTag: 3779ce1b-f834-4d71-ba5e-a204f8f9359e
+		summarizeBy: none
+		sourceColumn: CustomerKey
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column GeographyKey
+		dataType: int64
+		formatString: 0
+		lineageTag: 6270aed5-bec4-4402-a4cb-76f5e77b6bfd
+		summarizeBy: none
+		sourceColumn: GeographyKey
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column CustomerAlternateKey
+		dataType: string
+		lineageTag: aca589a8-31de-4430-9a47-e709fcabb57f
+		summarizeBy: none
+		sourceColumn: CustomerAlternateKey
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Title
+		dataType: string
+		lineageTag: bf6cd6a1-3e41-4dbf-a120-7e0aee9b5538
+		summarizeBy: none
+		sourceColumn: Title
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column FirstName
+		dataType: string
+		lineageTag: d3bddd82-6b82-4ed2-b07d-15cc685c46ce
+		summarizeBy: none
+		sourceColumn: FirstName
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column MiddleName
+		dataType: string
+		lineageTag: 124b02f1-62a8-46de-b69a-7ce814519068
+		summarizeBy: none
+		sourceColumn: MiddleName
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column LastName
+		dataType: string
+		lineageTag: 0df63ff8-d102-42a3-9fa5-67ddc19eb781
+		summarizeBy: none
+		sourceColumn: LastName
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column NameStyle
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: c2ced8dc-7ca0-4be8-bba2-5ceb2d6d97f9
+		summarizeBy: none
+		sourceColumn: NameStyle
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column BirthDate
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 4fd5ef10-ac80-4c41-a275-84bf48b92737
+		summarizeBy: none
+		sourceColumn: BirthDate
+
+		variation Variation
+			isDefault
+			relationship: 045a077b-fe1d-451c-a02c-f384c2995fef
+			defaultHierarchy: LocalDateTable_43c29099-28e7-4f11-8912-9968520d2c6a.'Date Hierarchy'
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column MaritalStatus
+		dataType: string
+		lineageTag: 7a7417af-c2f6-47bb-b5e0-69ff007ff52a
+		summarizeBy: none
+		sourceColumn: MaritalStatus
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Suffix
+		dataType: string
+		lineageTag: 7c329d3d-9e82-44b6-afd3-89da16d9823e
+		summarizeBy: none
+		sourceColumn: Suffix
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Gender
+		dataType: string
+		lineageTag: c4690bef-6960-44c1-b970-1a25a76f3e88
+		summarizeBy: none
+		sourceColumn: Gender
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column EmailAddress
+		dataType: string
+		lineageTag: bb1b93e1-ef9c-47fb-ad1d-d343ec0d9bc0
+		summarizeBy: none
+		sourceColumn: EmailAddress
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column YearlyIncome
+		dataType: decimal
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 5f8da44d-05cd-4da3-877c-2584554900a8
+		summarizeBy: sum
+		sourceColumn: YearlyIncome
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column TotalChildren
+		dataType: int64
+		formatString: 0
+		lineageTag: c3dd13fe-e369-417a-89ec-418519626e2d
+		summarizeBy: sum
+		sourceColumn: TotalChildren
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column NumberChildrenAtHome
+		dataType: int64
+		formatString: 0
+		lineageTag: 3dcea851-1810-460a-97c8-7eff51fdc444
+		summarizeBy: sum
+		sourceColumn: NumberChildrenAtHome
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column EnglishEducation
+		dataType: string
+		lineageTag: 5e928235-8d54-45ed-94e1-58a069d829b6
+		summarizeBy: none
+		sourceColumn: EnglishEducation
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column SpanishEducation
+		dataType: string
+		lineageTag: 3f888eb0-c956-4624-9546-ec4fe731fd9d
+		summarizeBy: none
+		sourceColumn: SpanishEducation
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column FrenchEducation
+		dataType: string
+		lineageTag: 394bf58c-5a05-44f8-8175-e8c9bd55b7a6
+		summarizeBy: none
+		sourceColumn: FrenchEducation
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column EnglishOccupation
+		dataType: string
+		lineageTag: 8a71a87d-fa99-44e4-b219-062c6f8ce017
+		summarizeBy: none
+		sourceColumn: EnglishOccupation
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column SpanishOccupation
+		dataType: string
+		lineageTag: b7e68c40-4ac2-4f38-b02a-60ab5a85e1ab
+		summarizeBy: none
+		sourceColumn: SpanishOccupation
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column FrenchOccupation
+		dataType: string
+		lineageTag: b4b11329-7362-4642-b3ba-67a414d58825
+		summarizeBy: none
+		sourceColumn: FrenchOccupation
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column HouseOwnerFlag
+		dataType: string
+		lineageTag: 4bcde214-0ffc-4ef3-a23f-5bfff459625c
+		summarizeBy: none
+		sourceColumn: HouseOwnerFlag
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column NumberCarsOwned
+		dataType: int64
+		formatString: 0
+		lineageTag: 5b459c92-e668-42a8-a5a0-b5b60ce032b2
+		summarizeBy: sum
+		sourceColumn: NumberCarsOwned
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column AddressLine1
+		dataType: string
+		lineageTag: f84f6516-527d-4323-bbd5-2d26fe699851
+		summarizeBy: none
+		sourceColumn: AddressLine1
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column AddressLine2
+		dataType: string
+		lineageTag: ceaa2aa5-496e-49cf-918b-c49d9816dc6d
+		summarizeBy: none
+		sourceColumn: AddressLine2
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Phone
+		dataType: string
+		lineageTag: dbe062be-66a1-4d9b-aa72-b49aeb2a1e2a
+		summarizeBy: none
+		sourceColumn: Phone
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column DateFirstPurchase
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: cad3e33f-196e-43a1-89ee-cb1901fa6ed3
+		summarizeBy: none
+		sourceColumn: DateFirstPurchase
+
+		variation Variation
+			isDefault
+			relationship: 73331aa9-f532-4036-8564-0191ca06220d
+			defaultHierarchy: LocalDateTable_06a0a726-4549-4333-9d77-cee65cfb4532.'Date Hierarchy'
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column CommuteDistance
+		dataType: string
+		lineageTag: e0b4efb5-4d80-458a-ab32-306add8e104f
+		summarizeBy: none
+		sourceColumn: CommuteDistance
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Text Before Delimiter.1'
+		dataType: string
+		lineageTag: 26583324-ff7a-4f49-93cd-25f36419bf77
+		summarizeBy: none
+		sourceColumn: Text Before Delimiter.1
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Text Before Delimiter'
+		dataType: string
+		lineageTag: 7af4f3d5-6919-40f5-994b-ed24e0d155b6
+		summarizeBy: none
+		sourceColumn: Text Before Delimiter
+
+		annotation SummarizationSetBy = Automatic
+
+	partition DimCustomer-da374d3c-aa53-409d-9b9e-cf1df2fc8a87 = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database(PRServerName, PRDatabaseName),
+				    dbo_DimCustomer = Source{[Schema="dbo",Item="DimCustomer"]}[Data],
+				    #"Inserted Text Before Delimiter" = Table.AddColumn(dbo_DimCustomer, "Text Before Delimiter", each Text.BeforeDelimiter([AddressLine1], " "), type text),
+				    #"Reordered Columns" = Table.ReorderColumns(#"Inserted Text Before Delimiter",{"CustomerKey", "GeographyKey", "CustomerAlternateKey", "Title", "FirstName", "MiddleName", "LastName", "NameStyle", "BirthDate", "MaritalStatus", "Suffix", "Gender", "EmailAddress", "YearlyIncome", "TotalChildren", "NumberChildrenAtHome", "EnglishEducation", "SpanishEducation", "FrenchEducation", "EnglishOccupation", "SpanishOccupation", "FrenchOccupation", "HouseOwnerFlag", "NumberCarsOwned", "AddressLine1", "Text Before Delimiter", "AddressLine2", "Phone", "DateFirstPurchase", "CommuteDistance", "DimGeography", "FactInternetSales", "FactSurveyResponse"}),
+				    #"Inserted Text Before Delimiter1" = Table.AddColumn(#"Reordered Columns", "Text Before Delimiter.1", each Text.BeforeDelimiter([EmailAddress], "@"), type text),
+				    #"Reordered Columns1" = Table.ReorderColumns(#"Inserted Text Before Delimiter1",{"CustomerKey", "GeographyKey", "CustomerAlternateKey", "Title", "FirstName", "MiddleName", "LastName", "NameStyle", "BirthDate", "MaritalStatus", "Suffix", "Gender", "EmailAddress", "Text Before Delimiter.1", "YearlyIncome", "TotalChildren", "NumberChildrenAtHome", "EnglishEducation", "SpanishEducation", "FrenchEducation", "EnglishOccupation", "SpanishOccupation", "FrenchOccupation", "HouseOwnerFlag", "NumberCarsOwned", "AddressLine1", "Text Before Delimiter", "AddressLine2", "Phone", "DateFirstPurchase", "CommuteDistance", "DimGeography", "FactInternetSales", "FactSurveyResponse"})
+				in
+				    #"Reordered Columns1"
+
+	annotation PBI_ResultType = Table
+

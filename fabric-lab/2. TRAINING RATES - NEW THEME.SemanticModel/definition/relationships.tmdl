@@ -1,0 +1,36 @@
+relationship 0fb4f745-3ed8-4a0c-bb27-74213035917c
+	fromColumn: X_IFR_EPIC6_TRAINING_RATE.ORG_AREA
+	toColumn: DIM_ORG_AREA.ORG_AREA
+
+relationship 55ad21fe-1fd9-45d8-b4ec-de189d8f04e0
+	fromColumn: X_IFR_EPIC6_TRAINING_RATE.ITEM_ID
+	toColumn: DIM_ITEM.ITEM_ID
+
+relationship c089ad96-e1dc-4c8d-91fc-7f60b8cee128
+	fromColumn: X_IFR_EPIC6_TRAINING_RATE_UNPIVOT.ROWID
+	toColumn: X_IFR_EPIC6_TRAINING_RATE.ROWID
+
+relationship c985a163-d333-40d7-ade6-2e926ec95337
+	crossFilteringBehavior: bothDirections
+	toCardinality: many
+	fromColumn: DIM_DATE.'Year Month'
+	toColumn: X_IFR_EPIC6_TRAINING_RATE.'Year Month'
+
+relationship ed342ad0-0171-4fb0-aa6a-e0b9250fa710
+	fromColumn: X_IFR_EPIC6_TRAINING_RATE.COUNTRY
+	toColumn: DIM_COUNTRY.COUNTRY
+
+relationship f45549bd-9b00-49f1-84d4-ae68f6f930e3
+	fromColumn: X_IFR_EPIC6_TRAINING_RATE.REGION
+	toColumn: DIM_REGION.REGION
+
+relationship AutoDetected_4512c900-8a10-4580-8063-2ceb1a5913fb
+	crossFilteringBehavior: bothDirections
+	fromCardinality: one
+	fromColumn: E6_SpecificTheme.Theme
+	toColumn: ThemeFilter.Theme
+
+relationship bef8f8b5-72b2-e100-08dd-378026fd1e9b
+	fromColumn: X_IFR_EPIC6_TRAINING_RATE_UNPIVOT.ASS_STATUS
+	toColumn: DIM_STATUS.Status
+

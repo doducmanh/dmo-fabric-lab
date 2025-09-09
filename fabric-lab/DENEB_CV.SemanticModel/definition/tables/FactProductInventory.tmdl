@@ -1,0 +1,81 @@
+table FactProductInventory
+	lineageTag: 1b28f98a-5cf6-4f87-92b8-a9900074f883
+
+	column ProductKey
+		dataType: int64
+		formatString: 0
+		lineageTag: 6c320a7b-7f81-4922-a870-ef406d740789
+		summarizeBy: none
+		sourceColumn: ProductKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column DateKey
+		dataType: int64
+		formatString: 0
+		lineageTag: 076b5289-f206-46e1-9258-819253034368
+		summarizeBy: none
+		sourceColumn: DateKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column MovementDate
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: b35bed9f-ae63-4ac4-b2da-7682e8694240
+		summarizeBy: none
+		sourceColumn: MovementDate
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column UnitCost
+		dataType: decimal
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 17d3c21d-de29-4305-87f0-9c21b9e9204a
+		summarizeBy: sum
+		sourceColumn: UnitCost
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column UnitsIn
+		dataType: int64
+		formatString: 0
+		lineageTag: a8420fee-5754-4e6b-8e8e-8d57a831c532
+		summarizeBy: sum
+		sourceColumn: UnitsIn
+
+		annotation SummarizationSetBy = Automatic
+
+	column UnitsOut
+		dataType: int64
+		formatString: 0
+		lineageTag: 2caaf02f-40df-4e03-a9a9-5da58bc74a84
+		summarizeBy: sum
+		sourceColumn: UnitsOut
+
+		annotation SummarizationSetBy = Automatic
+
+	column UnitsBalance
+		dataType: int64
+		formatString: 0
+		lineageTag: 1a1bbfe7-8fdc-4216-94f3-e58cd95261e5
+		summarizeBy: sum
+		sourceColumn: UnitsBalance
+
+		annotation SummarizationSetBy = Automatic
+
+	partition FactProductInventory = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("HC-C-006F8\XAB_MANH_DEV", "AdventureWorksDW2022"),
+				    dbo_FactProductInventory = Source{[Schema="dbo",Item="FactProductInventory"]}[Data]
+				in
+				    dbo_FactProductInventory
+
+	annotation PBI_ResultType = Table
+

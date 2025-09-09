@@ -1,0 +1,42 @@
+{
+  "config": "{\"version\":\"5.59\",\"themeCollection\":{\"baseTheme\":{\"name\":\"CY24SU10\",\"version\":\"5.61\",\"type\":2}},\"activeSectionIndex\":0,\"defaultDrillFilterOtherVisuals\":true,\"settings\":{\"useNewFilterPaneExperience\":true,\"allowChangeFilterTypes\":true,\"useStylableVisualContainerHeader\":true,\"queryLimitOption\":6,\"exportDataMode\":1,\"useDefaultAggregateDisplayName\":true},\"objects\":{\"section\":[{\"properties\":{\"verticalAlignment\":{\"expr\":{\"Literal\":{\"Value\":\"'Top'\"}}}}}]}}",
+  "layoutOptimization": 0,
+  "resourcePackages": [
+    {
+      "resourcePackage": {
+        "disabled": false,
+        "items": [
+          {
+            "name": "CY24SU10",
+            "path": "BaseThemes/CY24SU10.json",
+            "type": 202
+          }
+        ],
+        "name": "SharedResources",
+        "type": 2
+      }
+    }
+  ],
+  "sections": [
+    {
+      "config": "{}",
+      "displayName": "Page 1",
+      "displayOption": 1,
+      "filters": "[]",
+      "height": 720.00,
+      "name": "3fb2b38fd94e8fbd74b9",
+      "visualContainers": [
+        {
+          "config": "{\"name\":\"10729dbd9ce56a4277b4\",\"layouts\":[{\"id\":0,\"position\":{\"x\":316.1094224924012,\"y\":243.16109422492403,\"z\":0,\"width\":459.08814589665656,\"height\":365.7142857142857,\"tabOrder\":0}}],\"singleVisual\":{\"visualType\":\"tableEx\",\"projections\":{\"Values\":[{\"queryRef\":\"HTML Code.HTML Code\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"h\",\"Entity\":\"HTML Code\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"h\"}},\"Property\":\"HTML Code\"},\"Name\":\"HTML Code.HTML Code\",\"NativeReferenceName\":\"HTML Code\"}]},\"drillFilterOtherVisuals\":true}}",
+          "filters": "[]",
+          "height": 365.71,
+          "width": 459.09,
+          "x": 316.11,
+          "y": 243.16,
+          "z": 0.00
+        }
+      ],
+      "width": 1280.00
+    }
+  ]
+}

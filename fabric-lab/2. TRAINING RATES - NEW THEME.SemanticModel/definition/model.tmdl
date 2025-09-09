@@ -1,0 +1,36 @@
+model Model
+	culture: en-US
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: en-US
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation PBI_QueryOrder = ["Copyright","ThemeFilter","ThemeImages","E6_SpecificTheme","_MEASURES","DIM_DATE","OVERDUE_RANGE","X_IFR_EPIC6_TRAINING_RATE","Last Refreshed Date","X_IFR_EPIC6_TRAINING_RATE_UNPIVOT","DIM_ITEM","DIM_ORG_AREA","DIM_REGION","DIM_COUNTRY","EOM_MAX_IMPORTATION_DATE (2)","SOM_MIN_IMPORTATION_DATE (2)","ServerName","DIM_STATUS"]
+
+annotation __PBI_TimeIntelligenceEnabled = 0
+
+annotation PBIDesktopVersion = 2.130.930.0 (24.06)
+
+annotation __TEdtr = 1
+
+ref table DIM_DATE
+ref table OVERDUE_RANGE
+ref table _MEASURES
+ref table X_IFR_EPIC6_TRAINING_RATE
+ref table 'Last Refreshed Date'
+ref table X_IFR_EPIC6_TRAINING_RATE_UNPIVOT
+ref table DIM_ITEM
+ref table DIM_ORG_AREA
+ref table DIM_REGION
+ref table DIM_COUNTRY
+ref table 'EOM_MAX_IMPORTATION_DATE (2)'
+ref table 'SOM_MIN_IMPORTATION_DATE (2)'
+ref table Copyright
+ref table ThemeFilter
+ref table ThemeImages
+ref table E6_SpecificTheme
+ref table DIM_STATUS
+
+ref cultureInfo en-US
+

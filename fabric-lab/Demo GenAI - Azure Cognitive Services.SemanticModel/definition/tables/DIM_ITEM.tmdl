@@ -1,0 +1,42 @@
+table DIM_ITEM
+	excludeFromModelRefresh
+	lineageTag: 60f70e6f-d254-4a37-b9f7-41d4d16f2afd
+
+	column ITEM_ID
+		dataType: int64
+		formatString: 0
+		lineageTag: fbe20052-bc19-4d61-94a3-024c3cd383a2
+		summarizeBy: none
+		sourceColumn: ITEM_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column ITEM_TITLE_FIX_LEN
+		dataType: string
+		lineageTag: 80d43561-1830-45d0-94bd-7ea7c68657c0
+		summarizeBy: none
+		sourceColumn: ITEM_TITLE_FIX_LEN
+
+		annotation SummarizationSetBy = Automatic
+
+	column TITLE
+		dataType: string
+		lineageTag: c056da7e-fede-4ac7-a081-184b960ec777
+		summarizeBy: none
+		sourceColumn: TITLE
+
+		annotation SummarizationSetBy = Automatic
+
+	partition DIM_ITEM = m
+		mode: import
+		source =
+				let
+				    Source = Oracle.Database(ServerName, [HierarchicalNavigation=true, Query="SELECT DISTINCT ITEM_ID, TITLE FROM MARD_PCMS.X_IFR_TRAINM_EPIC6_TRAINING_RATE"]),
+				    #"Replaced Value" = Table.ReplaceValue(Source,null,"",Replacer.ReplaceValue,{"ITEM_ID"}),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Replaced Value",{{"ITEM_ID", Int64.Type}}),
+				    #"Added Custom" = Table.AddColumn(#"Changed Type", "ITEM_TITLE_FIX_LEN", each if Text.Length([TITLE])> 18 then Text.Start([TITLE],18) else Text.End(Text.Repeat(Character.FromNumber (8192), 18) & [TITLE],18))
+				in
+				    #"Added Custom"
+
+	annotation PBI_ResultType = Table
+

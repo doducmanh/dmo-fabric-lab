@@ -1,0 +1,126 @@
+table 'Data 2'
+	lineageTag: c03141e5-bc07-4057-af69-f60d9ee90bfb
+	sourceLineageTag: 7eff1375-73eb-41d4-aae5-59bf5f1f037d
+
+	column 'Order ID'
+		dataType: int64
+		formatString: 0
+		lineageTag: fabf6965-19e1-4cf2-b2dd-74a5884b29b8
+		sourceLineageTag: 15a98fd5-759c-4420-acfd-eabce8479545
+		dataCategory: Uncategorized
+		summarizeBy: count
+		sourceColumn: Order ID
+
+		annotation SummarizationSetBy = User
+
+	column 'Seller ID'
+		dataType: int64
+		formatString: 0
+		lineageTag: 66cbcb09-5bab-40da-8269-709223c4cad1
+		sourceLineageTag: 167f6dcc-5f06-42e1-b156-55553c39bfb1
+		dataCategory: Uncategorized
+		summarizeBy: count
+		sourceColumn: Seller ID
+
+		annotation SummarizationSetBy = User
+
+	column 'Buyer ID'
+		dataType: int64
+		formatString: 0
+		lineageTag: 18e8b497-0ba7-467d-afb1-380d47aa3101
+		sourceLineageTag: fd1265b0-b58d-4ab0-b918-e6ff674b0889
+		dataCategory: Uncategorized
+		summarizeBy: count
+		sourceColumn: Buyer ID
+
+		annotation SummarizationSetBy = User
+
+	column 'Order value'
+		dataType: int64
+		formatString: 0
+		lineageTag: 2ffa20d8-c8f4-4c34-b700-800af7ca537e
+		sourceLineageTag: 8c1a36e2-7655-4eb4-abae-f37eb2e5aeb7
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Order value
+
+		annotation SummarizationSetBy = User
+
+	column 'Seller Province'
+		dataType: string
+		lineageTag: 8ec1a0d8-0afc-4c3e-ba9b-f06c94d2f7f7
+		sourceLineageTag: aac66ebb-a48f-4ad5-abf1-4ed8336ca45f
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Seller Province
+
+		annotation SummarizationSetBy = User
+
+	column 'Buyer Province'
+		dataType: string
+		lineageTag: f35147cd-2c5f-4f84-a42b-16b37ea1e39f
+		sourceLineageTag: 0beb7413-229a-4963-b437-9417cdb88f29
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Buyer Province
+
+		annotation SummarizationSetBy = User
+
+	column 'Seller Region'
+		dataType: string
+		lineageTag: 86554bb2-9dea-467e-8802-516b55d634fd
+		sourceLineageTag: 09699b5d-6eb3-44d2-a18d-af111e2922a2
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Seller Region
+
+		annotation SummarizationSetBy = User
+
+	column 'Buyer Region'
+		dataType: string
+		lineageTag: 7b8e19b8-008d-4dfa-96a5-62bb7d753a59
+		sourceLineageTag: d3dfc5bd-2e0c-4053-83d3-6f952394dffd
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Buyer Region
+
+		annotation SummarizationSetBy = User
+
+	column 'Recipient shipping address'
+		dataType: string
+		lineageTag: b680dd0c-a1c6-4b85-9826-22937e5089a0
+		sourceLineageTag: 47d43e6a-5775-48e6-a783-61ce80be2956
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Recipient shipping address
+
+		annotation SummarizationSetBy = User
+
+	column 'Buyer Type'
+		dataType: string
+		lineageTag: c6eb20d8-6a0f-40a9-a747-d942777ed158
+		sourceLineageTag: 02473ae3-318c-4faa-b66c-b331ea1cb955
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Buyer Type
+
+		annotation SummarizationSetBy = User
+
+	column Route
+		dataType: string
+		lineageTag: 3eb55323-c229-479b-917c-ec5672847ca5
+		sourceLineageTag: 49a5f911-ddea-4675-8694-cb61c8929660
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Route
+
+		annotation SummarizationSetBy = User
+
+	partition 'Data 2-5ae5272c-f26c-4d23-918b-a74ce395f33c' = entity
+		mode: directQuery
+		source
+			entityName: Data
+			expressionSource: 'DirectQuery to AS - DTS_2'
+
+	annotation PBI_ResultType = Exception
+

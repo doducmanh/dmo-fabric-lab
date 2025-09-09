@@ -1,0 +1,20 @@
+model Model
+	culture: en-US
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: en-US
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation __PBI_TimeIntelligenceEnabled = 0
+
+annotation PBIDesktopVersion = 2.130.930.0 (24.06)
+
+annotation PBI_QueryOrder = ["X_IFR_BKMS_EPIC5_COM_CASE"]
+
+ref table X_IFR_BKMS_EPIC5_COM_CASE
+
+ref role Untitled
+
+ref cultureInfo en-US
+

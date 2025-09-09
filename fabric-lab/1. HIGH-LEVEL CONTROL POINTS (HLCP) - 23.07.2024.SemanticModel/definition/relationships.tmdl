@@ -1,0 +1,13 @@
+relationship a59b0238-4925-4215-8918-8a1acfb7b559
+	crossFilteringBehavior: bothDirections
+	fromColumn: E8_X_IFR_ONEQ_EPIC8_HLCP.ASSESSMENTTREE_RATING_VALUE_NAME
+	toColumn: E8_DIM_RATINGNAME.RATING
+
+relationship fe08cbf4-239a-43f6-b9b6-8e0f46320f53
+	fromColumn: E8_X_IFR_ONEQ_EPIC8_HLCP.ASSESSMENT_MEETINGDATE
+	toColumn: DIM_DATE.FullDateAlternateKey
+
+relationship 2f012967-8677-4608-88e0-f44ae70ba9cf
+	fromColumn: E8_X_IFR_ONEQ_EPIC8_HLCP.HLCP_CODE
+	toColumn: DIM_HLCP.HLCP_CODE
+

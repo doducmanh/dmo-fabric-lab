@@ -1,0 +1,36 @@
+table DIM_STATUS
+	lineageTag: afd56081-7598-4079-91d1-70ff7d0b84a2
+
+	column Order
+		dataType: int64
+		formatString: 0
+		lineageTag: d30da8c5-5584-4f32-aedd-2cf03028956f
+		summarizeBy: none
+		sourceColumn: Order
+
+		annotation SummarizationSetBy = Automatic
+
+	column Status
+		dataType: string
+		lineageTag: 76e39257-892b-4c72-981d-243b2e7ca672
+		summarizeBy: none
+		sourceColumn: Status
+		sortByColumn: Order
+
+		changedProperty = SortByColumn
+
+		annotation SummarizationSetBy = Automatic
+
+	partition DIM_STATUS = m
+		mode: import
+		source =
+				let
+				    Source = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("i45WMlTSUXLOzy3ISS1JTVGK1YlWMgKKBJdk5uQouJSmgkWMgSL+ZalFKSB+LAA=", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [Order = _t, Status = _t]),
+				    #"Changed Type" = Table.TransformColumnTypes(Source,{{"Order", Int64.Type}, {"Status", type text}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
+

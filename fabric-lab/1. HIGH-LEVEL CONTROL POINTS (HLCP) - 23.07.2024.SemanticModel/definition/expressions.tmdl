@@ -1,0 +1,20 @@
+expression StartYear = 2015 meta [IsParameterQuery=true, Type="Number", IsParameterQueryRequired=true]
+	lineageTag: 90bef65e-745c-48ad-9904-973e0e29d728
+
+	annotation PBI_ResultType = Number
+
+expression EndYear = 2030 meta [IsParameterQuery=true, Type="Number", IsParameterQueryRequired=true]
+	lineageTag: 0f4c873a-ff08-4bf3-8591-2da85ab0ae92
+
+	annotation PBI_ResultType = Number
+
+expression ServerName = "REDLake_ZeusQ_OpsDevSup_CI.world" meta [IsParameterQuery=true, List={"REDLake_ZeusD_OpsDevSup_CI.world", "REDLake_ZeusQ_OpsDevSup_CI.world", "REDLake_ZeusP_OpsDevSup_CI.world"}, DefaultValue="REDLake_ZeusP_OpsDevSup_CI.world", Type="Text", IsParameterQueryRequired=true]
+	lineageTag: 5bc8ebbc-120f-4656-9297-670a10e33d15
+
+	annotation PBI_ResultType = Text
+
+expression NumberOfRows = 1000 meta [IsParameterQuery=true, Type="Number", IsParameterQueryRequired=true]
+	lineageTag: 4b638540-98eb-438a-bf3b-f8bf2fb6353b
+
+	annotation PBI_ResultType = Number
+

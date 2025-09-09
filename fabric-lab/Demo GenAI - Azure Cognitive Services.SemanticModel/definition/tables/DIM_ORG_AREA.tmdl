@@ -1,0 +1,34 @@
+table DIM_ORG_AREA
+	excludeFromModelRefresh
+	lineageTag: d34e2645-c107-4baa-ab37-d9461d5e4d66
+
+	column ORG_AREA
+		dataType: string
+		lineageTag: 3f95714c-332e-413e-b460-01a1a323a112
+		summarizeBy: none
+		sourceColumn: ORG_AREA
+
+		annotation SummarizationSetBy = Automatic
+
+	column ORG_AREA_FIX_LEN
+		dataType: string
+		lineageTag: 970ce5fd-e219-4854-b5df-928698a7e6da
+		summarizeBy: none
+		sourceColumn: ORG_AREA_FIX_LEN
+
+		annotation SummarizationSetBy = Automatic
+
+	partition DIM_ORG_AREA = m
+		mode: import
+		source =
+				let
+				    Source = Oracle.Database(ServerName, [HierarchicalNavigation=true, Query="SELECT DISTINCT ORG_AREA FROM MARD_PCMS.X_IFR_TRAINM_EPIC6_TRAINING_RATE"]),
+				    #"Replaced Value" = Table.ReplaceValue(Source,null,"",Replacer.ReplaceValue,{"ORG_AREA"}),
+				    #"Added Custom" = Table.AddColumn(#"Replaced Value", "ORG_AREA_FIX_LEN", each if Text.Length([ORG_AREA])> 18 then Text.Start([ORG_AREA],18) else Text.End(Text.Repeat(Character.FromNumber (8192), 18) & [ORG_AREA],18))
+				in
+				    #"Added Custom"
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
+

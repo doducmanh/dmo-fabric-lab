@@ -1,0 +1,30 @@
+table DIM_HLCP
+	lineageTag: 11e2f5a3-6743-4668-aabd-a9841e989d54
+
+	column HLCP_NAME
+		dataType: string
+		lineageTag: b10de545-6f4c-4a2f-942d-f335fd3821b7
+		summarizeBy: none
+		sourceColumn: HLCP_NAME
+
+		annotation SummarizationSetBy = Automatic
+
+	column HLCP_CODE
+		dataType: string
+		lineageTag: 734f14f9-1703-4152-a0e1-99ce2efaae55
+		summarizeBy: none
+		sourceColumn: HLCP_CODE
+
+		annotation SummarizationSetBy = Automatic
+
+	partition DIM_HLCP-f93fee74-5f35-46a0-9c6c-b45b8b8cdd95 = m
+		mode: import
+		source =
+				let
+				    Source = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("i45W8vBxDlAwVNKBMWJ1oGJGMDEjhJgxTMwYIWYCEzNBiJnCxEwRYmYwMTOEmDlMzBws5pdfouCSmpaZl5oClEDmxcYCAA==", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [HLCP_NAME = _t, HLCP_CODE = _t]),
+				    #"Changed Type" = Table.TransformColumnTypes(Source,{{"HLCP_NAME", type text}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_ResultType = Table
+

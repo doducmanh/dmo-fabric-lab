@@ -1,0 +1,73 @@
+table E10_DIM_QUESTION
+	lineageTag: efdc71d8-d871-41eb-867c-c65b33731dd4
+
+	column PC_CHECK_YEAR_QUESION_ID
+		dataType: string
+		lineageTag: cff31054-93e2-40c6-bc3c-a209661845d4
+		summarizeBy: none
+		sourceColumn: PC_CHECK_YEAR_QUESION_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column TOPIC_ID
+		dataType: string
+		lineageTag: a280b63f-b69e-4b3c-bf32-9625474170f1
+		summarizeBy: none
+		sourceColumn: TOPIC_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column TOPIC_NAME
+		dataType: string
+		lineageTag: 814beed4-a506-4a14-822f-35f35b0c6d12
+		summarizeBy: none
+		sourceColumn: TOPIC_NAME
+
+		annotation SummarizationSetBy = Automatic
+
+	column QUESTION_ID
+		dataType: string
+		lineageTag: 5e9d932a-facf-4c30-b7b9-ef986125a9c7
+		summarizeBy: none
+		sourceColumn: QUESTION_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column QUESTION
+		dataType: string
+		lineageTag: a8f49829-3a7c-47a6-bf8b-3312de66fa31
+		summarizeBy: none
+		sourceColumn: QUESTION
+
+		annotation SummarizationSetBy = Automatic
+
+	column QUESTION_DETAILS
+		dataType: string
+		lineageTag: e8128c21-750b-416f-9e12-f641ae2456ec
+		summarizeBy: none
+		sourceColumn: QUESTION_DETAILS
+
+		annotation SummarizationSetBy = Automatic
+
+	partition E10_DIM_QUESTION = m
+		mode: import
+		source =
+				let
+				    Source = Oracle.Database(ServerName, [HierarchicalNavigation=true, Query="
+				    SELECT DISTINCT
+				    (PC_CHECK_YEAR || QUESTION_ID) AS PC_CHECK_YEAR_QUESION_ID,
+				    TOPIC_ID,
+				    TOPIC_NAME,
+				    QUESTION_ID,
+				    QUESTION,
+				    QUESTION_DETAILS
+				    FROM MARD_PCMS.X_IFR_GRC_EPIC10_PCC
+				    "])
+				
+				in
+				    Source
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

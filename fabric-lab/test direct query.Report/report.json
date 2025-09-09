@@ -1,0 +1,42 @@
+{
+  "config": "{\"version\":\"5.55\",\"themeCollection\":{\"baseTheme\":{\"name\":\"CY24SU06\",\"version\":\"5.55\",\"type\":2}},\"activeSectionIndex\":0,\"defaultDrillFilterOtherVisuals\":true,\"settings\":{\"useNewFilterPaneExperience\":true,\"allowChangeFilterTypes\":true,\"useStylableVisualContainerHeader\":true,\"queryLimitOption\":6,\"exportDataMode\":1,\"useDefaultAggregateDisplayName\":true,\"useEnhancedTooltips\":true},\"objects\":{\"section\":[{\"properties\":{\"verticalAlignment\":{\"expr\":{\"Literal\":{\"Value\":\"'Top'\"}}}}}]}}",
+  "layoutOptimization": 0,
+  "resourcePackages": [
+    {
+      "resourcePackage": {
+        "disabled": false,
+        "items": [
+          {
+            "name": "CY24SU06",
+            "path": "BaseThemes/CY24SU06.json",
+            "type": 202
+          }
+        ],
+        "name": "SharedResources",
+        "type": 2
+      }
+    }
+  ],
+  "sections": [
+    {
+      "config": "{}",
+      "displayName": "Page 1",
+      "displayOption": 1,
+      "filters": "[]",
+      "height": 720.00,
+      "name": "e0365e591af5a762ebe3",
+      "visualContainers": [
+        {
+          "config": "{\"name\":\"5d117ff0e96196571cc6\",\"layouts\":[{\"id\":0,\"position\":{\"x\":179.93920972644378,\"y\":171.1854103343465,\"z\":0,\"width\":815.0759878419453,\"height\":435.74468085106383,\"tabOrder\":0}}],\"singleVisual\":{\"visualType\":\"tableEx\",\"projections\":{\"Values\":[{\"queryRef\":\"X_IFR_BKMS_EPIC5_COM_CASE.BU_CODE\"},{\"queryRef\":\"X_IFR_BKMS_EPIC5_COM_CASE.CASE_TYPE\"},{\"queryRef\":\"X_IFR_BKMS_EPIC5_COM_CASE.CONTINENT\"},{\"queryRef\":\"X_IFR_BKMS_EPIC5_COM_CASE.COUNTRY_DISPLAY_TEXT\"},{\"queryRef\":\"X_IFR_BKMS_EPIC5_COM_CASE.CREATION_DATE\"},{\"queryRef\":\"X_IFR_BKMS_EPIC5_COM_CASE.EXPORT_DATE\"},{\"queryRef\":\"X_IFR_BKMS_EPIC5_COM_CASE.L2_RISK_CATEGORY\"},{\"queryRef\":\"X_IFR_BKMS_EPIC5_COM_CASE.OE_CODE\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"x\",\"Entity\":\"X_IFR_BKMS_EPIC5_COM_CASE\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"x\"}},\"Property\":\"BU_CODE\"},\"Name\":\"X_IFR_BKMS_EPIC5_COM_CASE.BU_CODE\",\"NativeReferenceName\":\"BU_CODE\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"x\"}},\"Property\":\"CASE_TYPE\"},\"Name\":\"X_IFR_BKMS_EPIC5_COM_CASE.CASE_TYPE\",\"NativeReferenceName\":\"CASE_TYPE\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"x\"}},\"Property\":\"CONTINENT\"},\"Name\":\"X_IFR_BKMS_EPIC5_COM_CASE.CONTINENT\",\"NativeReferenceName\":\"CONTINENT\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"x\"}},\"Property\":\"COUNTRY_DISPLAY_TEXT\"},\"Name\":\"X_IFR_BKMS_EPIC5_COM_CASE.COUNTRY_DISPLAY_TEXT\",\"NativeReferenceName\":\"COUNTRY_DISPLAY_TEXT\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"x\"}},\"Property\":\"CREATION_DATE\"},\"Name\":\"X_IFR_BKMS_EPIC5_COM_CASE.CREATION_DATE\",\"NativeReferenceName\":\"CREATION_DATE\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"x\"}},\"Property\":\"EXPORT_DATE\"},\"Name\":\"X_IFR_BKMS_EPIC5_COM_CASE.EXPORT_DATE\",\"NativeReferenceName\":\"EXPORT_DATE\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"x\"}},\"Property\":\"L2_RISK_CATEGORY\"},\"Name\":\"X_IFR_BKMS_EPIC5_COM_CASE.L2_RISK_CATEGORY\",\"NativeReferenceName\":\"L2_RISK_CATEGORY\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"x\"}},\"Property\":\"OE_CODE\"},\"Name\":\"X_IFR_BKMS_EPIC5_COM_CASE.OE_CODE\",\"NativeReferenceName\":\"OE_CODE\"}]},\"drillFilterOtherVisuals\":true}}",
+          "filters": "[]",
+          "height": 435.74,
+          "width": 815.08,
+          "x": 179.94,
+          "y": 171.19,
+          "z": 0.00
+        }
+      ],
+      "width": 1280.00
+    }
+  ]
+}

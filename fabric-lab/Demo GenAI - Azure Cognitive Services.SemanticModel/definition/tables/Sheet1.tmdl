@@ -1,0 +1,223 @@
+table Sheet1
+	lineageTag: 39ddb135-c60b-4334-8d4b-6b67716437d0
+
+	column AUDIT_ID
+		dataType: string
+		lineageTag: 8bd2d794-edf6-41dd-bf63-e616f5edbfbd
+		summarizeBy: none
+		sourceColumn: AUDIT_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column F_AUDIT_TOPIC
+		dataType: string
+		lineageTag: ce427af7-9348-4ac2-8a35-370cf810e849
+		summarizeBy: none
+		sourceColumn: F_AUDIT_TOPIC
+
+		annotation SummarizationSetBy = Automatic
+
+	column AUDIT_SUB_TOPIC
+		dataType: string
+		lineageTag: 311d554b-a3fa-44a1-9e69-dd6b05f58d0b
+		summarizeBy: none
+		sourceColumn: AUDIT_SUB_TOPIC
+
+		annotation SummarizationSetBy = Automatic
+
+	column OE_CODE
+		dataType: string
+		lineageTag: 26764a24-3644-447a-b402-fbe09aeb9c8a
+		summarizeBy: none
+		sourceColumn: OE_CODE
+
+		annotation SummarizationSetBy = Automatic
+
+	column CONTINENT_CODE
+		dataType: string
+		lineageTag: f40e556f-b827-41cb-9781-7e7908f4e9a3
+		summarizeBy: none
+		sourceColumn: CONTINENT_CODE
+
+		annotation SummarizationSetBy = Automatic
+
+	column CONTINENT
+		dataType: string
+		lineageTag: 47428a06-c32a-445a-9f20-3dac0c615911
+		summarizeBy: none
+		sourceColumn: CONTINENT
+
+		annotation SummarizationSetBy = Automatic
+
+	column COUNTRY_GROUP_CODE
+		dataType: string
+		lineageTag: fd94b49d-96ba-4b6f-a4f6-fafe1ab6183e
+		summarizeBy: none
+		sourceColumn: COUNTRY_GROUP_CODE
+
+		annotation SummarizationSetBy = Automatic
+
+	column COUNTRY_GROUP
+		dataType: string
+		lineageTag: 3262afb0-d133-4db9-8bdb-0fb82e59721e
+		summarizeBy: none
+		sourceColumn: COUNTRY_GROUP
+
+		annotation SummarizationSetBy = Automatic
+
+	column AUDITED_COUNTRY
+		dataType: string
+		lineageTag: 0a5e1396-eec0-49c9-96c5-607fa9942ea9
+		summarizeBy: none
+		sourceColumn: AUDITED_COUNTRY
+
+		annotation SummarizationSetBy = Automatic
+
+	column COUNTRY_ISO_CODE
+		dataType: string
+		lineageTag: 5ce710ee-2415-4e21-82d6-75aee00e741b
+		summarizeBy: none
+		sourceColumn: COUNTRY_ISO_CODE
+
+		annotation SummarizationSetBy = Automatic
+
+	column COUNTRY_DISPLAY_TEXT
+		dataType: string
+		lineageTag: c0f7ee50-14a8-475d-9db6-e6d8c86f626b
+		summarizeBy: none
+		sourceColumn: COUNTRY_DISPLAY_TEXT
+
+		annotation SummarizationSetBy = Automatic
+
+	column YEAR
+		dataType: int64
+		formatString: 0
+		lineageTag: dce67d2f-7c5f-4082-9e74-09eb333c92f1
+		summarizeBy: sum
+		sourceColumn: YEAR
+
+		annotation SummarizationSetBy = Automatic
+
+	column AUDIT_TYPE
+		dataType: string
+		lineageTag: df53fdf9-a6fb-41af-8b64-53ac6246f3b3
+		summarizeBy: none
+		sourceColumn: AUDIT_TYPE
+
+		annotation SummarizationSetBy = Automatic
+
+	column FINDING_DESCRIPTION
+		dataType: string
+		lineageTag: 40f1e4b9-f5e0-4505-aaff-7ba53a1c7aa8
+		summarizeBy: none
+		sourceColumn: FINDING_DESCRIPTION
+
+		annotation SummarizationSetBy = Automatic
+
+	column POTENTIAL_ROOT_CAUSE
+		dataType: string
+		lineageTag: db538465-abcf-47b5-982b-7fc176f28f7f
+		summarizeBy: none
+		sourceColumn: POTENTIAL_ROOT_CAUSE
+
+		annotation SummarizationSetBy = Automatic
+
+	column RISK
+		dataType: string
+		lineageTag: 113a1108-e91f-41f2-9d16-97bd7ea00f8b
+		summarizeBy: none
+		sourceColumn: RISK
+
+		annotation SummarizationSetBy = Automatic
+
+	column RISK_RATING
+		dataType: string
+		lineageTag: ea14cd9a-1e0c-4e48-b9ba-33bc577c1306
+		summarizeBy: none
+		sourceColumn: RISK_RATING
+
+		annotation SummarizationSetBy = Automatic
+
+	column RECOMMENDED_ACTION
+		dataType: string
+		lineageTag: 0f2858c2-c86f-4a21-bf68-64cd6d7d2c11
+		summarizeBy: none
+		sourceColumn: RECOMMENDED_ACTION
+
+		annotation SummarizationSetBy = Automatic
+
+	column ACTION_STATUS
+		dataType: string
+		lineageTag: 7b9f7d4b-b180-41ac-a7c1-3dd2725d66fc
+		summarizeBy: none
+		sourceColumn: ACTION_STATUS
+
+		annotation SummarizationSetBy = Automatic
+
+	column EXPORT_DATE
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 04c0e719-a2bf-4536-8db6-218114aacc51
+		summarizeBy: none
+		sourceColumn: EXPORT_DATE
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column RISK_ID
+		dataType: string
+		lineageTag: ac34d4ed-acc5-43fe-80be-378a427fcda1
+		summarizeBy: none
+		sourceColumn: RISK_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column FINDING_ID
+		dataType: string
+		lineageTag: a1d06d9a-4c5e-4b5a-a310-93b0cf526e85
+		summarizeBy: none
+		sourceColumn: FINDING_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column ACTION_ID
+		dataType: string
+		lineageTag: f6919141-1c11-4e77-9414-57da48bb309a
+		summarizeBy: none
+		sourceColumn: ACTION_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Extract key phrases'
+		dataType: string
+		lineageTag: 26913dba-fe32-46ec-acc6-26b89431ae4f
+		summarizeBy: none
+		sourceColumn: Extract key phrases
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Extract key phrases.KeyPhrase'
+		dataType: string
+		lineageTag: 3669665c-d439-413e-a1d6-6014096d1920
+		summarizeBy: none
+		sourceColumn: Extract key phrases.KeyPhrase
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Sheet1 = m
+		mode: import
+		source =
+				let
+				    Source = Excel.Workbook(File.Contents("C:\Users\DMO5HC\OneDrive - Bosch Group\XAB3_TEAM\PCMS 2.0\PITSTOP 07.2024\Epic 7.xlsx"), null, true),
+				    Sheet1_Sheet = Source{[Item="Sheet1",Kind="Sheet"]}[Data],
+				    #"Promoted Headers" = Table.PromoteHeaders(Sheet1_Sheet, [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"AUDIT_ID", type text}, {"F_AUDIT_TOPIC", type text}, {"AUDIT_SUB_TOPIC", type text}, {"OE_CODE", type text}, {"CONTINENT_CODE", type text}, {"CONTINENT", type text}, {"COUNTRY_GROUP_CODE", type text}, {"COUNTRY_GROUP", type text}, {"AUDITED_COUNTRY", type text}, {"COUNTRY_ISO_CODE", type text}, {"COUNTRY_DISPLAY_TEXT", type text}, {"YEAR", Int64.Type}, {"AUDIT_TYPE", type text}, {"FINDING_DESCRIPTION", type text}, {"POTENTIAL_ROOT_CAUSE", type text}, {"RISK", type text}, {"RISK_RATING", type text}, {"RECOMMENDED_ACTION", type text}, {"ACTION_STATUS", type text}, {"EXPORT_DATE", type date}, {"RISK_ID", type text}, {"FINDING_ID", type text}, {"ACTION_ID", type text}}),
+				    #"Applied Extract key phrases" = AIFunctions.PostProcess(Table.AddColumn(#"Changed Type", "Extract key phrases", each #"Extract key phrases"([FINDING_DESCRIPTION], null)), "Extract key phrases", "CognitiveServices.ExtractKeyPhrasestexttext") meta [FunctionBrowser="TextAnalytics"]
+				in
+				    #"Applied Extract key phrases"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

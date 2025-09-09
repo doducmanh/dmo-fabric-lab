@@ -1,0 +1,199 @@
+table E5_OVERVIEW_CASE
+	lineageTag: f1578d60-9a65-4861-a3b9-f0f04332832a
+
+	column RB_COUNTRY_GROUP_CODE
+		dataType: string
+		lineageTag: fbbf0bb5-dfbd-4c5a-a717-32e9d754f649
+		summarizeBy: none
+		sourceColumn: RB_COUNTRY_GROUP_CODE
+
+		annotation SummarizationSetBy = Automatic
+
+	column RB_TRIAD_CODE
+		dataType: string
+		lineageTag: 3537b0ea-2625-496e-a2d8-ee6670c43436
+		summarizeBy: none
+		sourceColumn: RB_TRIAD_CODE
+
+		annotation SummarizationSetBy = Automatic
+
+	column RB_TETRAD_CODE
+		dataType: string
+		lineageTag: 2eff62af-8b37-4877-83d7-29a0f0a0a1ad
+		summarizeBy: none
+		sourceColumn: RB_TETRAD_CODE
+
+		annotation SummarizationSetBy = Automatic
+
+	column PRODUCT_AFFECTED
+		dataType: string
+		lineageTag: 32b1b844-4cbc-42e3-8133-0e549f8a4b9c
+		summarizeBy: none
+		sourceColumn: PRODUCT_AFFECTED
+
+		annotation SummarizationSetBy = Automatic
+
+	column PROCESS_IMPROVEMENTS
+		dataType: string
+		lineageTag: 1661f5a9-64c4-4f21-8d27-2133635bea4e
+		summarizeBy: none
+		sourceColumn: PROCESS_IMPROVEMENTS
+
+		annotation SummarizationSetBy = Automatic
+
+	column RISK_GROUP
+		dataType: string
+		lineageTag: 7049ed8f-4908-4cf2-9c5c-c18a00e62acf
+		summarizeBy: none
+		sourceColumn: RISK_GROUP
+
+		annotation SummarizationSetBy = Automatic
+
+	column RISK_CATEGORY
+		dataType: string
+		lineageTag: 7025a51d-f532-48eb-a134-220135e61951
+		summarizeBy: none
+		sourceColumn: RISK_CATEGORY
+
+		annotation SummarizationSetBy = Automatic
+
+	column RISK_STATEMENT
+		dataType: string
+		lineageTag: ce016e2f-c6be-48c2-9c3a-681e19b9b083
+		summarizeBy: none
+		sourceColumn: RISK_STATEMENT
+
+		annotation SummarizationSetBy = Automatic
+
+	column DIVI_CODE
+		dataType: string
+		lineageTag: 2f4053e4-4988-4d27-b14e-24363deaf3e2
+		summarizeBy: none
+		sourceColumn: DIVI_CODE
+
+		annotation SummarizationSetBy = Automatic
+
+	column BUSINESS_UNIT_CODE
+		dataType: string
+		lineageTag: c1f8d719-bc61-4dd3-ba3f-0c170e57f6f9
+		summarizeBy: none
+		sourceColumn: BUSINESS_UNIT_CODE
+
+		annotation SummarizationSetBy = Automatic
+
+	column REGION_SHORT_TEXT
+		dataType: string
+		lineageTag: 41ca7e98-2800-4355-b013-e32a7871bf14
+		summarizeBy: none
+		sourceColumn: REGION_SHORT_TEXT
+
+		annotation SummarizationSetBy = Automatic
+
+	column COUNTRY_SHORT_TEXT
+		dataType: string
+		lineageTag: f4f492ae-0644-4179-bff6-794ac4038a6e
+		dataCategory: Country
+		summarizeBy: none
+		sourceColumn: COUNTRY_SHORT_TEXT
+
+		annotation SummarizationSetBy = Automatic
+
+	column CASE_ID
+		dataType: string
+		lineageTag: 9e481372-15b8-4537-973c-d912dc30dc3f
+		summarizeBy: none
+		sourceColumn: CASE_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column CASE_TYPE
+		dataType: string
+		lineageTag: 14c42432-06dd-40a0-8a65-a8ecdf86d24e
+		summarizeBy: none
+		sourceColumn: CASE_TYPE
+
+		annotation SummarizationSetBy = Automatic
+
+	column PROCESS_STS
+		dataType: string
+		lineageTag: 7dcbaab6-34ea-434c-981c-aac13ee4d8e0
+		summarizeBy: none
+		sourceColumn: PROCESS_STS
+
+		annotation SummarizationSetBy = Automatic
+
+	column CREATION_DATE
+		dataType: dateTime
+		formatString: dd.mm.yyyy
+		lineageTag: f1f59c97-39c8-4264-b42d-1efd29de385b
+		summarizeBy: none
+		sourceColumn: CREATION_DATE
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+		annotation PBI_FormatHint = {"isDateTimeCustom":true}
+
+	column RESULT_TYPE
+		dataType: string
+		lineageTag: 8a89919f-406d-4f17-89a1-d71e307d9279
+		summarizeBy: none
+		sourceColumn: RESULT_TYPE
+
+		annotation SummarizationSetBy = Automatic
+
+	column PROCESSING_DAY
+		dataType: double
+		lineageTag: c813b255-6fdd-43a4-8865-6f42da29cf49
+		summarizeBy: sum
+		sourceColumn: PROCESSING_DAY
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column RESOLUTION_DATE
+		dataType: dateTime
+		formatString: dd.mm.yyyy
+		lineageTag: d9833d23-f16e-4172-816d-2a854eb577fc
+		summarizeBy: none
+		sourceColumn: RESOLUTION_DATE
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+		annotation PBI_FormatHint = {"isDateTimeCustom":true}
+
+	column PROCESSING_MONTH
+		dataType: double
+		lineageTag: 4d4eb01f-7121-4b58-b7a0-de2fa5ade381
+		summarizeBy: sum
+		sourceColumn: PROCESSING_MONTH
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column RB_CONTINENT_CODE
+		dataType: string
+		lineageTag: 8c93978f-2063-4448-a51c-5554125e4d40
+		summarizeBy: none
+		sourceColumn: RB_CONTINENT_CODE
+
+		annotation SummarizationSetBy = Automatic
+
+	partition E5_OVERVIEW_CASE = m
+		mode: import
+		source =
+				let
+				    Source = Oracle.Database("REDLake_ZeusD_OpsDevSup_CI.world", [HierarchicalNavigation=true, Query="#(tab)SELECT#(lf)#(tab)RB_COUNTRY_GROUP_CODE#(lf)#(tab), RB_TRIAD_CODE#(lf)#(tab), RB_TETRAD_CODE#(lf)#(tab), PRODUCT_AFFECTED#(lf)#(tab), PROCESS_IMPROVEMENTS#(lf)#(tab), RISK_GROUP#(lf)#(tab), RISK_CATEGORY#(lf)#(tab), RISK_STATEMENT#(lf)#(tab), DIVI_CODE#(lf)#(tab), BUSINESS_UNIT_CODE#(lf)#(tab), REGION_SHORT_TEXT#(lf)#(tab), COUNTRY_SHORT_TEXT#(lf)#(tab), CASE_ID#(lf)#(tab), CASE_TYPE#(lf)#(tab), PROCESS_STS#(lf)#(tab), CREATION_DATE#(lf)#(tab), RESULT_TYPE#(lf)#(tab), PROCESSING_DAY#(lf)#(tab), RESOLUTION_DATE#(lf)#(tab), PROCESSING_MONTH#(lf)#(tab), RB_CONTINENT_CODE#(lf)#(tab)FROM MARD_PCMS.X_IFR_EPIC5_BKMS_COM_CASE#(lf)"]),
+				    #"Changed Type" = Table.TransformColumnTypes(Source,{{"CREATION_DATE", type date}, {"RESOLUTION_DATE", type date}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
+

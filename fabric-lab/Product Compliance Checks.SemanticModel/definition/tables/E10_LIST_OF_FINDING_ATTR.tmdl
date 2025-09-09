@@ -1,0 +1,60 @@
+table E10_LIST_OF_FINDING_ATTR
+	lineageTag: dfc985f4-c938-47c6-874d-d8013aaed502
+
+	column E10_LIST_OF_FINDING_ATTR
+		lineageTag: 017b29c9-55dd-4431-99c6-ab3ed2213744
+		summarizeBy: none
+		sourceColumn: [Value1]
+		sortByColumn: 'E10_LIST_OF_FINDING_ATTR Order'
+
+		relatedColumnDetails
+			groupByColumn: 'E10_LIST_OF_FINDING_ATTR Fields'
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'E10_LIST_OF_FINDING_ATTR Fields'
+		isHidden
+		lineageTag: 71cb148c-d8b5-451a-afa6-ada421da00b0
+		summarizeBy: none
+		sourceColumn: [Value2]
+		sortByColumn: 'E10_LIST_OF_FINDING_ATTR Order'
+
+		extendedProperty ParameterMetadata =
+				{
+				  "version": 3,
+				  "kind": 2
+				}
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'E10_LIST_OF_FINDING_ATTR Order'
+		isHidden
+		formatString: 0
+		lineageTag: 764b04d9-fa2f-41a5-b368-2c80cd9d0738
+		summarizeBy: sum
+		sourceColumn: [Value3]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition E10_LIST_OF_FINDING_ATTR = calculated
+		mode: import
+		source =
+				{
+				    ("OE", NAMEOF('E10_PC_CHECKS'[OE]), 0),
+				    ("Product", NAMEOF('E10_PC_CHECKS'[PRODUCT_NAME]), 1),
+				    ("PC Check Year", NAMEOF('E10_PC_CHECKS'[PC_CHECK_YEAR]), 2),
+				    ("Topic", NAMEOF('E10_DIM_QUESTION'[TOPIC_NAME]), 3),
+				    ("Question", NAMEOF('E10_DIM_QUESTION'[QUESTION]), 4),
+				    ("Question Detail", NAMEOF(E10_DIM_QUESTION[QUESTION_DETAILS]), 4),
+				    ("OE Description of Evidence", NAMEOF('E10_PC_CHECKS'[OE_DESCRIPTION_OF_EVIDENCE]), 8),
+				    ("Description of Evidence", NAMEOF('E10_PC_CHECKS'[EVIDENCE_DESC]), 5),
+				    ("Rating", NAMEOF('E10_PC_CHECKS'[RATING]), 6),
+				    ("Task Type", NAMEOF('E10_PC_CHECKS'[TYPE_OF_GUIDANCE]), 7),
+				    ("Task Description", NAMEOF('E10_PC_CHECKS'[GUIDANCE_DESC]), 8),
+				    ("Due Date", NAMEOF('E10_PC_CHECKS'[GUIDANCE_DUE_DATE]), 9),
+				    ("Task Status", NAMEOF('E10_PC_CHECKS'[GUIDANCE_STATUS_DESC]), 10),
+				    ("Task Resolution Date", NAMEOF('E10_PC_CHECKS'[GUIDANCE_RESOLUTION_DATE]), 11)
+				}
+
+	annotation PBI_Id = 4f94d96aa2254230bc4a7183a27d8a57
+

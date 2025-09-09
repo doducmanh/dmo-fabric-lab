@@ -1,0 +1,397 @@
+table X_IFR_EPIC6_TRAINING_RATE
+	lineageTag: e501579b-5166-4791-aad0-079b4d30da72
+
+	column ITEM_ID
+		dataType: string
+		lineageTag: dfb8eda8-432e-421b-8b1c-847cb19012a3
+		summarizeBy: none
+		sourceColumn: ITEM_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column ITEM_TYPE
+		dataType: string
+		lineageTag: d6152a41-e41e-4b2c-bba5-3c5f4ad4ddaf
+		summarizeBy: none
+		sourceColumn: ITEM_TYPE
+
+		annotation SummarizationSetBy = Automatic
+
+	column COUNTRY
+		dataType: string
+		lineageTag: e0cf3e51-4eab-4e08-8398-ca68dc3182bb
+		summarizeBy: none
+		sourceColumn: COUNTRY
+
+		annotation SummarizationSetBy = Automatic
+
+	column ORG_AREA
+		dataType: string
+		lineageTag: 82e7c637-6e1e-45a5-bed3-d14af28a6e00
+		summarizeBy: none
+		sourceColumn: ORG_AREA
+
+		annotation SummarizationSetBy = Automatic
+
+	column ASS_OVERALL
+		dataType: int64
+		formatString: #,0
+		lineageTag: 9f81bbd7-6e78-4a17-aab4-313b990ca9b7
+		summarizeBy: sum
+		sourceColumn: ASS_OVERALL
+
+		annotation SummarizationSetBy = Automatic
+
+	column ASS_COMPLETED
+		dataType: int64
+		formatString: #,0
+		lineageTag: 6b1fb159-a43d-45a4-ae40-edcde5b63de1
+		summarizeBy: sum
+		sourceColumn: ASS_COMPLETED
+
+		annotation SummarizationSetBy = Automatic
+
+	column ASS_STILL_DUE
+		dataType: int64
+		formatString: #,0
+		lineageTag: df7ade41-9d0c-439e-8aca-74f4c8a70c5d
+		summarizeBy: sum
+		sourceColumn: ASS_STILL_DUE
+
+		annotation SummarizationSetBy = Automatic
+
+	column ASS_OVERDUE
+		dataType: int64
+		formatString: #,0
+		lineageTag: 830ce433-6219-48e8-acaa-0ace8ab49baa
+		summarizeBy: sum
+		sourceColumn: ASS_OVERDUE
+
+		annotation SummarizationSetBy = Automatic
+
+	column ASS_COMPLETED_PCT
+		dataType: double
+		lineageTag: 1352299b-b65a-4988-93f0-dae008f6f3f3
+		summarizeBy: sum
+		sourceColumn: ASS_COMPLETED_PCT
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column ASS_STILL_DUE_PCT
+		dataType: double
+		formatString: 0%;-0%;0%
+		lineageTag: 87d3fb3b-3064-439e-9e15-284f0a3095c4
+		summarizeBy: sum
+		sourceColumn: ASS_STILL_DUE_PCT
+
+		annotation SummarizationSetBy = Automatic
+
+	column ASS_OVERDUE_PCT
+		dataType: double
+		formatString: 0.0
+		lineageTag: fdb968fc-4631-4e3a-bd0a-167c618bb0ff
+		summarizeBy: sum
+		sourceColumn: ASS_OVERDUE_PCT
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Year Month'
+		dataType: int64
+		formatString: 0
+		lineageTag: c3029bf2-bfb7-4caf-a900-36efa4ae2abd
+		summarizeBy: none
+		sourceColumn: Year Month
+
+		annotation SummarizationSetBy = Automatic
+
+	column ROWID
+		dataType: string
+		lineageTag: 0ff178a4-8249-4edf-ae36-e3a870fc7639
+		summarizeBy: none
+		sourceColumn: ROWID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Year Month 2'
+		dataType: string
+		lineageTag: b61653ab-4e63-44cf-9c3a-8d03ec33c630
+		summarizeBy: none
+		sourceColumn: Year Month 2
+		sortByColumn: 'Year Month'
+
+		changedProperty = SortByColumn
+
+		annotation SummarizationSetBy = Automatic
+
+	column EXPORT_DATE
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 78c658eb-f013-480d-97fd-6ff62a729a14
+		summarizeBy: none
+		sourceColumn: EXPORT_DATE
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column TITLE
+		dataType: string
+		lineageTag: 94c5af19-3d2d-4a4d-b8cf-2ccef4f9825a
+		summarizeBy: none
+		sourceColumn: TITLE
+
+		annotation SummarizationSetBy = Automatic
+
+	column BU_EXTENDED
+		dataType: string
+		lineageTag: 44edc317-d8a4-4238-a2e9-86586a49cc8a
+		summarizeBy: none
+		sourceColumn: BU_EXTENDED
+
+		annotation SummarizationSetBy = Automatic
+
+	column DEPARTMENT
+		dataType: string
+		lineageTag: b5a6d9ca-6c6a-4353-9ce3-b941b8f6144e
+		summarizeBy: none
+		sourceColumn: DEPARTMENT
+
+		annotation SummarizationSetBy = Automatic
+
+	column ORGANIZATION
+		dataType: string
+		lineageTag: 84d88cd8-48ba-4e71-b549-aca4341036eb
+		summarizeBy: none
+		sourceColumn: ORGANIZATION
+
+		annotation SummarizationSetBy = Automatic
+
+	column CONTINENT_CODE
+		dataType: string
+		lineageTag: f5b909c6-5119-4826-bcee-63eb678d80a0
+		summarizeBy: none
+		sourceColumn: CONTINENT_CODE
+
+		annotation SummarizationSetBy = Automatic
+
+	column REGION
+		dataType: string
+		lineageTag: 26543c0a-e27e-4563-9c7b-c16c87ccd15e
+		summarizeBy: none
+		sourceColumn: REGION
+
+		annotation SummarizationSetBy = Automatic
+
+	column COUNTRY_GROUP_CODE
+		dataType: string
+		lineageTag: 6ae4af14-dc77-4f87-871f-b1d9feb8ceec
+		summarizeBy: none
+		sourceColumn: COUNTRY_GROUP_CODE
+
+		annotation SummarizationSetBy = Automatic
+
+	column COUNTRY_GROUP
+		dataType: string
+		lineageTag: a006e813-8c61-4b1e-811a-c80ab3eb6406
+		summarizeBy: none
+		sourceColumn: COUNTRY_GROUP
+
+		annotation SummarizationSetBy = Automatic
+
+	column COUNTRY_ISO_CODE
+		dataType: string
+		lineageTag: 7ad0dd25-f1fd-4134-8187-acf08f5f8f11
+		summarizeBy: none
+		sourceColumn: COUNTRY_ISO_CODE
+
+		annotation SummarizationSetBy = Automatic
+
+	column COUNTRY_DISPLAY_TEXT
+		dataType: string
+		lineageTag: 85f81d11-0aa0-4cf5-8776-4758a5853a3b
+		summarizeBy: none
+		sourceColumn: COUNTRY_DISPLAY_TEXT
+
+		annotation SummarizationSetBy = Automatic
+
+	column ASS_COMPLETED_QUOTIENT
+		dataType: double
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 59b78863-d0be-40ee-815a-5997a7cd6390
+		summarizeBy: sum
+		sourceColumn: ASS_COMPLETED_QUOTIENT
+
+		annotation SummarizationSetBy = Automatic
+
+	column ASS_STILL_DUE_QUOTIENT
+		dataType: double
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 3207d662-9c1c-4f80-9949-1dd95132cba8
+		summarizeBy: sum
+		sourceColumn: ASS_STILL_DUE_QUOTIENT
+
+		annotation SummarizationSetBy = Automatic
+
+	column ASS_OVERDUE_QUOTIENT
+		dataType: double
+		formatString: 0%;-0%;0%
+		lineageTag: e78e91ac-7f20-4db6-97ba-d53549acd2c5
+		summarizeBy: sum
+		sourceColumn: ASS_OVERDUE_QUOTIENT
+
+		annotation SummarizationSetBy = Automatic
+
+	column TOTAL_OVERDUE_DAYS
+		dataType: double
+		lineageTag: 01dbd9e9-458e-442e-a632-1c2c31d5828f
+		summarizeBy: sum
+		sourceColumn: TOTAL_OVERDUE_DAYS
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column EARLIEST_REQUIRED_DATE
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 8e5275c8-8f72-42a4-b165-e9b1a9e1890e
+		summarizeBy: none
+		sourceColumn: EARLIEST_REQUIRED_DATE
+
+		annotation SummarizationSetBy = Automatic
+
+	column LATEST_REQUIRED_DATE
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 3120d08b-6432-4483-a430-8759f4647db8
+		summarizeBy: none
+		sourceColumn: LATEST_REQUIRED_DATE
+
+		annotation SummarizationSetBy = Automatic
+
+	column SHORTEST_OVERDUE_DAYS
+		dataType: double
+		lineageTag: 8a192f19-8b81-43e9-b566-30e777e66136
+		summarizeBy: sum
+		sourceColumn: SHORTEST_OVERDUE_DAYS
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column LONGEST_OVERDUE_DAYS
+		dataType: double
+		lineageTag: 8ea36795-1995-43fd-9800-e3285dbb6bf6
+		summarizeBy: sum
+		sourceColumn: LONGEST_OVERDUE_DAYS
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column BE_MASKED
+		dataType: double
+		lineageTag: 9ba83fb5-94f8-45ad-bed4-b367afeb93d3
+		summarizeBy: sum
+		sourceColumn: BE_MASKED
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column ORGID
+		dataType: string
+		lineageTag: 4eefa969-045a-47dc-bf2d-811c9816e49c
+		summarizeBy: none
+		sourceColumn: ORGID
+
+		annotation SummarizationSetBy = Automatic
+
+	column ITEM_GROUP
+		dataType: string
+		lineageTag: cd8fdc87-3837-47b4-9909-43b344f55f9c
+		summarizeBy: none
+		sourceColumn: ITEM_GROUP
+
+		annotation SummarizationSetBy = Automatic
+
+	column PREFIX_ID
+		dataType: string
+		lineageTag: a81c27de-8113-4455-b641-633fd7eccf54
+		summarizeBy: none
+		sourceColumn: PREFIX_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column PREFIX_TITLE
+		dataType: string
+		lineageTag: 7b12c2c7-e36f-45ec-aafc-40a8ec62d3d7
+		summarizeBy: none
+		sourceColumn: PREFIX_TITLE
+
+		annotation SummarizationSetBy = Automatic
+
+	partition X_IFR_EPIC6_TRAINING_RATE = m
+		mode: import
+		source = ```
+				let
+				    NumberOfRow = if RowLimit > 0 then " FETCH FIRST " & Number.ToText(RowLimit) & " ROWS ONLY" else "",
+				    Source = Oracle.Database(ServerName, [HierarchicalNavigation=true, 
+				    Query= "
+				SELECT
+				    EXPORT_DATE,
+				    ITEM_ID,
+				    ITEM_TITLE,
+				    ITEM_TYPE,
+				    ITEM_GROUP,
+				    PREFIX_ID,
+				    PREFIX_TITLE,
+				    ORG_AREA,
+				    BU_EXTENDED,
+				    DEPARTMENT,
+				    ORGANIZATION,
+				    CONTINENT_CODE,
+				    CONTINENT,
+				    COUNTRY_GROUP_CODE,
+				    COUNTRY_GROUP,
+				    COUNTRY,
+				    COUNTRY_ISO_CODE,
+				    COUNTRY_DISPLAY_TEXT,
+				    ASS_OVERALL,
+				    ASS_COMPLETED,
+				    ASS_COMPLETED_PCT,
+				    ASS_COMPLETED_QUOTIENT,
+				    ASS_STILL_DUE,
+				    ASS_STILL_DUE_PCT,
+				    ASS_STILL_DUE_QUOTIENT,
+				    ASS_OVERDUE,
+				    ASS_OVERDUE_PCT,
+				    ASS_OVERDUE_QUOTIENT,
+				    TOTAL_OVERDUE_DAYS,
+				    EARLIEST_REQUIRED_DATE,
+				    LATEST_REQUIRED_DATE,
+				    SHORTEST_OVERDUE_DAYS,
+				    LONGEST_OVERDUE_DAYS,
+				    BE_MASKED
+				FROM
+				    MARD_PCMS.X_IFR_TRAINM_ACE_EPIC6_TRAINING_RATE" & NumberOfRow]),
+				    #"Changed Type" = Table.TransformColumnTypes(Source,{{"EXPORT_DATE", type date}, {"ITEM_ID", type text}, {"ASS_OVERALL", Int64.Type}, {"ASS_COMPLETED", Int64.Type}, {"ASS_COMPLETED_PCT", Percentage.Type}
+				    , {"ASS_STILL_DUE", Int64.Type}, {"ASS_STILL_DUE_PCT", Percentage.Type}, {"ASS_OVERDUE", Int64.Type}, {"ASS_OVERDUE_PCT", Percentage.Type}}),
+				    #"Replaced Value" = Table.ReplaceValue(#"Changed Type","Ma","Ma/",Replacer.ReplaceText,{"ORG_AREA"}),
+				    #"Added Custom Column" = Table.AddColumn(#"Replaced Value", "Year Month", each Text.Combine({Date.ToText([EXPORT_DATE], "yyyy"), Date.ToText([EXPORT_DATE], "MM")}), type text),
+				    #"Changed Type 2" = Table.TransformColumnTypes(#"Added Custom Column",{{"Year Month", Int64.Type}}),
+				    #"Added Custom Column2" = Table.AddColumn(#"Changed Type 2", "ROWID", each Text.Combine({Text.From([Year Month], "en-US"), 
+				    Text.From([ITEM_ID], "en-US"), Text.Replace(Text.Upper([COUNTRY]), " ",""),[CONTINENT], [ORGANIZATION], [DEPARTMENT], [BU_EXTENDED], [ORG_AREA]}), type text),
+				    #"Added Custom Column3" = Table.AddColumn(#"Added Custom Column2", "Year Month 2", each Text.Combine({Date.ToText([EXPORT_DATE], "MM"),".", Date.ToText([EXPORT_DATE], "yyyy")}), type text),
+				    #"Added Custom" = Table.AddColumn(#"Added Custom Column3", "ORGID", each Text.Combine({[ORG_AREA], [BU_EXTENDED], [DEPARTMENT], [ORGANIZATION]}), type text),
+				    #"Renamed Columns" = Table.RenameColumns(#"Added Custom",{{"ITEM_TITLE", "TITLE"}, {"CONTINENT", "REGION"}})
+				in
+				    #"Renamed Columns"
+				```
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
+

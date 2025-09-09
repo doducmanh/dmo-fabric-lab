@@ -1,0 +1,34 @@
+model Model
+	culture: en-US
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: en-US
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation __PBI_TimeIntelligenceEnabled = 0
+
+annotation PBIDesktopVersion = 2.126.1261.0 (24.02)
+
+annotation PBI_QueryOrder = ["Copyright","ThemeFilter","ThemeImages","E5_Specific_theme","E5__MEASURES","E5_OVERVIEW_CASE","DIM_DATE","EOM_MAX_CREATION_DATE","SOM_MIN_CREATION_DATE","E5_LEVEL2_RISK","E5_DIM_RISK_STATEMENT","E5_SORT","E5_SORT_BY","E5_OUTCOME_SORT"]
+
+annotation PBI_ProTooling = ["DaxQueryView_Desktop"]
+
+annotation __TEdtr = 1
+
+ref table Copyright
+ref table ThemeFilter
+ref table ThemeImages
+ref table E5_Specific_theme
+ref table E5__MEASURES
+ref table E5_OVERVIEW_CASE
+ref table DIM_DATE
+ref table E5_LEVEL2_RISK
+ref table E5_PROCESS_IMPROVEMENT_ATTRIBUTES
+ref table E5_DIM_RISK_STATEMENT
+ref table E5_SORT
+ref table E5_SORT_BY
+ref table E5_OUTCOME_SORT
+
+ref cultureInfo en-US
+

@@ -1,0 +1,5 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/semanticModel/modelReference/2.0.0/schema.json",
+  "connectionString": "Data Source=HC-C-006F8\\XAB_MANH_DEV;Initial Catalog=XAB3_Manh;Cube=Model",
+  "connectionType": "analysisServicesDatabaseLive"
+}

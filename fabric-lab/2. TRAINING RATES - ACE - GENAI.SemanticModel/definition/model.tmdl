@@ -1,0 +1,48 @@
+model Model
+	culture: en-US
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: en-US
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation PBI_QueryOrder = ["GeneralInfo","ThemeFilter","E6_SpecificTheme","_MEASURES","DIM_DATE","OVERDUE_RANGE","X_IFR_EPIC6_TRAINING_RATE","X_IFR_EPIC6_TRAINING_RATE_UNPIVOT","X_IFR_EPIC6_TRAINING_SURVEY","X_IFR_EPIC6_TRAINING_SURVEY_UNPIVOT","X_IFR_TRAINM_GENAI_EPIC6_ANALYSIS","X_IFR_TRAINM_GENAI_EPIC6_ANALYSIS_UNPIVOT","DIM_ITEM","DIM_ORG_AREA","DIM_REGION","DIM_COUNTRY","DIM_STATUS","DIM_SURVEY_RATING","Last Refreshed Date","EOM_MAX_IMPORTATION_DATE","SOM_MIN_IMPORTATION_DATE","ServerName","RowLimit","DIM_BU","ListOfMembers","DL_ActiveDirectory_Workspace","NUMBER OF COMMENTS"]
+
+annotation __PBI_TimeIntelligenceEnabled = 0
+
+annotation PBIDesktopVersion = 2.136.1202.0 (24.09)
+
+annotation __TEdtr = 1
+
+ref table DIM_DATE
+ref table OVERDUE_RANGE
+ref table _MEASURES
+ref table X_IFR_EPIC6_TRAINING_RATE
+ref table 'Last Refreshed Date'
+ref table X_IFR_EPIC6_TRAINING_RATE_UNPIVOT
+ref table DIM_ITEM
+ref table DIM_ORG_AREA
+ref table DIM_REGION
+ref table DIM_COUNTRY
+ref table EOM_MAX_IMPORTATION_DATE
+ref table SOM_MIN_IMPORTATION_DATE
+ref table GeneralInfo
+ref table ThemeFilter
+ref table E6_SpecificTheme
+ref table DIM_STATUS
+ref table X_IFR_EPIC6_TRAINING_SURVEY
+ref table DIM_BU
+ref table 'SURVEY RATING'
+ref table ListOfMembers
+ref table DIM_SURVEY_RATING
+ref table 'Attribute list'
+ref table X_IFR_EPIC6_TRAINING_SURVEY_UNPIVOT
+ref table DL_ActiveDirectory_Workspace
+ref table X_IFR_TRAINM_GENAI_EPIC6_ANALYSIS
+ref table X_IFR_TRAINM_GENAI_EPIC6_ANALYSIS_UNPIVOT
+ref table 'NUMBER OF COMMENTS'
+
+ref role 'Organizational Role'
+
+ref cultureInfo en-US
+

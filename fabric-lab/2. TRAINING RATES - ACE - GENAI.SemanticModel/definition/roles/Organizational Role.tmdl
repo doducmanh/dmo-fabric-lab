@@ -1,0 +1,35 @@
+role 'Organizational Role'
+	modelPermission: read
+
+	tablePermission ListOfMembers = [userPrincipalName] == USERPRINCIPALNAME()
+
+	tablePermission DIM_BU = ```
+			SWITCH(TRUE(),
+			        "ReportAdmin" in SELECTCOLUMNS(FILTER(ListOfMembers, ListOfMembers[userPrincipalName] = USERPRINCIPALNAME()), "Organizational Unit", ListOfMembers[OE Extract]), TRUE(), 
+			        [ORG_AREA] in SELECTCOLUMNS(FILTER(ListOfMembers, ListOfMembers[userPrincipalName] = USERPRINCIPALNAME()), "Organizational Unit", ListOfMembers[OE Extract])
+			        )
+			```
+
+	tablePermission DIM_ORG_AREA = ```
+			SWITCH(TRUE(),
+			        "ReportAdmin" in SELECTCOLUMNS(FILTER(ListOfMembers, ListOfMembers[userPrincipalName] = USERPRINCIPALNAME()), "Organizational Unit", ListOfMembers[OE Extract]), TRUE(), 
+			        [ORG_AREA] in SELECTCOLUMNS(FILTER(ListOfMembers, ListOfMembers[userPrincipalName] = USERPRINCIPALNAME()), "Organizational Unit", ListOfMembers[OE Extract])
+			        )
+			```
+
+	tablePermission X_IFR_EPIC6_TRAINING_RATE = ```
+			SWITCH(TRUE(),
+			        "ReportAdmin" in SELECTCOLUMNS(FILTER(ListOfMembers, ListOfMembers[userPrincipalName] = USERPRINCIPALNAME()), "Organizational Unit", ListOfMembers[OE Extract]), TRUE(), 
+			        [ORG_AREA] in SELECTCOLUMNS(FILTER(ListOfMembers, ListOfMembers[userPrincipalName] = USERPRINCIPALNAME()), "Organizational Unit", ListOfMembers[OE Extract])
+			        )
+			```
+
+	tablePermission X_IFR_EPIC6_TRAINING_RATE_UNPIVOT = ```
+			SWITCH(TRUE(),
+			        "ReportAdmin" in SELECTCOLUMNS(FILTER(ListOfMembers, ListOfMembers[userPrincipalName] = USERPRINCIPALNAME()), "Organizational Unit", ListOfMembers[OE Extract]), TRUE(), 
+			        [ORG_AREA] in SELECTCOLUMNS(FILTER(ListOfMembers, ListOfMembers[userPrincipalName] = USERPRINCIPALNAME()), "Organizational Unit", ListOfMembers[OE Extract])
+			        )
+			```
+
+	annotation PBI_Id = 44c3a9d9ad6f4959a7aeea9144b4f1c7
+

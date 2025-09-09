@@ -1,0 +1,57 @@
+table 'SURVEY RATING'
+	lineageTag: 37f2440b-94ac-47b8-9108-d371dcf23546
+
+	column 'RATING '
+		lineageTag: ba60a88b-01bb-4d63-8142-f4a948a192b3
+		summarizeBy: none
+		sourceColumn: [Value1]
+		sortByColumn: 'RATING  Order'
+
+		relatedColumnDetails
+			groupByColumn: 'RATING  Fields'
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'RATING  Fields'
+		isHidden
+		lineageTag: 12c90d3b-24de-4fa3-8249-2dad14c2e40c
+		summarizeBy: none
+		sourceColumn: [Value2]
+		sortByColumn: 'RATING  Order'
+
+		extendedProperty ParameterMetadata =
+				{
+				  "version": 3,
+				  "kind": 2
+				}
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'RATING  Order'
+		isHidden
+		formatString: 0
+		lineageTag: 8f1694ff-cb02-402e-8c6a-71bd1c6b993e
+		summarizeBy: sum
+		sourceColumn: [Value3]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Value4
+		lineageTag: 672435b0-e6bb-4edd-b432-b617086ab056
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Value4]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'SURVEY RATING' = calculated
+		mode: import
+		source =
+				{
+				    ("Approval Rating", NAMEOF('_MEASURES'[Approval Rating]), 0, "Approval Rating"),
+				    ("Disapproval Rating", NAMEOF('_MEASURES'[Disapproval Rating]), 1, "Disapproval Rating"),
+				    ("N/A Rating", NAMEOF('_MEASURES'[N/A Rating]), 2, "N/A")
+				}
+
+	annotation PBI_Id = 1739f9b8b75f450cab8277cd5d50d6f1
+

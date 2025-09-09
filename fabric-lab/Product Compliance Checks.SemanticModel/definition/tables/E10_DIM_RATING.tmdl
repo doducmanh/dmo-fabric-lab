@@ -1,0 +1,58 @@
+table E10_DIM_RATING
+	lineageTag: 2273f1cc-ea10-49c5-bc9e-7c26cc6d0164
+
+	column ORDER_ID
+		dataType: int64
+		formatString: 0
+		lineageTag: 5add5e6d-0900-4d92-9ee0-6040faabe594
+		summarizeBy: count
+		sourceColumn: ORDER_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column RATING
+		dataType: string
+		lineageTag: 92ee40b7-d0f2-4cec-932a-c0ad43eb7362
+		summarizeBy: none
+		sourceColumn: RATING
+		sortByColumn: ORDER_ID
+
+		changedProperty = SortByColumn
+
+		annotation SummarizationSetBy = Automatic
+
+	column RATING_COLOR
+		dataType: string
+		lineageTag: 820d0bfa-c6ec-46a6-b199-ebc490954086
+		summarizeBy: none
+		sourceColumn: RATING_COLOR
+
+		annotation SummarizationSetBy = Automatic
+
+	column RATING_COLOR_HEX
+		dataType: string
+		lineageTag: f78e7001-ab1b-4ed5-ac7c-31b0599d988b
+		summarizeBy: none
+		sourceColumn: RATING_COLOR_HEX
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'RATING NAME'
+		dataType: string
+		lineageTag: 01342f63-8fa5-427a-bddc-25db02051f37
+		summarizeBy: none
+		sourceColumn: RATING NAME
+
+		annotation SummarizationSetBy = Automatic
+
+	partition E10_DIM_RATING = m
+		mode: import
+		source =
+				let
+				    Source = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("Vc5RC4IwEAfwrxLz1YdZZvo4svUSFb2F7GHpYcKhMqzw23c3Cwv23/iP38EVhYhEKDTngTgubHlv4AkVfewdQEtvIGWaxkqYsBBL6geOdTUQVzO/AmL3Yq/1Vkvp/Yr6mWPd0Fj8nzg529YwTWT5ZyKmfuR0w+8yF38HO2Jy4+GakfrKvsemtDeEafGRcZpnUZZ4nFCfjzFv", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [ORDER_ID = _t, RATING = _t, #"RATING NAME" = _t, RATING_COLOR = _t, RATING_COLOR_HEX = _t]),
+				    #"Changed Type" = Table.TransformColumnTypes(Source,{{"ORDER_ID", Int64.Type}, {"RATING", type text}, {"RATING_COLOR", type text}, {"RATING_COLOR_HEX", type text}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,127 @@
+table DimGeography
+	lineageTag: cfd05cb8-bd40-4c55-8b81-5a152c6f0729
+
+	column GeographyKey
+		dataType: int64
+		formatString: 0
+		lineageTag: 446772e3-188c-4700-b41f-ed5aeffdbf48
+		summarizeBy: none
+		sourceColumn: GeographyKey
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column City
+		dataType: string
+		lineageTag: bcb1ef1c-46a0-4eee-a51c-f06f78f822e4
+		dataCategory: City
+		summarizeBy: none
+		sourceColumn: City
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column StateProvinceCode
+		dataType: string
+		lineageTag: 00edfdf0-a538-44ee-9551-408250f37753
+		summarizeBy: none
+		sourceColumn: StateProvinceCode
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column StateProvinceName
+		dataType: string
+		lineageTag: 10c09447-6938-4348-8368-da0012807684
+		summarizeBy: none
+		sourceColumn: StateProvinceName
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column CountryRegionCode
+		dataType: string
+		lineageTag: 3969ca1e-cc1f-4404-b614-22ae3cd0856f
+		summarizeBy: none
+		sourceColumn: CountryRegionCode
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column EnglishCountryRegionName
+		dataType: string
+		lineageTag: f3647014-9a25-4252-b055-63483dd0bb93
+		summarizeBy: none
+		sourceColumn: EnglishCountryRegionName
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column SpanishCountryRegionName
+		dataType: string
+		lineageTag: 4226f23a-e5eb-478d-a822-3522b3fdb964
+		summarizeBy: none
+		sourceColumn: SpanishCountryRegionName
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column FrenchCountryRegionName
+		dataType: string
+		lineageTag: fa3851bf-bf9f-47b7-ae60-3ada40581dbd
+		summarizeBy: none
+		sourceColumn: FrenchCountryRegionName
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column PostalCode
+		dataType: string
+		lineageTag: bdd275cf-b971-4940-9bbe-163273eb2609
+		summarizeBy: none
+		sourceColumn: PostalCode
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column SalesTerritoryKey
+		dataType: int64
+		formatString: 0
+		lineageTag: 7c30cb36-7781-4848-aa43-f9e899ce947d
+		summarizeBy: none
+		sourceColumn: SalesTerritoryKey
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column IpAddressLocator
+		dataType: string
+		lineageTag: c4f532ac-d104-445b-a3d1-6914d532501c
+		summarizeBy: none
+		sourceColumn: IpAddressLocator
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	partition DimGeography-bd08194d-4e9f-423f-8aad-f12a6bb2aff8 = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database(PRServerName, PRDatabaseName),
+				    dbo_DimGeography = Source{[Schema="dbo",Item="DimGeography"]}[Data]
+				in
+				    dbo_DimGeography
+
+	annotation PBI_ResultType = Table
+

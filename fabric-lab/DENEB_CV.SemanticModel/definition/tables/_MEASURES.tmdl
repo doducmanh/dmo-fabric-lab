@@ -1,0 +1,29 @@
+table _MEASURES
+	lineageTag: cb4fb9cf-ae65-4175-8ba0-7bc457f7c738
+
+	measure 'Dynamic Text' = "<span style='font-size: 10px;'>Lorem Ipsum</span> <p><span style='font-size: 10px;'>"&"do duc manh"&"</span></span>"
+		lineageTag: 9f87de3b-c75b-4eb2-a45d-879c995e4993
+
+	measure 'Dynamic Title' = "<span style='font-size: 10px;'>Lorem Ipsum</span>"
+		lineageTag: 0221fda0-b1c8-49a5-a5de-0931f7ee7ae9
+
+	column MEASURES
+		dataType: int64
+		formatString: 0
+		lineageTag: d6b24ffb-2e2e-4264-a148-42c2952fc073
+		summarizeBy: sum
+		sourceColumn: MEASURES
+
+		annotation SummarizationSetBy = Automatic
+
+	partition _MEASURES = m
+		mode: import
+		source =
+				let
+				    Source = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("i45WMlCKjQUA", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [MEASURES = _t]),
+				    #"Changed Type" = Table.TransformColumnTypes(Source,{{"MEASURES", Int64.Type}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_ResultType = Table
+

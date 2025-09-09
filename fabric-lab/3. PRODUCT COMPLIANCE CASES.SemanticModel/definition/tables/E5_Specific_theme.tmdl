@@ -1,0 +1,76 @@
+table E5_Specific_theme
+	lineageTag: 7ce484c5-55a0-4aad-a9b5-c825659c8817
+
+	column ThemeID
+		dataType: int64
+		formatString: 0
+		lineageTag: 9e6182c8-0f6c-439e-8514-ceb0d15da689
+		summarizeBy: count
+		sourceColumn: ThemeID
+
+		annotation SummarizationSetBy = Automatic
+
+	column Theme
+		dataType: string
+		lineageTag: 49b2d536-596f-4bc7-a844-d160115b087e
+		summarizeBy: none
+		sourceColumn: Theme
+
+		annotation SummarizationSetBy = Automatic
+
+	column document-view
+		dataType: string
+		lineageTag: 119fd73b-a114-44f4-ba8d-f90887726654
+		dataCategory: ImageUrl
+		summarizeBy: none
+		sourceColumn: document-view
+
+		annotation SummarizationSetBy = Automatic
+
+	column document-search
+		dataType: string
+		lineageTag: 9458ec16-9c5e-42d3-bc49-cb23a746e9f7
+		dataCategory: ImageUrl
+		summarizeBy: none
+		sourceColumn: document-search
+
+		annotation SummarizationSetBy = Automatic
+
+	column document-edit
+		dataType: string
+		lineageTag: c7c49c50-6ab3-4e9f-a977-2d5411efeb06
+		dataCategory: ImageUrl
+		summarizeBy: none
+		sourceColumn: document-edit
+
+		annotation SummarizationSetBy = Automatic
+
+	column document-service-schedule
+		dataType: string
+		lineageTag: 029a15f6-8b66-49c2-9623-51bf12652e76
+		dataCategory: ImageUrl
+		summarizeBy: none
+		sourceColumn: document-service-schedule
+
+		annotation SummarizationSetBy = Automatic
+
+	column home
+		dataType: string
+		lineageTag: 0eb745f8-97db-450f-96af-73ba7638f243
+		dataCategory: ImageUrl
+		summarizeBy: none
+		sourceColumn: home
+
+		annotation SummarizationSetBy = Automatic
+
+	partition E5_Specific_theme = m
+		mode: import
+		source =
+				let
+				    Source = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("3ZRrb9owFIb/C5+h5NqVStVECIHQ2FnShGB3FQI794TQJODiX7/Sm7p+2aetdLIs60i2pfPoOe/tbUfsdDtWGift45m07ba57PcJ3fRWTRO2TS/cnUV1tWnT6HBGqrLfyP3Xuhdu2rDe1mkT9qK0CI+X++FhxtDCrcysSlE54EhKiCXh7XoyJ5agIuThresV/ny8HRNfrW2PZnYAE2sDJXyYDS7XVUOSSzDzyG6lJbS3dZf3po+vXRBZzY5bjTI8BPagfgh5Taax33xnKW2TK0kRhL/ZgpEhaSCuNy5fjAYJnLM91IcM6EPVNtieTGf7VTnP6BQSixPleIfIsHiuk3QxuuBAJ8rTO27KKEAy4LEK9FhF2SzHEyAiyZFhNivAxJexl+QwcFrg+Sr0nAdbJw/goHJakjRyXiBBIcCDNYxTql3be/Gcljib2uFFIA7pAtJosgHfxPucRmz4DtLPnSBI56QqqvpK6B6XeKrcxsILNxkUbG/rNEeeowIPqDAzchw4HGW58viXgEucYt3hsDQF7IE3bkfW9ugDt5XGGIi+3ZuydnM9WujjVpnHU9kmlVvHAiuCYTMaD8m0p7HP4/YyMvLWw4aROHKyD+fU86fuwueGiQ3MPoxMiYRzh1VYa7VlHt7YkzxajRhGF4ZHOYbX4XKZqGgsGlXzNW2A5bMN+eHJhsBUcYAUqCcFfJoihyHuc8CJYAeOgDiRkTcWAH+z4QD1XIAfbTAYo6IF9/nSpj5a2+iHJ09mZCnq2Kn5onVRrK1ceZcq5h+43XVvO9IjPX1V5/9Bmr5vUVLV7us+WUFONma/BL2TDdt/Ru8TIvdLmHGywfs7vbu7Xw==", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [ThemeID = _t, Theme = _t, #"document-view" = _t, #"document-search" = _t, #"document-edit" = _t, #"document-service-schedule" = _t, home = _t]),
+				    #"Changed Type" = Table.TransformColumnTypes(Source,{{"ThemeID", Int64.Type}, {"Theme", type text}, {"document-view", type text}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,85 @@
+table DIM_ITEM
+	lineageTag: 60f70e6f-d254-4a37-b9f7-41d4d16f2afd
+
+	column ITEM_ID
+		dataType: string
+		lineageTag: fbe20052-bc19-4d61-94a3-024c3cd383a2
+		summarizeBy: none
+		sourceColumn: ITEM_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column ITEM_TITLE_FIX_LEN
+		dataType: string
+		lineageTag: 80d43561-1830-45d0-94bd-7ea7c68657c0
+		summarizeBy: none
+		sourceColumn: ITEM_TITLE_FIX_LEN
+
+		annotation SummarizationSetBy = Automatic
+
+	column TITLE
+		dataType: string
+		lineageTag: 45196e82-6109-4cf0-89ed-3d4742dafa72
+		summarizeBy: none
+		sourceColumn: TITLE
+
+		annotation SummarizationSetBy = Automatic
+
+	column ITEM_TYPE
+		dataType: string
+		lineageTag: a5817107-7ce4-420b-a4a0-9ef123bbfa3a
+		summarizeBy: none
+		sourceColumn: ITEM_TYPE
+
+		annotation SummarizationSetBy = Automatic
+
+	column ITEM_TITLE_SHORT
+		dataType: string
+		lineageTag: 05666983-027d-412d-9ac2-068eb825e866
+		summarizeBy: none
+		sourceColumn: ITEM_TITLE_SHORT
+
+		annotation SummarizationSetBy = Automatic
+
+	column ITEM_GROUP
+		dataType: string
+		lineageTag: cd56c72c-bfef-4665-a73d-1cf2a9928d85
+		summarizeBy: none
+		sourceColumn: ITEM_GROUP
+
+		annotation SummarizationSetBy = Automatic
+
+	column PREFIX_ID
+		dataType: string
+		lineageTag: de1e790b-607c-4beb-92bb-dc7d08bb6204
+		summarizeBy: none
+		sourceColumn: PREFIX_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column PREFIX_TITLE
+		dataType: string
+		lineageTag: 633e09b8-c5d7-4de7-a205-01fb33bfd742
+		summarizeBy: none
+		sourceColumn: PREFIX_TITLE
+
+		annotation SummarizationSetBy = Automatic
+
+	partition DIM_ITEM = m
+		mode: import
+		source =
+				let
+				    Source = Oracle.Database(ServerName, [HierarchicalNavigation=true, Query="SELECT #(lf)DISTINCT #(lf)ITEM_ID,#(lf)    ITEM_TITLE,#(lf)    ITEM_TYPE,#(lf)    ITEM_GROUP,#(lf)    PREFIX_ID,#(lf)    PREFIX_TITLE#(lf)FROM MARD_PCMS.X_IFR_TRAINM_ACE_EPIC6_TRAINING_RATE"]),
+				    #"Replaced Value" = Table.ReplaceValue(Source,null,"",Replacer.ReplaceValue,{"ITEM_ID"}),
+				    #"Added Custom" = Table.AddColumn(#"Replaced Value", "ITEM_TITLE_FIX_LEN", each if Text.Length([ITEM_TITLE])> 18 then Text.Start([ITEM_TITLE],18) else Text.End(Text.Repeat(Character.FromNumber (8192), 18) & [ITEM_TITLE],18)),
+				    #"Renamed Columns" = Table.RenameColumns(#"Added Custom",{{"ITEM_TITLE", "TITLE"}}),
+				    #"Inserted Text Between Delimiters" = Table.AddColumn(#"Renamed Columns", "ITEM_TITLE_SHORT", each Text.BetweenDelimiters([TITLE], "[", "]"), type text),
+				    #"Added Prefix" = Table.TransformColumns(#"Inserted Text Between Delimiters", {{"ITEM_TITLE_SHORT", each "[" & _, type text}}),
+				    #"Added Suffix" = Table.TransformColumns(#"Added Prefix", {{"ITEM_TITLE_SHORT", each _ & "]", type text}})
+				in
+				    #"Added Suffix"
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
+

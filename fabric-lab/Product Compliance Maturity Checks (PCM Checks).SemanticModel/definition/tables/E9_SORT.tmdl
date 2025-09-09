@@ -1,0 +1,40 @@
+table E9_SORT
+	lineageTag: e2993f57-1eca-432c-93a5-9763e4a6fb4d
+
+	column SORT_NAME
+		dataType: string
+		lineageTag: b22677e1-41af-4247-9d4e-7e72f7bcf417
+		summarizeBy: none
+		sourceColumn: SORT_NAME
+
+		annotation SummarizationSetBy = Automatic
+
+	column SORT_FULL_NAME
+		dataType: string
+		lineageTag: 9dd319ec-fff5-4d68-bba6-184079687fc9
+		summarizeBy: none
+		sourceColumn: SORT_FULL_NAME
+
+		annotation SummarizationSetBy = Automatic
+
+	column SORT_ICON
+		dataType: string
+		lineageTag: 00238dbd-1d35-4e2a-a420-dcf8a79741ae
+		summarizeBy: none
+		sourceColumn: SORT_ICON
+
+		annotation SummarizationSetBy = Automatic
+
+	partition E9_SORT = m
+		mode: import
+		source =
+				let
+				    Source = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("i45Wcgx2VtJRSixOTs1LycxLB7IfTdukFKsTreTiCpZKSUWR26MUGwsA", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [SORT_NAME = _t, SORT_FULL_NAME = _t, SORT_ICON = _t]),
+				    #"Changed Type" = Table.TransformColumnTypes(Source,{{"SORT_NAME", type text}, {"SORT_FULL_NAME", type text}, {"SORT_ICON", type text}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

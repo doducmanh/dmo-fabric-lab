@@ -1,0 +1,423 @@
+table 'NUMBER OF COMMENTS'
+	lineageTag: 6d65cbc1-8e95-4335-acb8-0a88210500be
+
+	column ITEM_TITLE
+		dataType: string
+		lineageTag: 99a6982c-f0d6-4c31-8fed-d9e44b819c5b
+		summarizeBy: none
+		sourceColumn: ITEM_TITLE
+
+		annotation SummarizationSetBy = Automatic
+
+	column GENAI_UNIQUE_ID
+		dataType: int64
+		formatString: 0
+		lineageTag: c377ac00-c197-4a1b-a9d6-eb8fb90af7d4
+		summarizeBy: none
+		sourceColumn: GENAI_UNIQUE_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column ITEM_MONTH
+		dataType: string
+		lineageTag: 66c84f55-3a73-49ce-82ec-1345e6b117c5
+		summarizeBy: none
+		sourceColumn: ITEM_MONTH
+
+		annotation SummarizationSetBy = Automatic
+
+	column RUN_CYCLE
+		dataType: string
+		lineageTag: 4f03aacf-09a4-4b39-8caf-4ace37ab1837
+		summarizeBy: none
+		sourceColumn: RUN_CYCLE
+
+		annotation SummarizationSetBy = Automatic
+
+	column ITEM_ID
+		dataType: string
+		lineageTag: 3fb79297-8c04-4a65-9c87-aeb48257ced8
+		summarizeBy: none
+		sourceColumn: ITEM_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column MONTH_YEAR
+		dataType: string
+		lineageTag: e794d070-b4ff-4af0-8cbd-0dea4e283264
+		summarizeBy: none
+		sourceColumn: MONTH_YEAR
+
+		annotation SummarizationSetBy = Automatic
+
+	column FULL_DATE
+		dataType: string
+		lineageTag: e43d2f36-21ca-478f-83a4-ca23933b7adc
+		summarizeBy: none
+		sourceColumn: FULL_DATE
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Year Month'
+		dataType: string
+		lineageTag: 6de34d5d-1bb0-4844-8c67-30e6b1e19e4d
+		summarizeBy: none
+		sourceColumn: Year Month
+
+		annotation SummarizationSetBy = Automatic
+
+	column ROWID
+		dataType: string
+		lineageTag: 3fc3db2a-bc22-4fe9-804f-e2e264731b32
+		summarizeBy: none
+		sourceColumn: ROWID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Year Month 2'
+		dataType: string
+		lineageTag: 086c0d8d-d527-4b5c-98dc-073bd4a64582
+		summarizeBy: none
+		sourceColumn: Year Month 2
+
+		annotation SummarizationSetBy = Automatic
+
+	column CATEGORY
+		dataType: string
+		lineageTag: ed460dd5-0c34-4953-90b9-0ba425fcc140
+		summarizeBy: none
+		sourceColumn: CATEGORY
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'NO. OF COMMENT PER CATEGORY'
+		dataType: int64
+		formatString: 0
+		lineageTag: 0b03924a-c3b4-429e-93aa-7afb54f682ea
+		summarizeBy: sum
+		sourceColumn: NO. OF COMMENT PER CATEGORY
+
+		annotation SummarizationSetBy = Automatic
+
+	column BATCH_ID
+		dataType: string
+		lineageTag: d9618a50-9a0d-4c9c-8177-fdab3aeb1625
+		summarizeBy: none
+		sourceColumn: BATCH_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column BATCH_YEAR
+		dataType: int64
+		formatString: 0
+		lineageTag: 515e5730-2bd3-4b5f-b3ba-f24c74dd05ea
+		summarizeBy: sum
+		sourceColumn: BATCH_YEAR
+
+		annotation SummarizationSetBy = Automatic
+
+	column BATCH_MONTH
+		dataType: int64
+		formatString: 0
+		lineageTag: 7dd7108c-2b54-452a-a443-029140ca3877
+		summarizeBy: sum
+		sourceColumn: BATCH_MONTH
+
+		annotation SummarizationSetBy = Automatic
+
+	column RUN_DATETIME
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: ab462953-1d9c-4520-bd42-451f1de157ba
+		summarizeBy: none
+		sourceColumn: RUN_DATETIME
+
+		annotation SummarizationSetBy = Automatic
+
+	column GENAI_TOTAL_COMMENT
+		dataType: int64
+		formatString: 0
+		lineageTag: 49874651-73a0-4c73-82f7-5ff1539fa816
+		summarizeBy: sum
+		sourceColumn: GENAI_TOTAL_COMMENT
+
+		annotation SummarizationSetBy = Automatic
+
+	column GENAI_NUMBER_OF_RUBBISH
+		dataType: int64
+		formatString: 0
+		lineageTag: 1a1db204-d76b-41f3-8203-d32afbc2cb3f
+		summarizeBy: sum
+		sourceColumn: GENAI_NUMBER_OF_RUBBISH
+
+		annotation SummarizationSetBy = Automatic
+
+	column GENAI_METRIC_OVERALL_SENTIMENT_VALUE
+		dataType: int64
+		formatString: 0
+		lineageTag: 45686ea1-2fbf-4a2e-b97c-ae02fd9003f2
+		summarizeBy: sum
+		sourceColumn: GENAI_METRIC_OVERALL_SENTIMENT_VALUE
+
+		annotation SummarizationSetBy = Automatic
+
+	column GENAI_METRIC_OVERALL_SENTIMENT_SUMMARY
+		dataType: string
+		lineageTag: 7d75d866-49e3-4961-bffe-e03216226922
+		summarizeBy: none
+		sourceColumn: GENAI_METRIC_OVERALL_SENTIMENT_SUMMARY
+
+		annotation SummarizationSetBy = Automatic
+
+	column GENAI_METRIC_OVERALL_SENTIMENT_REF_COMMENTS
+		dataType: string
+		lineageTag: f2c6de8c-c113-4ede-9955-657b6b255d23
+		summarizeBy: none
+		sourceColumn: GENAI_METRIC_OVERALL_SENTIMENT_REF_COMMENTS
+
+		annotation SummarizationSetBy = Automatic
+
+	column GENAI_METRIC_OVERALL_SENTIMENT_TOTAL_COMMENTS
+		dataType: int64
+		formatString: 0
+		lineageTag: 1e2330c3-3e1c-4656-b176-5cad42781f26
+		summarizeBy: sum
+		sourceColumn: GENAI_METRIC_OVERALL_SENTIMENT_TOTAL_COMMENTS
+
+		annotation SummarizationSetBy = Automatic
+
+	column GENAI_METRIC_CLARITY_VALUE
+		dataType: int64
+		formatString: 0
+		lineageTag: b325b617-dd4b-4911-9567-acbb0c54e205
+		summarizeBy: sum
+		sourceColumn: GENAI_METRIC_CLARITY_VALUE
+
+		annotation SummarizationSetBy = Automatic
+
+	column GENAI_METRIC_CLARITY_REF_COMMENTS
+		dataType: string
+		lineageTag: 783eeac2-52e0-4014-9a3d-df74911960f8
+		summarizeBy: none
+		sourceColumn: GENAI_METRIC_CLARITY_REF_COMMENTS
+
+		annotation SummarizationSetBy = Automatic
+
+	column GENAI_METRIC_PRACTICAL_EXAMPLE_VALUE
+		dataType: int64
+		formatString: 0
+		lineageTag: 72e311ec-2d6c-4b2a-9bc9-2cdc885e71cb
+		summarizeBy: sum
+		sourceColumn: GENAI_METRIC_PRACTICAL_EXAMPLE_VALUE
+
+		annotation SummarizationSetBy = Automatic
+
+	column GENAI_METRIC_PRACTICAL_EXAMPLE_REF_COMMENTS
+		dataType: string
+		lineageTag: 15df0b3e-5c4f-49db-85f1-597996d5fbd6
+		summarizeBy: none
+		sourceColumn: GENAI_METRIC_PRACTICAL_EXAMPLE_REF_COMMENTS
+
+		annotation SummarizationSetBy = Automatic
+
+	column GENAI_METRIC_USE_OF_VISUALS_VALUE
+		dataType: int64
+		formatString: 0
+		lineageTag: d6ef4d93-1eac-4f46-8150-f55646700d03
+		summarizeBy: sum
+		sourceColumn: GENAI_METRIC_USE_OF_VISUALS_VALUE
+
+		annotation SummarizationSetBy = Automatic
+
+	column GENAI_METRIC_USE_OF_VISUALS_REF_COMMENTS
+		dataType: string
+		lineageTag: 3c74b397-f920-47af-8464-d6a5a8c0bcbe
+		summarizeBy: none
+		sourceColumn: GENAI_METRIC_USE_OF_VISUALS_REF_COMMENTS
+
+		annotation SummarizationSetBy = Automatic
+
+	column GENAI_METRIC_FLEXIBILITY_VALUE
+		dataType: int64
+		formatString: 0
+		lineageTag: ed86f9ff-1565-4eda-afab-f271b1c6f830
+		summarizeBy: sum
+		sourceColumn: GENAI_METRIC_FLEXIBILITY_VALUE
+
+		annotation SummarizationSetBy = Automatic
+
+	column GENAI_METRIC_FLEXIBILITY_REF_COMMENTSI
+		dataType: string
+		lineageTag: f9517ec7-0d94-455c-ac32-6559c340c744
+		summarizeBy: none
+		sourceColumn: GENAI_METRIC_FLEXIBILITY_REF_COMMENTSI
+
+		annotation SummarizationSetBy = Automatic
+
+	column GENAI_METRIC_ENGAGEMENT_VALUE
+		dataType: int64
+		formatString: 0
+		lineageTag: 5835f7f4-0c12-4be5-ac9d-77284a67f939
+		summarizeBy: sum
+		sourceColumn: GENAI_METRIC_ENGAGEMENT_VALUE
+
+		annotation SummarizationSetBy = Automatic
+
+	column GENAI_METRIC_ENGAGEMENT_SUMMARY
+		dataType: string
+		lineageTag: 86ed23a3-f605-4670-a511-d84747148dcf
+		summarizeBy: none
+		sourceColumn: GENAI_METRIC_ENGAGEMENT_SUMMARY
+
+		annotation SummarizationSetBy = Automatic
+
+	column GENAI_METRIC_ENGAGEMENT_REF_COMMENTS
+		dataType: string
+		lineageTag: ca9f1ed8-1d4c-4d6e-8d71-7f1e8b36aeb6
+		summarizeBy: none
+		sourceColumn: GENAI_METRIC_ENGAGEMENT_REF_COMMENTS
+
+		annotation SummarizationSetBy = Automatic
+
+	column GENAI_METRIC_LENGTH_VALUE
+		dataType: int64
+		formatString: 0
+		lineageTag: aa160f69-d617-43e0-ab10-21857c219f24
+		summarizeBy: sum
+		sourceColumn: GENAI_METRIC_LENGTH_VALUE
+
+		annotation SummarizationSetBy = Automatic
+
+	column GENAI_METRIC_LENGTH_REF_COMMENTS
+		dataType: string
+		lineageTag: d6ca3b7b-6925-4ab4-a815-60993b0cc976
+		summarizeBy: none
+		sourceColumn: GENAI_METRIC_LENGTH_REF_COMMENTS
+
+		annotation SummarizationSetBy = Automatic
+
+	column GENAI_METRIC_CONTENT_VALUE
+		dataType: int64
+		formatString: 0
+		lineageTag: 474c0776-f4b4-474b-b4d2-c5ab2348a8e0
+		summarizeBy: sum
+		sourceColumn: GENAI_METRIC_CONTENT_VALUE
+
+		annotation SummarizationSetBy = Automatic
+
+	column GENAI_METRIC_CONTENT_REF_COMMENTS
+		dataType: string
+		lineageTag: 22d0733f-5ee1-4e3f-bc29-4c31bd6114dd
+		summarizeBy: none
+		sourceColumn: GENAI_METRIC_CONTENT_REF_COMMENTS
+
+		annotation SummarizationSetBy = Automatic
+
+	column GENAI_METRIC_TECHNICAL_ISSUES_VALUE
+		dataType: int64
+		formatString: 0
+		lineageTag: f1d5e39a-6b64-4277-86b4-281560f9b18e
+		summarizeBy: sum
+		sourceColumn: GENAI_METRIC_TECHNICAL_ISSUES_VALUE
+
+		annotation SummarizationSetBy = Automatic
+
+	column GENAI_METRIC_TECHNICAL_ISSUES_REF_COMMENTS
+		dataType: string
+		lineageTag: 68d80796-8f11-421a-876c-f6ec2000943d
+		summarizeBy: none
+		sourceColumn: GENAI_METRIC_TECHNICAL_ISSUES_REF_COMMENTS
+
+		annotation SummarizationSetBy = Automatic
+
+	column GENAI_METRIC_USABILITY_VALUE
+		dataType: int64
+		formatString: 0
+		lineageTag: 5fda5d27-f584-4fd9-9b96-9cecdaedf33c
+		summarizeBy: sum
+		sourceColumn: GENAI_METRIC_USABILITY_VALUE
+
+		annotation SummarizationSetBy = Automatic
+
+	column GENAI_METRIC_USABILITY_SUMMARY
+		dataType: string
+		lineageTag: c1c5069d-9634-4071-bc36-d6e283f382e0
+		summarizeBy: none
+		sourceColumn: GENAI_METRIC_USABILITY_SUMMARY
+
+		annotation SummarizationSetBy = Automatic
+
+	column GENAI_METRIC_USABILITY_REF_COMMENTS
+		dataType: string
+		lineageTag: 90b49bcd-be7d-4ce8-9b04-864927fff3c2
+		summarizeBy: none
+		sourceColumn: GENAI_METRIC_USABILITY_REF_COMMENTS
+
+		annotation SummarizationSetBy = Automatic
+
+	column GENAI_METRIC_INTERACTIVITY_VALUE
+		dataType: int64
+		formatString: 0
+		lineageTag: 583ef850-9fa6-4b39-9550-5bff53ae67b8
+		summarizeBy: sum
+		sourceColumn: GENAI_METRIC_INTERACTIVITY_VALUE
+
+		annotation SummarizationSetBy = Automatic
+
+	column GENAI_METRIC_INTERACTIVITY_SUMMARY
+		dataType: string
+		lineageTag: bf957848-cbde-4751-838d-d7fb30a24678
+		summarizeBy: none
+		sourceColumn: GENAI_METRIC_INTERACTIVITY_SUMMARY
+
+		annotation SummarizationSetBy = Automatic
+
+	column GENAI_METRIC_INTERACTIVITY_REF_COMMENTS
+		dataType: string
+		lineageTag: af365b99-b047-4b9e-aa57-22ced544ab81
+		summarizeBy: none
+		sourceColumn: GENAI_METRIC_INTERACTIVITY_REF_COMMENTS
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'NUMBER OF COMMENTS' = m
+		mode: import
+		source = ```
+				let
+				    Source = X_IFR_TRAINM_GENAI_EPIC6_ANALYSIS,
+				    #"Removed Columns" = Table.RemoveColumns(Source,{"GENAI_EXECUTIVE_SUMMARY", "GENAI_HINTS_FOR_IMPROVEMENT"}),
+				    #"Unpivoted Only Selected Columns1" = Table.Unpivot(#"Removed Columns", {
+				        "GENAI_METRIC_PRACTICAL_EXAMPLE_TOTAL_COMMENTS", 
+				        "GENAI_METRIC_CLARITY_TOTAL_COMMENTS", 
+				        "GENAI_METRIC_USE_OF_VISUALS_TOTAL_COMMENTS", 
+				        "GENAI_METRIC_FLEXIBILITY_TOTAL_COMMENTSI", 
+				        "GENAI_METRIC_ENGAGEMENT_TOTAL_COMMENTS", 
+				        "GENAI_METRIC_LENGTH_TOTAL_COMMENTS", 
+				        "GENAI_METRIC_CONTENT_TOTAL_COMMENTS", 
+				        "GENAI_METRIC_TECHNICAL_ISSUES_TOTAL_COMMENTS",
+				        "GENAI_METRIC_USABILITY_TOTAL_COMMENTS",
+				        "GENAI_METRIC_INTERACTIVITY_TOTAL_COMMENTS"}, "Attribute.1", "Value.1"),
+				    #"Removed Columns1" = Table.RemoveColumns(#"Unpivoted Only Selected Columns1",{
+				        "GENAI_METRIC_PRACTICAL_EXAMPLE_SUMMARY",  
+				        "GENAI_METRIC_CONTENT_SUMMARY",  
+				        "GENAI_METRIC_CLARITY_SUMMARY", 
+				        "GENAI_METRIC_USE_OF_VISUALS_SUMMARY",  
+				        "GENAI_METRIC_FLEXIBILITY_SUMMARY",  
+				        "GENAI_METRIC_LENGTH_SUMMARY",  
+				        "GENAI_METRIC_TECHNICAL_ISSUES_SUMMARY",  
+				        "GENAI_NUMBER_OF_NOT_RUBBISH"}),
+				    #"Replaced Value" = Table.ReplaceValue(#"Removed Columns1","GENAI_METRIC_","",Replacer.ReplaceText,{"Attribute.1"}),
+				    #"Replaced Value1" = Table.ReplaceValue(#"Replaced Value","_TOTAL_COMMENTS","",Replacer.ReplaceText,{"Attribute.1"}),
+				    #"Replaced Value2" = Table.ReplaceValue(#"Replaced Value1","_"," ",Replacer.ReplaceText,{"Attribute.1"}),
+				    #"Renamed Columns1" = Table.RenameColumns(#"Replaced Value2",{{"Attribute.1", "CATEGORY"}, {"Value.1", "NO. OF COMMENT PER CATEGORY"}}),
+				    #"Capitalized Each Word1" = Table.TransformColumns(#"Renamed Columns1",{{"CATEGORY", Text.Proper, type text}}),
+				    #"Trimmed Text" = Table.TransformColumns(#"Capitalized Each Word1",{{"CATEGORY", Text.Trim, type text}}),
+				    #"Filtered Rows" = Table.SelectRows(#"Trimmed Text", each ([CATEGORY] = "Clarity"))
+				in
+				    #"Filtered Rows"
+				```
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

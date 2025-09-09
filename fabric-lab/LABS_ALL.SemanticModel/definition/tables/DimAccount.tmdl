@@ -1,0 +1,120 @@
+table DimAccount
+	lineageTag: 27bf389f-f260-40b6-ab73-2af49bd3b8ae
+
+	column AccountKey
+		dataType: int64
+		formatString: 0
+		lineageTag: ddb10ec9-6502-4c6f-a6d1-1669b90da377
+		summarizeBy: none
+		sourceColumn: AccountKey
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column ParentAccountKey
+		dataType: int64
+		formatString: 0
+		lineageTag: 5304bbf9-39a0-4f20-b6ae-f01b6dd05711
+		summarizeBy: none
+		sourceColumn: ParentAccountKey
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column AccountCodeAlternateKey
+		dataType: int64
+		formatString: 0
+		lineageTag: 31edb78f-bb5a-4f48-a545-211fd43373af
+		summarizeBy: none
+		sourceColumn: AccountCodeAlternateKey
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column ParentAccountCodeAlternateKey
+		dataType: int64
+		formatString: 0
+		lineageTag: 79e009fc-76c4-4d8f-8523-4d6e2e1e2f9b
+		summarizeBy: none
+		sourceColumn: ParentAccountCodeAlternateKey
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column AccountDescription
+		dataType: string
+		lineageTag: 07cfb024-395a-407d-b50d-2039ebfe4bcb
+		summarizeBy: none
+		sourceColumn: AccountDescription
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column AccountType
+		dataType: string
+		lineageTag: 817bcb24-4c01-423a-b4f2-777b798e4590
+		summarizeBy: none
+		sourceColumn: AccountType
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Operator
+		dataType: string
+		lineageTag: 14ce1f85-831c-426d-ac8e-90682d311f48
+		summarizeBy: none
+		sourceColumn: Operator
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column CustomMembers
+		dataType: string
+		lineageTag: d380747f-277d-4de4-a865-0c648cc00313
+		summarizeBy: none
+		sourceColumn: CustomMembers
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column ValueType
+		dataType: string
+		lineageTag: 3e48f425-3640-4857-89e0-c129d5fa5a5f
+		summarizeBy: none
+		sourceColumn: ValueType
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column CustomMemberOptions
+		dataType: string
+		lineageTag: 5c4d62f6-abfa-47b8-bb3f-e895ed595e0d
+		summarizeBy: none
+		sourceColumn: CustomMemberOptions
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	partition DimAccount-032a440a-4e76-4cf6-bca0-61be44c20bea = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database(PRServerName, PRDatabaseName),
+				    dbo_DimAccount = Source{[Schema="dbo",Item="DimAccount"]}[Data]
+				in
+				    dbo_DimAccount
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

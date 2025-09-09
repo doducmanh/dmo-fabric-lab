@@ -1,0 +1,120 @@
+table E9_DIM_REGION
+	lineageTag: 67f7770f-87e9-47cc-8f5f-227181c3b42f
+
+	column COUNTRY_DISPLAY_TEXT
+		dataType: string
+		lineageTag: 5b4c4f1b-54cc-44e8-b6cf-de1b3bf157a5
+		summarizeBy: none
+		sourceColumn: COUNTRY_DISPLAY_TEXT
+
+		annotation SummarizationSetBy = Automatic
+
+	column COUNTRY_ISO_CODE
+		dataType: string
+		lineageTag: f678ef2c-bf73-4489-b5a8-303b23ed560e
+		summarizeBy: none
+		sourceColumn: COUNTRY_ISO_CODE
+
+		annotation SummarizationSetBy = Automatic
+
+	column COUNTRY_GROUP_CODE
+		dataType: string
+		lineageTag: ea03b885-cfe7-4449-8711-124e797a2493
+		summarizeBy: none
+		sourceColumn: COUNTRY_GROUP_CODE
+
+		annotation SummarizationSetBy = Automatic
+
+	column CONTINENT_CODE
+		dataType: string
+		lineageTag: e133c3e1-66b5-4029-8bea-29902ec98543
+		summarizeBy: none
+		sourceColumn: CONTINENT_CODE
+
+		annotation SummarizationSetBy = Automatic
+
+	column CONTINENT
+		dataType: string
+		lineageTag: ceeb6412-6b30-4437-9c00-c14bb8ea676b
+		dataCategory: Continent
+		summarizeBy: none
+		sourceColumn: CONTINENT
+
+		annotation SummarizationSetBy = Automatic
+
+	column COUNTRY_SOURCE_SHORT
+		dataType: string
+		lineageTag: fd0df52a-d13f-4740-aa92-00e7b94cff36
+		summarizeBy: none
+		sourceColumn: COUNTRY_SOURCE_SHORT
+
+		annotation SummarizationSetBy = Automatic
+
+	column COUNTRY_SOURCE_LONG
+		dataType: string
+		lineageTag: d32ede39-43e1-4f80-8dcb-32a13a80fe82
+		summarizeBy: none
+		sourceColumn: COUNTRY_SOURCE_LONG
+
+		annotation SummarizationSetBy = Automatic
+
+	column COUNTRY_GROUP_ID
+		dataType: double
+		lineageTag: 12753b4d-36f3-44e5-b30f-551e16f20912
+		summarizeBy: count
+		sourceColumn: COUNTRY_GROUP_ID
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column COUNTRY_GROUP
+		dataType: string
+		lineageTag: ae97df7f-b614-4a93-9fcf-6dbc866357d4
+		summarizeBy: none
+		sourceColumn: COUNTRY_GROUP
+
+		annotation SummarizationSetBy = Automatic
+
+	column CONTINENT_ID
+		dataType: double
+		lineageTag: c7d659f5-7ce9-49ba-a3f5-7736e7020615
+		summarizeBy: count
+		sourceColumn: CONTINENT_ID
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition E9_DIM_REGION = m
+		mode: import
+		source = ```
+				let
+				    Source = Oracle.Database(ServerName, [HierarchicalNavigation=true, 
+				    Query=
+				    "SELECT DISTINCT
+				    COUNTRY_ISO_CODE,
+				    COUNTRY_DISPLAY_TEXT,
+				    COUNTRY_SOURCE_SHORT,
+				    COUNTRY_SOURCE_LONG,
+				    COUNTRY_SOURCE_FULL,
+				    COUNTRY_GROUP_ID,
+				    COUNTRY_GROUP_CODE,
+				    COUNTRY_GROUP,
+				    CONTINENT_ID,
+				    CONTINENT_CODE,
+				    CONTINENT
+				FROM
+				    MARD_PCMS.X_IFR_PCMS_ORG_COUNTRIES_H
+				    WHERE SOURCE_SYSTEM = 'RefMDS'"
+				    ]),
+				    #"Removed Blank Rows" = Table.SelectRows(Source, each not List.IsEmpty(List.RemoveMatchingItems(Record.FieldValues(_), {"", null}))),
+				    #"Removed Columns" = Table.RemoveColumns(#"Removed Blank Rows",{"COUNTRY_SOURCE_FULL"})
+				in
+				    #"Removed Columns"
+				```
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

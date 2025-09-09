@@ -1,0 +1,64 @@
+table E10_PC_CHECKS_L2_CATEGORIES
+	lineageTag: 08b93d27-0ef1-4383-b525-af52f4fe4d23
+
+	column RATING
+		dataType: string
+		lineageTag: 1eec435d-650b-4a1c-ab34-00d39343ac8c
+		summarizeBy: none
+		sourceColumn: RATING
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'DIM_RATING.ORDER_ID'
+		dataType: int64
+		formatString: 0
+		lineageTag: 33f06983-d41e-4e15-80ec-a4d4045f6659
+		summarizeBy: count
+		sourceColumn: DIM_RATING.ORDER_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'DIM_RATING.RATING_COLOR_HEX'
+		dataType: string
+		lineageTag: 64a2ffd3-62b3-4bf6-ab81-e17a0b2fa443
+		summarizeBy: none
+		sourceColumn: DIM_RATING.RATING_COLOR_HEX
+
+		annotation SummarizationSetBy = Automatic
+
+	column L2_ID
+		dataType: int64
+		formatString: 0
+		lineageTag: 6ef25b04-ec35-4691-8713-58186334d3a4
+		summarizeBy: none
+		sourceColumn: L2_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column RID_QUESTIONID
+		dataType: string
+		lineageTag: 39f6325c-fb48-4d17-89b3-5d529ba20b7d
+		summarizeBy: none
+		sourceColumn: RID_QUESTIONID
+
+		annotation SummarizationSetBy = Automatic
+
+	partition E10_PC_CHECKS_L2_CATEGORIES = m
+		mode: import
+		source =
+				let
+				    Source = E10_PC_CHECKS,
+				    #"Removed Other Columns" = Table.SelectColumns(Source,{"RATING", "L2_ID", "RID_QUESTIONID"}),
+				    #"Filtered Rows" = Table.SelectRows(#"Removed Other Columns", each ([RATING] <> null)),
+				    #"Split Column by Delimiter" = Table.ExpandListColumn(Table.TransformColumns(#"Filtered Rows", {{"L2_ID", Splitter.SplitTextByDelimiter(";", QuoteStyle.Csv), let itemType = (type nullable text) meta [Serialized.Text = true] in type {itemType}}}), "L2_ID"),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Split Column by Delimiter",{{"L2_ID", Int64.Type}}),
+				    #"Removed Duplicates" = Table.Distinct(#"Changed Type"),
+				    #"Merged Queries" = Table.NestedJoin(#"Removed Duplicates", {"RATING"}, E10_DIM_RATING, {"RATING"}, "DIM_RATING", JoinKind.LeftOuter),
+				    #"Expanded DIM_RATING" = Table.ExpandTableColumn(#"Merged Queries", "DIM_RATING", {"ORDER_ID", "RATING_COLOR_HEX"}, {"DIM_RATING.ORDER_ID", "DIM_RATING.RATING_COLOR_HEX"})
+				in
+				    #"Expanded DIM_RATING"
+
+	annotation PBI_ResultType = Exception
+
+	annotation PBI_NavigationStepName = Navigation
+

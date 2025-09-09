@@ -1,0 +1,146 @@
+table ThemeFilter
+	lineageTag: df27f51a-e8cf-4686-b88c-53d5808aea1f
+
+	column ThemeID
+		dataType: string
+		lineageTag: a5a0c9f5-024c-4044-945a-3754eb98a9f4
+		summarizeBy: none
+		sourceColumn: ThemeID
+
+		annotation SummarizationSetBy = Automatic
+
+	column Theme
+		dataType: string
+		lineageTag: 53c33a11-a4c6-4e4c-adb6-7505ee542b0c
+		summarizeBy: none
+		sourceColumn: Theme
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Theme Number'
+		dataType: int64
+		formatString: 0
+		lineageTag: f930fdb8-322e-4d7c-8520-a22ec30b4dfe
+		summarizeBy: sum
+		sourceColumn: Theme Number
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Bosch Logo'
+		dataType: string
+		lineageTag: 290d508f-b27d-4ae9-a463-876f574931b4
+		summarizeBy: none
+		sourceColumn: Bosch Logo
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Font Reverse'
+		dataType: string
+		lineageTag: 9a94f11d-6fea-4004-9ac9-0e015740c9c1
+		summarizeBy: none
+		sourceColumn: Font Reverse
+
+		annotation SummarizationSetBy = Automatic
+
+	column Font
+		dataType: string
+		lineageTag: 9f5700ff-8906-4f93-8bb4-08bc6322f571
+		summarizeBy: none
+		sourceColumn: Font
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Banner Color'
+		dataType: string
+		lineageTag: 764f6811-c5d3-4c30-8027-e25219a199ab
+		summarizeBy: none
+		sourceColumn: Banner Color
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Background Color'
+		dataType: string
+		lineageTag: 8c45a1b2-e8ab-4fe5-9bde-02081b91b103
+		summarizeBy: none
+		sourceColumn: Background Color
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Visual Background Color'
+		dataType: string
+		lineageTag: 73bbb05d-85a4-4bbb-b6ad-67aa8e8cd915
+		summarizeBy: none
+		sourceColumn: Visual Background Color
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Visual Border Color'
+		dataType: string
+		lineageTag: 01799e6f-62a8-4d77-ad25-21d1926804ba
+		summarizeBy: none
+		sourceColumn: Visual Border Color
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Shadow Color'
+		dataType: string
+		lineageTag: 49f5373a-92ae-476e-9c02-60bf01b94adf
+		summarizeBy: none
+		sourceColumn: Shadow Color
+
+		annotation SummarizationSetBy = Automatic
+
+	column arrow-left-frame
+		dataType: string
+		lineageTag: 92ceb6ca-32de-45bc-abbe-f589b77f19a8
+		summarizeBy: none
+		sourceColumn: arrow-left-frame
+
+		annotation SummarizationSetBy = Automatic
+
+	column arrow-right-up-frame
+		dataType: string
+		lineageTag: b7181003-bfa7-4978-8cca-d6c0ad5daea4
+		summarizeBy: none
+		sourceColumn: arrow-right-up-frame
+
+		annotation SummarizationSetBy = Automatic
+
+	column fullscreen-exit
+		dataType: string
+		lineageTag: b63780c2-8ff9-4954-9226-1f6183b8d6d0
+		summarizeBy: none
+		sourceColumn: fullscreen-exit
+
+		annotation SummarizationSetBy = Automatic
+
+	column fullscreen
+		dataType: string
+		lineageTag: 6d58146a-fd1e-4410-a1c9-19c0addb7910
+		summarizeBy: none
+		sourceColumn: fullscreen
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Theme Icon'
+		dataType: string
+		lineageTag: 5b9789c0-8c73-4e38-b023-329e659ac053
+		summarizeBy: none
+		sourceColumn: Theme Icon
+
+		annotation SummarizationSetBy = Automatic
+
+	partition ThemeFilter = m
+		mode: import
+		source =
+				let
+				    Source = PowerPlatform.Dataflows(null),
+				    Workspaces = Source{[Id="Workspaces"]}[Data],
+				    #"b84ef42a-824e-4486-99b3-f30d1f16d9a8" = Workspaces{[workspaceId="b84ef42a-824e-4486-99b3-f30d1f16d9a8"]}[Data],
+				    #"d720cb6f-6772-4d61-b9e5-21a800f841c7" = #"b84ef42a-824e-4486-99b3-f30d1f16d9a8"{[dataflowId="d720cb6f-6772-4d61-b9e5-21a800f841c7"]}[Data],
+				    ThemeFilter_ = #"d720cb6f-6772-4d61-b9e5-21a800f841c7"{[entity="ThemeFilter",version=""]}[Data]
+				in
+				    ThemeFilter_
+
+	annotation PBI_ResultType = Table
+

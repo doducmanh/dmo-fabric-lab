@@ -1,0 +1,83 @@
+table Query1
+	lineageTag: dae484e7-c4e9-4cf9-9afa-7de46c1ba06f
+
+	column Column
+		dataType: string
+		lineageTag: 54d020a2-60a2-46d3-a97a-89114166b216
+		summarizeBy: none
+		sourceColumn: Column
+
+		annotation SummarizationSetBy = Automatic
+
+	column Min
+		dataType: string
+		lineageTag: d183828d-dc75-472d-b206-e8dec92a3f6f
+		summarizeBy: none
+		sourceColumn: Min
+
+		annotation SummarizationSetBy = Automatic
+
+	column Max
+		dataType: string
+		lineageTag: 84314a9c-d444-4656-ab44-b14c97007dcf
+		summarizeBy: none
+		sourceColumn: Max
+
+		annotation SummarizationSetBy = Automatic
+
+	column Average
+		dataType: string
+		lineageTag: dc0ce67e-baaf-447b-9a36-9ed98bb49b51
+		summarizeBy: none
+		sourceColumn: Average
+
+		annotation SummarizationSetBy = Automatic
+
+	column StandardDeviation
+		dataType: double
+		lineageTag: 1dc2106e-3477-4a7b-a740-fc59b2f088a2
+		summarizeBy: sum
+		sourceColumn: StandardDeviation
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Count
+		dataType: double
+		lineageTag: d116ee19-5266-4429-8075-a5d6acf9affb
+		summarizeBy: sum
+		sourceColumn: Count
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column NullCount
+		dataType: string
+		lineageTag: b609716f-9fdf-471f-b438-a8f3bae89c5a
+		summarizeBy: none
+		sourceColumn: NullCount
+
+		annotation SummarizationSetBy = Automatic
+
+	column DistinctCount
+		dataType: string
+		lineageTag: 7b5312a4-1633-4b37-ba70-17a21460762b
+		summarizeBy: none
+		sourceColumn: DistinctCount
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Query1-e2528c5c-f787-4826-8e06-cb323a90aac5 = m
+		mode: import
+		source =
+				let
+				    Source = Table.Profile(#"FactInternetSales")
+				in
+				    Source
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

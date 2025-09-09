@@ -1,0 +1,23 @@
+table 'EOM_MAX_IMPORTATION_DATE (2)'
+	lineageTag: 38efb6f1-d2b8-48ee-9249-267555fc8a7e
+
+	column 'EOM_MAX_IMPORTATION_DATE (2)'
+		dataType: string
+		lineageTag: 613d05ad-9873-442a-95ad-44d0a3384d9e
+		summarizeBy: none
+		sourceColumn: EOM_MAX_IMPORTATION_DATE (2)
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'EOM_MAX_IMPORTATION_DATE (2)' = m
+		mode: import
+		source =
+				let
+				    Source = Oracle.Database(ServerName, [HierarchicalNavigation=true, Query="SELECT#(lf)    LAST_DAY(MAX(EXPORT_DATE)) AS ""EOM_MAX_IMPORTATION_DATE""#(lf)FROM MARD_PCMS.X_IFR_TRAINM_EPIC6_TRAINING_RATE"]),
+				    #"Changed Type" = Table.TransformColumnTypes(Source,{{"EOM_MAX_IMPORTATION_DATE", type date}}),
+				    EOM_MAX_IMPORTATION_DATE1 = #"Changed Type"[EOM_MAX_IMPORTATION_DATE]
+				in
+				    EOM_MAX_IMPORTATION_DATE1
+
+	annotation PBI_ResultType = List
+

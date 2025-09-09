@@ -1,0 +1,47 @@
+table E8_DIM_RATINGNAME
+	lineageTag: 62ca2b92-4bbc-48f9-a564-59dd1b385010
+
+	column RATING
+		dataType: string
+		lineageTag: a9ff60a3-8d27-4d8c-8afc-fc88e0f20d73
+		summarizeBy: none
+		sourceColumn: RATING
+		sortByColumn: ID_RATING
+
+		changedProperty = SortByColumn
+
+		annotation SummarizationSetBy = Automatic
+
+	column ID_RATING
+		dataType: int64
+		formatString: 0
+		lineageTag: f0b3551b-0809-44da-8ddc-fb601d264b1f
+		summarizeBy: none
+		sourceColumn: ID_RATING
+
+		annotation SummarizationSetBy = Automatic
+
+	column LEGEND_RATING_STATUS = LEFT(CONCATENATE(E8_DIM_RATINGNAME[RATING],REPT([WhiteSpace],8)),8)
+		lineageTag: 69cf9902-52bd-4604-85b3-c901716bc969
+		summarizeBy: none
+		sortByColumn: ID_RATING
+
+		changedProperty = SortByColumn
+
+		annotation SummarizationSetBy = Automatic
+
+	partition E8_DIM_RATINGNAME-7f1933dd-c36e-47f6-aca6-b202c5dcc928 = m
+		mode: import
+		source =
+				let
+				    Source = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("i45WCkpNUdJRMlSK1YlWikzNyckvB3KNwFz3otTUPCDPGMwLz8gsSQXyTMA8t9KctMycHLBmU7CInyOQaQZhBgGZ5mCmoYEBkG0BZpuZAZmWYKaxMchSAzAbpMAQ6IBYAA==", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [RATING = _t, ORDER = _t]),
+				    #"Changed Type" = Table.TransformColumnTypes(Source,{{"RATING", type text}, {"ORDER", Int64.Type}}),
+				    #"Renamed Columns" = Table.RenameColumns(#"Changed Type",{{"ORDER", "ID_RATING"}}),
+				    #"Lowercased Text" = Table.TransformColumns(#"Renamed Columns",{{"RATING", Text.Lower, type text}})
+				in
+				    #"Lowercased Text"
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
+

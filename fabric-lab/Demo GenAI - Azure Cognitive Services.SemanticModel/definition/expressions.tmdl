@@ -1,0 +1,27 @@
+expression ServerName = "REDLake_ZeusP_OpsDevSup_CI.world" meta [IsParameterQuery=true, List={"REDLake_ZeusD_OpsDevSup_CI.world", "REDLake_ZeusQ_OpsDevSup_CI.world", "REDLake_ZeusP_OpsDevSup_CI.world"}, DefaultValue="REDLake_ZeusP_OpsDevSup_CI.world", Type="Text", IsParameterQueryRequired=true]
+	lineageTag: ce9f3b96-c3f4-4251-a7d6-9b633e45637b
+
+	annotation PBI_ResultType = Text
+
+	annotation PBI_NavigationStepName = Navigation
+
+expression 'Tag images' = AIFunctions.Contents(){[Key = "CognitiveServices.TagImagesanytext"]}[Data]
+	lineageTag: bae62643-ce93-48cf-8cad-c5c33721fa6d
+
+	annotation PBI_ResultType = Function
+
+expression 'Detect language' = AIFunctions.Contents(){[Key = "CognitiveServices.DetectLanguagetext"]}[Data]
+	lineageTag: 1cdea71f-b44d-471b-9dac-17604d149d7a
+
+	annotation PBI_ResultType = Function
+
+expression 'Score sentiment' = AIFunctions.Contents(){[Key = "CognitiveServices.ScoreSentimenttexttext"]}[Data]
+	lineageTag: 6911bf96-f22a-486e-9a70-b70d6526921a
+
+	annotation PBI_ResultType = Function
+
+expression 'Extract key phrases' = AIFunctions.Contents(){[Key = "CognitiveServices.ExtractKeyPhrasestexttext"]}[Data]
+	lineageTag: d19ebb9e-56b8-44a2-8d8f-5a53253de7dc
+
+	annotation PBI_ResultType = Function
+

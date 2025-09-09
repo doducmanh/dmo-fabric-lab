@@ -1,0 +1,211 @@
+table E9_DIM_DATE
+	lineageTag: 348b5831-e6cc-483a-8310-5bda949b996c
+
+	column FullDateAlternateKey
+		dataType: dateTime
+		formatString: dd.mm.yyyy
+		lineageTag: 6a817077-c105-4b62-90b3-e9673869b888
+		summarizeBy: none
+		sourceColumn: FullDateAlternateKey
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+		annotation PBI_FormatHint = {"isCustom":true}
+
+	column Year
+		dataType: int64
+		lineageTag: 22623599-6b6f-4986-a07a-b08daedf2df9
+		summarizeBy: none
+		sourceColumn: Year
+
+		changedProperty = DataType
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Month
+		dataType: double
+		lineageTag: e1ae14f2-2ea0-44a3-ba36-97637adc10fe
+		summarizeBy: none
+		sourceColumn: Month
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Month Name'
+		dataType: string
+		lineageTag: 4376de99-7e7f-43ee-a7c2-847dfecabf60
+		summarizeBy: none
+		sourceColumn: Month Name
+		sortByColumn: Month
+
+		changedProperty = SortByColumn
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Short Month Name'
+		dataType: string
+		lineageTag: 0e03fba8-d3a7-4e8f-a0a8-aa370b200443
+		summarizeBy: none
+		sourceColumn: Short Month Name
+		sortByColumn: Month
+
+		changedProperty = SortByColumn
+
+		annotation SummarizationSetBy = Automatic
+
+	column Quarter
+		dataType: double
+		lineageTag: 33365878-735c-4782-ae61-9edbe80a2641
+		summarizeBy: none
+		sourceColumn: Quarter
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Week of Year'
+		dataType: double
+		lineageTag: daca1922-ca32-485d-9c17-86f97c4dec6a
+		summarizeBy: none
+		sourceColumn: Week of Year
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Week of Month'
+		dataType: double
+		lineageTag: bd867978-f5ab-41a1-a4dd-85141a57861d
+		summarizeBy: none
+		sourceColumn: Week of Month
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Day
+		dataType: double
+		lineageTag: da8f8b5a-2c25-41aa-b070-b2b7e3d51802
+		summarizeBy: none
+		sourceColumn: Day
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Day of Week'
+		dataType: double
+		lineageTag: 697bf020-52f1-42ee-b1e5-45793f300042
+		summarizeBy: none
+		sourceColumn: Day of Week
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Day of Year'
+		dataType: double
+		lineageTag: 05cc00c6-1648-4c14-9fc2-d6d1b7a0a9bf
+		summarizeBy: none
+		sourceColumn: Day of Year
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Day Name'
+		dataType: string
+		lineageTag: a7793570-12c5-458a-9238-8a6cfe39eff7
+		summarizeBy: none
+		sourceColumn: Day Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Year Month'
+		dataType: int64
+		formatString: 0
+		lineageTag: f08819a3-de40-4f71-87ee-0c8e1d32e226
+		summarizeBy: none
+		sourceColumn: Year Month
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Year Month 2'
+		dataType: string
+		lineageTag: 650425dd-ab14-4bb4-8cbf-02c0f6c5cc04
+		summarizeBy: none
+		sourceColumn: Year Month 2
+		sortByColumn: 'Year Month'
+
+		changedProperty = SortByColumn
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Month Year'
+		dataType: string
+		lineageTag: 9b361f00-81e7-45a8-8cc8-808f3da26657
+		summarizeBy: none
+		sourceColumn: Month Year
+
+		annotation SummarizationSetBy = Automatic
+
+	column DateKey
+		dataType: int64
+		formatString: 0
+		lineageTag: abfeb05f-8d20-4514-b126-01da98122f69
+		summarizeBy: none
+		sourceColumn: DateKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column FullDate
+		dataType: string
+		lineageTag: dc2a536c-a48b-47a7-be87-ecda5b120ab3
+		summarizeBy: none
+		sourceColumn: FullDate
+
+		annotation SummarizationSetBy = Automatic
+
+	partition E9_DIM_DATE = m
+		mode: import
+		source =
+				let
+				    StartDate = Date.From(MIN_YEAR{0}),
+				    EndDate = Date.From(#"MAX_YEAR"{0}),
+				    NumberOfDays = Duration.Days( EndDate - StartDate ),
+				    Dates = List.Dates(StartDate, NumberOfDays+1, #duration(1,0,0,0)),
+				    #"Converted to Table" = Table.FromList(Dates, Splitter.SplitByNothing(), null, null, ExtraValues.Error),
+				    #"Renamed Columns" = Table.RenameColumns(#"Converted to Table",{{"Column1", "FullDateAlternateKey"}}),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Renamed Columns",{{"FullDateAlternateKey", type date}}),
+				    #"Inserted Year" = Table.AddColumn(#"Changed Type", "Year", each Date.Year([FullDateAlternateKey]), type number),
+				    #"Inserted Month" = Table.AddColumn(#"Inserted Year", "Month", each Date.Month([FullDateAlternateKey]), type number),
+				    #"Inserted Month Name" = Table.AddColumn(#"Inserted Month", "Month Name", each Date.MonthName([FullDateAlternateKey]), type text),
+				    #"Inserted Short Month Name" = Table.AddColumn(#"Inserted Month Name", "Short Month Name", each Text.Start(Date.MonthName([FullDateAlternateKey]),3), type text),
+				    #"Inserted Quarter" = Table.AddColumn(#"Inserted Short Month Name", "Quarter", each Date.QuarterOfYear([FullDateAlternateKey]), type number),
+				    #"Inserted Week of Year" = Table.AddColumn(#"Inserted Quarter", "Week of Year", each Date.WeekOfYear([FullDateAlternateKey]), type number),
+				    #"Inserted Week of Month" = Table.AddColumn(#"Inserted Week of Year", "Week of Month", each Date.WeekOfMonth([FullDateAlternateKey]), type number),
+				    #"Inserted Day" = Table.AddColumn(#"Inserted Week of Month", "Day", each Date.Day([FullDateAlternateKey]), type number),
+				    #"Inserted Day of Week" = Table.AddColumn(#"Inserted Day", "Day of Week", each Date.DayOfWeek([FullDateAlternateKey]), type number),
+				    #"Inserted Day of Year" = Table.AddColumn(#"Inserted Day of Week", "Day of Year", each Date.DayOfYear([FullDateAlternateKey]), type number),
+				    #"Inserted Day Name" = Table.AddColumn(#"Inserted Day of Year", "Day Name", each Date.DayOfWeekName([FullDateAlternateKey]), type text),
+				    #"Added Custom Column" = Table.AddColumn(#"Inserted Day Name", "Year Month", each Text.Combine({Date.ToText([FullDateAlternateKey], "yyyy"), Date.ToText([FullDateAlternateKey], "MM")}), type text),
+				    #"Added Custom Column 2" = Table.AddColumn(#"Added Custom Column", "Year Month 2", each Text.Combine({Date.ToText([FullDateAlternateKey], "MM"),"." , Date.ToText([FullDateAlternateKey], "yyyy")}), type text),
+				    #"Changed Type2" = Table.TransformColumnTypes(#"Added Custom Column 2",{{"Year Month", Int64.Type}}),
+				    #"Changed Type1" = Table.TransformColumnTypes(#"Changed Type2",{{"Year Month", Int64.Type}}),
+				    #"Added Custom" = Table.AddColumn(#"Changed Type1", "Custom", each Text.Combine({Date.ToText([FullDateAlternateKey], "MMM"), ".", Text.From(Date.Year([FullDateAlternateKey]))}, "")),
+				    #"Renamed Columns1" = Table.RenameColumns(#"Added Custom",{{"Custom", "Month Year"}}),
+				    Custom1 = Table.AddColumn(#"Renamed Columns1", "Custom", each Date.Year([FullDateAlternateKey]) * 10000 + Date.Month([FullDateAlternateKey]) * 100 + Date.Day([FullDateAlternateKey]), Int64.Type),
+				    #"Renamed Columns2" = Table.RenameColumns(Custom1,{{"Custom", "DateKey"}}),
+				    Custom2 = Table.AddColumn(#"Renamed Columns2", "FullDate", each Text.Combine({Date.ToText([FullDateAlternateKey], "dd"),"." ,Date.ToText([FullDateAlternateKey], "MM"),"." , Date.ToText([FullDateAlternateKey], "yyyy")}), type text)
+				in
+				    Custom2
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

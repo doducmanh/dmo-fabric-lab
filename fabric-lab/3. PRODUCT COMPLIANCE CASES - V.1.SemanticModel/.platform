@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "SemanticModel",
+    "displayName": "3. PRODUCT COMPLIANCE CASES - V.1"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "dc7830d7-93e3-a1ef-4e31-38b8583c11c8"
+  }
+}

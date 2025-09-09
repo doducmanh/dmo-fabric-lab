@@ -1,0 +1,43 @@
+table ThemeImages
+	lineageTag: 3b5139d9-7a8e-40ae-9c5e-4d9b2a24473b
+
+	column Name
+		dataType: string
+		lineageTag: 26916240-f9d5-41f7-9360-0dfa298f36f6
+		summarizeBy: none
+		sourceColumn: Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column Pic
+		dataType: string
+		lineageTag: 3b3a0fd5-5166-408f-9ebd-54b9ec38ba3b
+		summarizeBy: none
+		sourceColumn: Pic
+
+		annotation SummarizationSetBy = Automatic
+
+	column Index
+		dataType: double
+		lineageTag: 4cfb0ebb-5000-4421-85c7-2e395f7b151e
+		summarizeBy: sum
+		sourceColumn: Index
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition ThemeImages = m
+		mode: import
+		source =
+				let
+				    Source = PowerPlatform.Dataflows(null),
+				    Workspaces = Source{[Id="Workspaces"]}[Data],
+				    #"b84ef42a-824e-4486-99b3-f30d1f16d9a8" = Workspaces{[workspaceId="b84ef42a-824e-4486-99b3-f30d1f16d9a8"]}[Data],
+				    #"d720cb6f-6772-4d61-b9e5-21a800f841c7" = #"b84ef42a-824e-4486-99b3-f30d1f16d9a8"{[dataflowId="d720cb6f-6772-4d61-b9e5-21a800f841c7"]}[Data],
+				    ThemeImages_ = #"d720cb6f-6772-4d61-b9e5-21a800f841c7"{[entity="ThemeImages",version=""]}[Data]
+				in
+				    ThemeImages_
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,102 @@
+table E9_PCM_CHECKS_L2_CATEGORIES
+	lineageTag: 87970f41-cd39-4d6c-8921-c0bbd77d7c85
+
+	column QUESTION
+		dataType: string
+		lineageTag: 4f1d6113-573f-4fcf-948f-bdc797a65cca
+		summarizeBy: none
+		sourceColumn: QUESTION
+
+		annotation SummarizationSetBy = Automatic
+
+	column RATING
+		dataType: string
+		lineageTag: 7d249e6f-a61b-4be4-a1ed-eeb9920db84f
+		summarizeBy: none
+		sourceColumn: RATING
+
+		annotation SummarizationSetBy = Automatic
+
+	column L2_ID
+		dataType: int64
+		formatString: 0
+		lineageTag: 74938742-8ac2-4891-a3f0-d8504ede67ad
+		summarizeBy: none
+		sourceColumn: L2_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column RID_QUESTIONID
+		dataType: string
+		lineageTag: f12cbb9c-62ab-4d0c-802b-79366c4c9f40
+		summarizeBy: none
+		sourceColumn: RID_QUESTIONID
+
+		annotation SummarizationSetBy = Automatic
+
+	column L2_VALUE
+		dataType: string
+		lineageTag: defb292a-38d6-4cc1-9efe-94c927c7c6ce
+		summarizeBy: none
+		sourceColumn: L2_VALUE
+
+		annotation SummarizationSetBy = Automatic
+
+	column L2_NUMBER
+		dataType: string
+		lineageTag: 60206184-d51e-4494-8c8e-6a4d1fcda05e
+		summarizeBy: none
+		sourceColumn: L2_NUMBER
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'DIM_RATING.ORDER_ID'
+		dataType: int64
+		formatString: 0
+		lineageTag: d6446ecf-ce95-4b14-b3be-333eb88b6017
+		summarizeBy: count
+		sourceColumn: DIM_RATING.ORDER_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'DIM_RATING.RATING_COLOR_HEX'
+		dataType: string
+		lineageTag: 11e3ce1f-4a66-4f61-9e8c-456e232914f0
+		summarizeBy: none
+		sourceColumn: DIM_RATING.RATING_COLOR_HEX
+
+		annotation SummarizationSetBy = Automatic
+
+	column L1_VALUE
+		dataType: string
+		lineageTag: 51a48559-0258-4cf2-a16c-c95ab7bf4f25
+		summarizeBy: none
+		sourceColumn: L1_VALUE
+
+		annotation SummarizationSetBy = Automatic
+
+	partition E9_PCM_CHECKS_L2_CATEGORIES = m
+		mode: import
+		source =
+				let
+				    Source = E9_PCM_CHECK,
+				    #"Removed Other Columns" = Table.SelectColumns(Source,{"QUESTION", "RATING", "L2_ID", "RID_QUESTIONID"}),
+				    #"Changed Type1" = Table.TransformColumnTypes(#"Removed Other Columns",{{"L2_ID", type text}}),
+				    #"Filtered Rows" = Table.SelectRows(#"Changed Type1", each ([RATING] <> null)),
+				    #"Parsed JSON" = Table.TransformColumns(#"Filtered Rows",{{"L2_ID", Json.Document}}),
+				    #"Replaced Errors" = Table.ReplaceErrorValues(#"Parsed JSON", {{"L2_ID", null}}),
+				    #"Expanded L2_ID" = Table.ExpandListColumn(#"Replaced Errors", "L2_ID"),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Expanded L2_ID",{{"L2_ID", Int64.Type}}),
+				    #"Merged Queries1" = Table.NestedJoin(#"Changed Type", {"L2_ID"}, E9_DIM_RISK_CATEGORIES, {"L2_ID"}, "E9_DIM_RISK_CATEGORIES", JoinKind.LeftOuter),
+				    #"Expanded E10_DIM_RISK_CATEGORIES" = Table.ExpandTableColumn(#"Merged Queries1", "E9_DIM_RISK_CATEGORIES", {"L1_VALUE", "L2_VALUE", "L2_NUMBER"}, {"E9_DIM_RISK_CATEGORIES.L1_VALUE", "E9_DIM_RISK_CATEGORIES.L2_VALUE", "E9_DIM_RISK_CATEGORIES.L2_NUMBER"}),
+				    #"Removed Duplicates" = Table.Distinct(#"Expanded E10_DIM_RISK_CATEGORIES"),
+				    #"Merged Queries" = Table.NestedJoin(#"Removed Duplicates", {"RATING"}, E9_DIM_RATING, {"RATING"}, "DIM_RATING", JoinKind.LeftOuter),
+				    #"Expanded DIM_RATING" = Table.ExpandTableColumn(#"Merged Queries", "DIM_RATING", {"ORDER_ID", "RATING_COLOR_HEX"}, {"DIM_RATING.ORDER_ID", "DIM_RATING.RATING_COLOR_HEX"}),
+				    #"Renamed Columns" = Table.RenameColumns(#"Expanded DIM_RATING",{{"E9_DIM_RISK_CATEGORIES.L2_VALUE", "L2_VALUE"}, {"E9_DIM_RISK_CATEGORIES.L2_NUMBER", "L2_NUMBER"}, {"E9_DIM_RISK_CATEGORIES.L1_VALUE", "L1_VALUE"}})
+				in
+				    #"Renamed Columns"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,43 @@
+table GeneralInfo
+	lineageTag: a23f1898-adf8-48a4-8adc-ef9f35283418
+
+	column Declare
+		dataType: string
+		lineageTag: bf460eaa-be61-4d3c-8007-f8764649443c
+		summarizeBy: none
+		sourceColumn: Declare
+
+		annotation SummarizationSetBy = Automatic
+
+	column Copyright
+		dataType: string
+		lineageTag: 774ed4f2-1f92-4824-a05a-2e318de4bfe3
+		summarizeBy: none
+		sourceColumn: Copyright
+
+		annotation SummarizationSetBy = Automatic
+
+	column ReleasedVersion
+		dataType: string
+		lineageTag: bbb49ad2-8421-46d1-99a5-bfa71802b96f
+		summarizeBy: none
+		sourceColumn: ReleasedVersion
+
+		annotation SummarizationSetBy = Automatic
+
+	partition GeneralInfo = m
+		mode: import
+		source =
+				let
+				    Source = PowerPlatform.Dataflows(null),
+				    Workspaces = Source{[Id="Workspaces"]}[Data],
+				    #"b84ef42a-824e-4486-99b3-f30d1f16d9a8" = Workspaces{[workspaceId="b84ef42a-824e-4486-99b3-f30d1f16d9a8"]}[Data],
+				    #"d720cb6f-6772-4d61-b9e5-21a800f841c7" = #"b84ef42a-824e-4486-99b3-f30d1f16d9a8"{[dataflowId="d720cb6f-6772-4d61-b9e5-21a800f841c7"]}[Data],
+				    GeneralInfo_ = #"d720cb6f-6772-4d61-b9e5-21a800f841c7"{[entity="GeneralInfo",version=""]}[Data]
+				in
+				    GeneralInfo_
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
+

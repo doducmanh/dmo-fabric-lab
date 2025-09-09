@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "SemanticModel",
+    "displayName": "Product Compliance Maturity Checks (PCM Checks)"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "6b509526-dcc8-9d83-4811-8f28115d8a37"
+  }
+}

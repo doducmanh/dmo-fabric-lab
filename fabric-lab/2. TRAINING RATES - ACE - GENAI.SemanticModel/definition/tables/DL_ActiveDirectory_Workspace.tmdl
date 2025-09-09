@@ -1,0 +1,19 @@
+table DL_ActiveDirectory_Workspace
+	lineageTag: 2f478eb9-f695-4ae1-ac31-7d7eafb2472d
+
+	column DL_ActiveDirectory_Workspace
+		dataType: string
+		lineageTag: 41d0a08a-39d2-44d1-8962-d2811db1cdb0
+		summarizeBy: none
+		sourceColumn: DL_ActiveDirectory_Workspace
+
+		annotation SummarizationSetBy = Automatic
+
+	partition DL_ActiveDirectory_Workspace = m
+		mode: import
+		source = "Test" meta [IsParameterQuery=true, List={"Test", "Production"}, DefaultValue="Production", Type="Text", IsParameterQueryRequired=true]
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Text
+

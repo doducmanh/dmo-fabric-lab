@@ -1,0 +1,24 @@
+table E5_SORT_BY
+	lineageTag: 8dd67be7-004c-4743-be67-5bd14592d1fb
+
+	column MEASURE
+		dataType: string
+		lineageTag: fa36c2f4-a027-40b3-a615-f71443a0c5d4
+		summarizeBy: none
+		sourceColumn: MEASURE
+
+		annotation SummarizationSetBy = Automatic
+
+	partition E5_SORT_BY = m
+		mode: import
+		source =
+				let
+				    Source = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("i45W8ivNTUotUvBPU3BOLE4tVorViVYKyizOVgguSSxJzU3NKwGKxQIA", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [MEASURE = _t]),
+				    #"Changed Type" = Table.TransformColumnTypes(Source,{{"MEASURE", type text}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

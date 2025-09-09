@@ -1,0 +1,164 @@
+table ThemeFilter
+	lineageTag: fc639aab-1ebc-4b04-85a5-cf8c5a0c4315
+
+	column ThemeID
+		dataType: string
+		sourceProviderType: nvarchar(max)
+		lineageTag: 84578481-e14f-4ba6-8455-8328309baa2e
+		summarizeBy: none
+		sourceColumn: ThemeID
+
+		annotation SummarizationSetBy = Automatic
+
+	column Theme
+		dataType: string
+		sourceProviderType: nvarchar(max)
+		lineageTag: 28495504-69e9-4445-9b53-8661bf4494b0
+		summarizeBy: none
+		sourceColumn: Theme
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Theme Number'
+		dataType: int64
+		formatString: 0
+		sourceProviderType: bigint
+		lineageTag: 2af889d3-d34f-42d3-a2f1-41d7cb684e34
+		summarizeBy: sum
+		sourceColumn: Theme Number
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Bosch Logo'
+		dataType: string
+		sourceProviderType: nvarchar(max)
+		lineageTag: 06c8a7f0-02dc-49e2-bf2d-fa9e187f9148
+		summarizeBy: none
+		sourceColumn: Bosch Logo
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Font Reverse'
+		dataType: string
+		sourceProviderType: nvarchar(max)
+		lineageTag: d7e97d5a-ce70-47ab-adfa-9160e2e7a327
+		summarizeBy: none
+		sourceColumn: Font Reverse
+
+		annotation SummarizationSetBy = Automatic
+
+	column Font
+		dataType: string
+		sourceProviderType: nvarchar(max)
+		lineageTag: d1ddcd9a-038f-47fe-8c29-9a9cc327e747
+		summarizeBy: none
+		sourceColumn: Font
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Banner Color'
+		dataType: string
+		sourceProviderType: nvarchar(max)
+		lineageTag: dade3c4f-1a59-43ef-8ef2-7fd24c2a2e90
+		summarizeBy: none
+		sourceColumn: Banner Color
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Background Color'
+		dataType: string
+		sourceProviderType: nvarchar(max)
+		lineageTag: 23b54445-65a2-453a-9735-fc7eadffea17
+		summarizeBy: none
+		sourceColumn: Background Color
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Visual Background Color'
+		dataType: string
+		sourceProviderType: nvarchar(max)
+		lineageTag: c21e22e1-685a-4a11-8062-440989cef273
+		summarizeBy: none
+		sourceColumn: Visual Background Color
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Visual Border Color'
+		dataType: string
+		sourceProviderType: nvarchar(max)
+		lineageTag: 2ec956ff-666c-48d0-bbd5-7d3a9372da7d
+		summarizeBy: none
+		sourceColumn: Visual Border Color
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Shadow Color'
+		dataType: string
+		sourceProviderType: nvarchar(max)
+		lineageTag: 6da19817-2a35-4363-919f-a00bb070c0ee
+		summarizeBy: none
+		sourceColumn: Shadow Color
+
+		annotation SummarizationSetBy = Automatic
+
+	column arrow-left-frame
+		dataType: string
+		sourceProviderType: nvarchar(max)
+		lineageTag: e44c35f2-0afc-4608-a39b-301862b7a268
+		summarizeBy: none
+		sourceColumn: arrow-left-frame
+
+		annotation SummarizationSetBy = Automatic
+
+	column arrow-right-up-frame
+		dataType: string
+		sourceProviderType: nvarchar(max)
+		lineageTag: 006a68d3-5eb2-47ea-b8e4-e95275af2aa3
+		summarizeBy: none
+		sourceColumn: arrow-right-up-frame
+
+		annotation SummarizationSetBy = Automatic
+
+	column fullscreen-exit
+		dataType: string
+		sourceProviderType: nvarchar(max)
+		lineageTag: e36aa41c-ade4-4dd1-a990-0eb0dd35e846
+		summarizeBy: none
+		sourceColumn: fullscreen-exit
+
+		annotation SummarizationSetBy = Automatic
+
+	column fullscreen
+		dataType: string
+		sourceProviderType: nvarchar(max)
+		lineageTag: d48c1a38-5171-4020-99f1-02e1e00f778d
+		summarizeBy: none
+		sourceColumn: fullscreen
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Theme Icon'
+		dataType: string
+		sourceProviderType: nvarchar(max)
+		lineageTag: e2f5bdf7-798d-4481-91bb-da65ffa219a4
+		summarizeBy: none
+		sourceColumn: Theme Icon
+
+		annotation SummarizationSetBy = Automatic
+
+	partition ThemeFilter = m
+		mode: directQuery
+		source =
+				let
+				    Source = PowerPlatform.Dataflows(null),
+				    Workspaces = Source{[Id="Workspaces"]}[Data],
+				    #"b84ef42a-824e-4486-99b3-f30d1f16d9a8" = Workspaces{[workspaceId="b84ef42a-824e-4486-99b3-f30d1f16d9a8"]}[Data],
+				    #"d720cb6f-6772-4d61-b9e5-21a800f841c7" = #"b84ef42a-824e-4486-99b3-f30d1f16d9a8"{[dataflowId="d720cb6f-6772-4d61-b9e5-21a800f841c7"]}[Data],
+				    ThemeFilter_ = #"d720cb6f-6772-4d61-b9e5-21a800f841c7"{[entity="ThemeFilter",version=""]}[Data]
+				in
+				    ThemeFilter_
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

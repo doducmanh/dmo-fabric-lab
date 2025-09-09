@@ -1,0 +1,399 @@
+table 'Training Feedback Translated'
+	lineageTag: 8e381739-2604-4f89-8d65-876eb8ff787b
+
+	column ITEM_ID
+		dataType: string
+		lineageTag: a0d6ec57-cd83-4aa1-b8b0-21b04ac1484b
+		summarizeBy: none
+		sourceColumn: ITEM_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column ITEM_TYPE_ID
+		dataType: string
+		lineageTag: 8c303c28-4838-4fbc-b3e9-fbe74f44d47d
+		summarizeBy: none
+		sourceColumn: ITEM_TYPE_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column ITEM_GROUP
+		dataType: string
+		lineageTag: 636878cc-f802-4675-a04f-365bf3abf577
+		summarizeBy: none
+		sourceColumn: ITEM_GROUP
+
+		annotation SummarizationSetBy = Automatic
+
+	column PREFIX_ID
+		dataType: string
+		lineageTag: 97febf30-7f70-43aa-b270-8df06d975b68
+		summarizeBy: none
+		sourceColumn: PREFIX_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column PREFIX_TITLE
+		dataType: string
+		lineageTag: 4cd9d394-ac69-49cf-a119-5bf16592f6a6
+		summarizeBy: none
+		sourceColumn: PREFIX_TITLE
+
+		annotation SummarizationSetBy = Automatic
+
+	column ITEM_TITLE
+		dataType: string
+		lineageTag: 15a6eeae-16e8-4ce0-9d3c-d1434c8ad2fb
+		summarizeBy: none
+		sourceColumn: ITEM_TITLE
+
+		annotation SummarizationSetBy = Automatic
+
+	column SURVEY_ID
+		dataType: string
+		lineageTag: f8cdd250-efb6-4f06-9b05-79344ed43d65
+		summarizeBy: none
+		sourceColumn: SURVEY_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column SURVEY_NAME
+		dataType: string
+		lineageTag: ab8c793d-9ce3-4be1-acd0-ef38daa7cf23
+		summarizeBy: none
+		sourceColumn: SURVEY_NAME
+
+		annotation SummarizationSetBy = Automatic
+
+	column ACTIVE_SURVEY
+		dataType: string
+		lineageTag: ccf0de8b-b54f-4ecc-81ff-5a84bdb089af
+		summarizeBy: none
+		sourceColumn: ACTIVE_SURVEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column MEAN_SCORE
+		dataType: double
+		lineageTag: 58a43cf3-7e21-4d05-b10f-053f8c1e92b9
+		summarizeBy: sum
+		sourceColumn: MEAN_SCORE
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column COMPLETED_SURVEYS
+		dataType: int64
+		formatString: 0
+		lineageTag: e5be27e9-bf8f-499e-b535-87c238b8b95f
+		summarizeBy: sum
+		sourceColumn: COMPLETED_SURVEYS
+
+		annotation SummarizationSetBy = Automatic
+
+	column TOTAL_SURVEYS
+		dataType: int64
+		formatString: 0
+		lineageTag: e61c4243-21a0-4103-8e61-757a53ddb3b0
+		summarizeBy: sum
+		sourceColumn: TOTAL_SURVEYS
+
+		annotation SummarizationSetBy = Automatic
+
+	column FROM_DATE
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 693d3d3e-57d7-4d3f-8bd2-5ca61b7dc4b2
+		summarizeBy: none
+		sourceColumn: FROM_DATE
+
+		variation Variation
+			isDefault
+			relationship: 14240157-e2a4-40e4-9a4d-dddff3cb6088
+			defaultHierarchy: LocalDateTable_f3b15097-72a5-49ff-a1bd-4daf6980f361.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column TO_DATE
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 82643106-3a07-47b2-ba20-77d7d387e036
+		summarizeBy: none
+		sourceColumn: TO_DATE
+
+		variation Variation
+			isDefault
+			relationship: 77fb29ca-7a08-44fa-a7a2-3cc0c3c4ff4e
+			defaultHierarchy: LocalDateTable_9d2383f2-731f-4fed-9211-defc966b7a1e.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column ITEM_REVISION_DATE
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: ca499fee-c80e-453d-925b-1518442508fa
+		summarizeBy: none
+		sourceColumn: ITEM_REVISION_DATE
+
+		variation Variation
+			isDefault
+			relationship: 19d51f42-7c78-4a8d-8247-f986bbe4bbea
+			defaultHierarchy: LocalDateTable_816c5a14-a629-4f7a-aed4-97909fe4f57a.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column CLASSES
+		dataType: int64
+		formatString: 0
+		lineageTag: 7b99f30a-c88a-4087-b6eb-62c65eee9dc4
+		summarizeBy: sum
+		sourceColumn: CLASSES
+
+		annotation SummarizationSetBy = Automatic
+
+	column ITEM_MEAN_SCORE
+		dataType: double
+		lineageTag: 5b9a4d88-dde3-4262-b34f-86ddaf562eed
+		summarizeBy: sum
+		sourceColumn: ITEM_MEAN_SCORE
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column COMPLETED_ITEMS
+		dataType: int64
+		formatString: 0
+		lineageTag: eb210a08-9ac0-4066-b660-8e21a2a2322f
+		summarizeBy: sum
+		sourceColumn: COMPLETED_ITEMS
+
+		annotation SummarizationSetBy = Automatic
+
+	column TOTAL_ITEMS
+		dataType: int64
+		formatString: 0
+		lineageTag: 3ecee11d-e165-44ec-bead-c5b2f5d10777
+		summarizeBy: sum
+		sourceColumn: TOTAL_ITEMS
+
+		annotation SummarizationSetBy = Automatic
+
+	column PAGE
+		dataType: int64
+		formatString: 0
+		lineageTag: a58f645c-b313-4d72-9498-d4e71c4005b0
+		summarizeBy: sum
+		sourceColumn: PAGE
+
+		annotation SummarizationSetBy = Automatic
+
+	column PAGE_TITLE
+		dataType: string
+		lineageTag: a1565c2a-84fa-4b68-a933-5f0235ece00d
+		summarizeBy: none
+		sourceColumn: PAGE_TITLE
+
+		annotation SummarizationSetBy = Automatic
+
+	column PAGE_MEAN_SCORE
+		dataType: double
+		lineageTag: 160e063e-49e1-40c0-8bce-536b20538750
+		summarizeBy: sum
+		sourceColumn: PAGE_MEAN_SCORE
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column QUESTION
+		dataType: int64
+		formatString: 0
+		lineageTag: 3edbc739-d1e2-484a-aee3-bb471ff81924
+		summarizeBy: sum
+		sourceColumn: QUESTION
+
+		annotation SummarizationSetBy = Automatic
+
+	column QUESTION_TYPE
+		dataType: string
+		lineageTag: 0acd1b66-31b2-4fb5-99a1-7024b4253e8c
+		summarizeBy: none
+		sourceColumn: QUESTION_TYPE
+
+		annotation SummarizationSetBy = Automatic
+
+	column QUESTION_TEXT
+		dataType: string
+		lineageTag: b05418a1-5326-46c7-b1fc-5fb4e76fd984
+		summarizeBy: none
+		sourceColumn: QUESTION_TEXT
+
+		annotation SummarizationSetBy = Automatic
+
+	column ANSWER
+		dataType: string
+		lineageTag: 13515215-d3c4-4dfe-a125-a2d6dc691138
+		summarizeBy: none
+		sourceColumn: ANSWER
+
+		annotation SummarizationSetBy = Automatic
+
+	column GENAI_ANSWER_ORIG_LANG
+		dataType: string
+		lineageTag: d1830739-9136-4958-9b4d-b422c066fab0
+		summarizeBy: none
+		sourceColumn: GENAI_ANSWER_ORIG_LANG
+
+		annotation SummarizationSetBy = Automatic
+
+	column GENAI_ANSWER_TRANSLATION_ENG
+		dataType: string
+		lineageTag: 657b7cde-5a4f-49f1-823c-af232f1cddfa
+		summarizeBy: none
+		sourceColumn: GENAI_ANSWER_TRANSLATION_ENG
+
+		annotation SummarizationSetBy = Automatic
+
+	column GENAI_IS_RUBBISH
+		dataType: int64
+		formatString: 0
+		lineageTag: dbe549c9-009d-4d6d-97ba-b109e77e2db7
+		summarizeBy: sum
+		sourceColumn: GENAI_IS_RUBBISH
+
+		annotation SummarizationSetBy = Automatic
+
+	column TOTAL_RESPONDENTS
+		dataType: int64
+		formatString: 0
+		lineageTag: 6a498b21-934a-4d09-b0bf-7b28182f6396
+		summarizeBy: sum
+		sourceColumn: TOTAL_RESPONDENTS
+
+		annotation SummarizationSetBy = Automatic
+
+	column RESPONDENTS
+		dataType: int64
+		formatString: 0
+		lineageTag: ad59d5cf-5d54-45a0-ab2a-60e51756e7e6
+		summarizeBy: sum
+		sourceColumn: RESPONDENTS
+
+		annotation SummarizationSetBy = Automatic
+
+	column DISCOUNT_PERCENTAGE
+		dataType: double
+		lineageTag: 375b338b-5a39-4cd0-adc2-d7a8319b36e8
+		summarizeBy: sum
+		sourceColumn: DISCOUNT_PERCENTAGE
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column COMMENTS
+		dataType: string
+		lineageTag: 7c821402-b43d-4f28-8fb4-080f2b07bd83
+		summarizeBy: none
+		sourceColumn: COMMENTS
+
+		annotation SummarizationSetBy = Automatic
+
+	column GENAI_UNIQUE_ID
+		dataType: string
+		lineageTag: 7fc04841-0ee7-45fc-9779-089870468da8
+		summarizeBy: none
+		sourceColumn: GENAI_UNIQUE_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column BATCH_ID
+		dataType: string
+		lineageTag: 07be1c7e-64d4-4769-b237-7a134ba300f2
+		summarizeBy: none
+		sourceColumn: BATCH_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column BATCH_MONTH
+		dataType: int64
+		formatString: 0
+		lineageTag: f70c062b-4d46-4f48-97d3-67d21fad1ba7
+		summarizeBy: sum
+		sourceColumn: BATCH_MONTH
+
+		annotation SummarizationSetBy = Automatic
+
+	column BATCH_YEAR
+		dataType: int64
+		formatString: 0
+		lineageTag: 5d38ca57-cfb1-4ecb-9ac6-d2d1c050ba8c
+		summarizeBy: sum
+		sourceColumn: BATCH_YEAR
+
+		annotation SummarizationSetBy = Automatic
+
+	column EXPORT_DATE
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 7f6722ae-b17d-4756-a1ed-33ceee9b7835
+		summarizeBy: none
+		sourceColumn: EXPORT_DATE
+
+		variation Variation
+			isDefault
+			relationship: e9a4f9d4-716d-454a-a7a9-e950b265c867
+			defaultHierarchy: LocalDateTable_b6d4bbcf-679e-4685-8c7f-9e01268268cd.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'Score sentiment'
+		dataType: double
+		lineageTag: a5720444-f468-4859-9133-43c8c4176df4
+		summarizeBy: sum
+		sourceColumn: Score sentiment
+
+		changedProperty = DataType
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Sentiment Rating' =
+			SWITCH(TRUE(),
+			    ISBLANK('Training Feedback Translated'[Score sentiment]),"Unknown",
+			    'Training Feedback Translated'[Score sentiment] >= 0.7, "Positive",
+			    'Training Feedback Translated'[Score sentiment] >= 0.4, "Neutral",
+			    'Training Feedback Translated'[Score sentiment] >= 0,"Negative"
+			    )
+		lineageTag: 63854279-78dc-4e06-971d-69689536ccee
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Training Feedback Translated' = m
+		mode: import
+		source =
+				let
+				    Source = Excel.Workbook(Web.Contents("https://bosch-my.sharepoint.com/personal/dmo5hc_bosch_com/Documents/XAB3_TEAM/OTHERS/TRAINING_SURVEY_TRANSLATED.xlsx"), null, true),
+				    #"Export Worksheet1" = Source{[Name="Export Worksheet"]}[Data],
+				    #"Promoted Headers" = Table.PromoteHeaders(#"Export Worksheet1", [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"ITEM_ID", type text}, {"ITEM_TYPE_ID", type text}, {"ITEM_GROUP", type text}, {"PREFIX_ID", type text}, {"PREFIX_TITLE", type text}, {"ITEM_TITLE", type text}, {"SURVEY_ID", type text}, {"SURVEY_NAME", type text}, {"ACTIVE_SURVEY", type text}, {"MEAN_SCORE", type number}, {"COMPLETED_SURVEYS", Int64.Type}, {"TOTAL_SURVEYS", Int64.Type}, {"FROM_DATE", type date}, {"TO_DATE", type date}, {"ITEM_REVISION_DATE", type date}, {"CLASSES", Int64.Type}, {"ITEM_MEAN_SCORE", type number}, {"COMPLETED_ITEMS", Int64.Type}, {"TOTAL_ITEMS", Int64.Type}, {"PAGE", Int64.Type}, {"PAGE_TITLE", type text}, {"PAGE_MEAN_SCORE", type number}, {"QUESTION", Int64.Type}, {"QUESTION_TYPE", type text}, {"QUESTION_TEXT", type text}, {"ANSWER", type text}, {"GENAI_ANSWER_ORIG_LANG", type text}, {"GENAI_ANSWER_TRANSLATION_ENG", type text}, {"GENAI_IS_RUBBISH", Int64.Type}, {"TOTAL_RESPONDENTS", Int64.Type}, {"RESPONDENTS", Int64.Type}, {"DISCOUNT_PERCENTAGE", type number}, {"COMMENTS", type text}, {"GENAI_UNIQUE_ID", type text}, {"BATCH_ID", type text}, {"BATCH_MONTH", Int64.Type}, {"BATCH_YEAR", Int64.Type}, {"EXPORT_DATE", type date}}),
+				    #"Applied Score sentiment" = AIFunctions.PostProcess(Table.AddColumn(#"Changed Type", "Score sentiment", each #"Score sentiment"([GENAI_ANSWER_TRANSLATION_ENG], null)), "Score sentiment", "CognitiveServices.ScoreSentimenttexttext") meta [FunctionBrowser="TextAnalytics"]
+				in
+				    #"Applied Score sentiment"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

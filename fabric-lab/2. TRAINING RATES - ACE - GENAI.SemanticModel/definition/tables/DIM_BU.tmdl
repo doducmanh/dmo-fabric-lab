@@ -1,0 +1,69 @@
+table DIM_BU
+	lineageTag: 917de0b2-8820-4513-86a6-bdbd2ab5aba5
+
+	column ORG_AREA
+		dataType: string
+		lineageTag: 000f9130-0061-4c1d-863c-594326c4919f
+		summarizeBy: none
+		sourceColumn: ORG_AREA
+
+		annotation SummarizationSetBy = Automatic
+
+	column BU_EXTENDED
+		dataType: string
+		lineageTag: ac56e734-266d-44db-9b5c-75aeff1cde54
+		summarizeBy: none
+		sourceColumn: BU_EXTENDED
+
+		annotation SummarizationSetBy = Automatic
+
+	column DEPARTMENT
+		dataType: string
+		lineageTag: 94fd344d-72d0-4b40-a090-effbe8acf7d3
+		summarizeBy: none
+		sourceColumn: DEPARTMENT
+
+		annotation SummarizationSetBy = Automatic
+
+	column ORGANIZATION
+		dataType: string
+		lineageTag: 52307195-6e72-462b-a182-a3e343f11a40
+		summarizeBy: none
+		sourceColumn: ORGANIZATION
+
+		annotation SummarizationSetBy = Automatic
+
+	column ORGID
+		dataType: string
+		lineageTag: ba95b8f8-3d85-4ca7-99db-9fda71e7b93f
+		summarizeBy: none
+		sourceColumn: ORGID
+
+		annotation SummarizationSetBy = Automatic
+
+	partition DIM_BU = m
+		mode: import
+		source = ```
+				let
+				    Source = Oracle.Database(ServerName, [HierarchicalNavigation=true, 
+				    Query= "
+				SELECT
+				    DISTINCT
+				    ORG_AREA,
+				    BU_EXTENDED,
+				    DEPARTMENT,
+				    ORGANIZATION
+				FROM
+				    MARD_PCMS.X_IFR_TRAINM_ACE_EPIC6_TRAINING_RATE"]),
+				    #"Replaced Value" = Table.ReplaceValue(Source,"Ma","Ma/",Replacer.ReplaceText,{"ORG_AREA"}),
+				    #"Replaced Value1" = Table.ReplaceValue(#"Replaced Value",null," ",Replacer.ReplaceValue,{"ORGANIZATION"}),
+				    #"Added Custom" = Table.AddColumn(#"Replaced Value1", "ORGID", 
+				    each Text.Combine({[ORG_AREA], [BU_EXTENDED], [DEPARTMENT], [ORGANIZATION]}), type text)
+				in
+				    #"Added Custom"
+				```
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

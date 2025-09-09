@@ -1,0 +1,101 @@
+table Table
+	lineageTag: 807db58c-1eba-4a19-867d-0c26736a19f6
+
+	column GeographyKey
+		formatString: 0
+		lineageTag: 41181487-cf52-4afb-949b-9e5bcb33787b
+		summarizeBy: count
+		isNameInferred
+		sourceColumn: DimGeography[GeographyKey]
+
+		annotation SummarizationSetBy = Automatic
+
+	column City
+		lineageTag: 2850d653-a71c-4935-9755-cf3a190fb95e
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: DimGeography[City]
+
+		annotation SummarizationSetBy = Automatic
+
+	column StateProvinceCode
+		lineageTag: f2df5f11-41fc-4031-8a94-889788f7f4c3
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: DimGeography[StateProvinceCode]
+
+		annotation SummarizationSetBy = Automatic
+
+	column StateProvinceName
+		lineageTag: 6b117be6-2680-4f57-ae89-e27ae06467f8
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: DimGeography[StateProvinceName]
+
+		annotation SummarizationSetBy = Automatic
+
+	column CountryRegionCode
+		lineageTag: 0924ce06-3f7e-47b2-bf7d-3465c3b1f42c
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: DimGeography[CountryRegionCode]
+
+		annotation SummarizationSetBy = Automatic
+
+	column EnglishCountryRegionName
+		lineageTag: aca04f0e-6a78-4c2a-9b16-96522c51ecd7
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: DimGeography[EnglishCountryRegionName]
+
+		annotation SummarizationSetBy = Automatic
+
+	column SpanishCountryRegionName
+		lineageTag: e8c45000-beec-4178-afa1-2799d3e994dc
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: DimGeography[SpanishCountryRegionName]
+
+		annotation SummarizationSetBy = Automatic
+
+	column FrenchCountryRegionName
+		lineageTag: f030fd5f-4755-47cb-80a2-e1b1144d6c42
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: DimGeography[FrenchCountryRegionName]
+
+		annotation SummarizationSetBy = Automatic
+
+	column PostalCode
+		lineageTag: 49afe3f8-56d0-4804-ba62-df7ae795b625
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: DimGeography[PostalCode]
+
+		annotation SummarizationSetBy = Automatic
+
+	column SalesTerritoryKey
+		formatString: 0
+		lineageTag: a12a44c6-65a4-49fe-a660-ab0bcfdb15c0
+		summarizeBy: count
+		isNameInferred
+		sourceColumn: DimGeography[SalesTerritoryKey]
+
+		annotation SummarizationSetBy = Automatic
+
+	column IpAddressLocator
+		lineageTag: 0bee4926-e7fa-4a32-a429-cb2cdd043e3c
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: DimGeography[IpAddressLocator]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Table-498390b0-4227-4a24-8f7e-2c5f0e47c848 = calculated
+		mode: import
+		source = ```
+				FILTER(DimGeography, NOT DimGeography[CountryRegionCode] IN {"CA", "AU", "DE"}) 
+				```
+
+	annotation PBI_Id = fd4e26d59bc945e6a7f28435c51eb246
+

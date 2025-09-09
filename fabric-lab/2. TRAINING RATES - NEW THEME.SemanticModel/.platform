@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "SemanticModel",
+    "displayName": "2. TRAINING RATES - NEW THEME"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "4e867dfb-5b7c-928b-443f-1b54fe3b14a4"
+  }
+}

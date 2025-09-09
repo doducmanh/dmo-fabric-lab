@@ -1,0 +1,28 @@
+table L2R_VALID_YEAR
+	lineageTag: 1840ca76-5c5c-4a2d-b8a7-dc7912b1d3c6
+
+	measure PRESET_VALID_YEAR = IF(MAX(E9_DIM_RISK_CATEGORIES[VALID_YEAR]) = MAX(L2R_VALID_YEAR[VALID_YEAR]) , 1 , 0)
+		formatString: 0
+		lineageTag: a82b94f3-4614-4d0a-99b3-06aed19eef59
+
+	measure PRESET_VALID_YEAR_L2R =
+			MAX(E9_DISTINCT_PCM_CHECK_YEAR[PCM_CHECK_YEAR])
+			--IF(MAX(E9_DISTINCT_PCM_CHECK_YEAR[PCM_CHECK_YEAR]) = MAX(E9_PCM_CHECK[PCM_CHECK_YEAR]) , 1 , 0)
+		formatString: 0
+		lineageTag: b3c4b7b1-65af-4928-a608-977d7c14cf24
+
+	column VALID_YEAR
+		formatString: 0
+		lineageTag: b89bd625-fcef-46ea-aee1-ac127b32ce83
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: E9_DIM_RISK_CATEGORIES[VALID_YEAR]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition L2R_VALID_YEAR = calculated
+		mode: import
+		source = VALUES(E9_DIM_RISK_CATEGORIES[VALID_YEAR])
+
+	annotation PBI_Id = 197de6eeefa746c09705847fca2416c4
+

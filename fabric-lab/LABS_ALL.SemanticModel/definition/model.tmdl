@@ -1,0 +1,88 @@
+model Model
+	culture: en-US
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: en-US
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation PBI_QueryOrder = ["DimAccount","DimCurrency","DimCustomer","DimDate","DimDepartmentGroup","DimEmployee","DimGeography","DimOrganization","DimOrganization (2)","DimProduct","DimProductCategory","DimProductSubcategory","DimPromotion","DimReseller","DimSalesReason","DimSalesTerritory","DimScenario","FactAdditionalInternationalProductDescription","FactCallCenter","FactCurrencyRate","FactFinance","FactInternetSales","FactInternetSalesReason","FactProductInventory","FactResellerSales","FactSalesQuota","FactSurveyResponse","NewFactCurrencyRate","ProspectiveBuyer","_MEASURES","OneQ_Dashboard","PCMS_PRJ_TEAM","OneQ_Dev","vAssocSeqOrders","TEST_CASESENSITVE","TEST_CASESENSITVE_FACT","TEST_CASESENSITVE_FACT (2)","RangeStart","RangeEnd","PRServerName","PRDatabaseName","Query1"]
+
+annotation __PBI_TimeIntelligenceEnabled = 1
+
+annotation PBIDesktopVersion = 2.130.930.0 (24.06)
+
+ref table DateTableTemplate_2982f102-6e0a-4140-a35b-31046875a70a
+ref table DimAccount
+ref table DimCurrency
+ref table DimCustomer
+ref table LocalDateTable_43c29099-28e7-4f11-8912-9968520d2c6a
+ref table LocalDateTable_06a0a726-4549-4333-9d77-cee65cfb4532
+ref table DimDate
+ref table LocalDateTable_882af2be-9ac6-4732-be63-150a4b97ca28
+ref table DimDepartmentGroup
+ref table DimEmployee
+ref table LocalDateTable_d3180225-2d1e-4be5-a2d4-c70ea415e04c
+ref table LocalDateTable_4b3292ef-c6e8-4abc-b6b1-ef33799e4ab0
+ref table LocalDateTable_cc146d82-27b9-400a-8cd4-4fcb7e9468d7
+ref table LocalDateTable_a7cc3e39-a0af-4660-9f69-3332965d54a4
+ref table DimGeography
+ref table DimOrganization
+ref table DimProduct
+ref table LocalDateTable_5ccc7c6b-530b-430f-8ba6-0efdceaa857a
+ref table LocalDateTable_66aa3b1c-5615-479e-8274-df1a58f61619
+ref table DimProductCategory
+ref table DimProductSubcategory
+ref table DimPromotion
+ref table LocalDateTable_aac9e295-c798-4f4b-8225-c65cc6dbe9f2
+ref table LocalDateTable_c34eaf39-3597-4d0f-bdda-6cdb0b839834
+ref table DimReseller
+ref table DimSalesReason
+ref table DimSalesTerritory
+ref table DimScenario
+ref table FactAdditionalInternationalProductDescription
+ref table FactCallCenter
+ref table LocalDateTable_dfa068ad-57de-4591-837c-d3fa421973a1
+ref table FactCurrencyRate
+ref table LocalDateTable_1dde9c42-87f4-4873-9728-a86dbc638ea6
+ref table FactFinance
+ref table LocalDateTable_0716a2b0-4c80-47ac-aff9-e8aec1cec7d9
+ref table FactInternetSales
+ref table LocalDateTable_625ab1d6-2531-4aec-bf2c-ef103a46e8d9
+ref table LocalDateTable_70ec53ad-6a8e-403f-8f6d-d491af6cba00
+ref table LocalDateTable_de0be9f4-fa2d-4381-8a9a-b86e8f5f452d
+ref table FactInternetSalesReason
+ref table FactProductInventory
+ref table LocalDateTable_2508eccb-5f62-4221-b53a-7ec38816bb30
+ref table FactResellerSales
+ref table LocalDateTable_e95e3fdf-7c3d-473c-bcd7-259f382c32da
+ref table LocalDateTable_7949b730-7cc2-49fd-aca5-29e235b52c3e
+ref table LocalDateTable_9e5ca266-ccb1-41f2-84da-d715bc6b347f
+ref table FactSalesQuota
+ref table LocalDateTable_eaac8b4e-9b5d-44b7-bfd9-b00c16195160
+ref table FactSurveyResponse
+ref table LocalDateTable_63e3cae5-c39d-4c58-9964-352ff93497bf
+ref table NewFactCurrencyRate
+ref table LocalDateTable_b12728d9-53f4-4436-80b1-97c7f9f388a6
+ref table ProspectiveBuyer
+ref table LocalDateTable_2c340220-71b0-41b4-9597-20cd08e90e5e
+ref table _MEASURES
+ref table Parameter
+ref table OneQ_Dashboard
+ref table Table
+ref table 'Table 2'
+ref table PCMS_PRJ_TEAM
+ref table OneQ_Dev
+ref table SUMMARIZE_MAX
+ref table vAssocSeqOrders
+ref table TEST_CASESENSITVE
+ref table TEST_CASESENSITVE_FACT
+ref table 'TEST_CASESENSITVE_FACT (2)'
+ref table 'DimOrganization (2)'
+ref table Query1
+
+ref role Country
+ref role Untitled
+
+ref cultureInfo en-US
+

@@ -1,0 +1,43 @@
+table 'Last Refreshed Date'
+	isHidden
+	lineageTag: bb21441a-3deb-4817-bf1a-99bb91b48b3e
+
+	column 'Data Updated Text'
+		dataType: string
+		isHidden
+		lineageTag: 5e1b818c-78c6-414b-abd1-2012c4466794
+		summarizeBy: none
+		sourceColumn: Data Updated Text
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column DATA_UPDATED_TIME
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 0e08f42c-d6c1-4c58-b4c9-02ea5f7c4cca
+		summarizeBy: none
+		sourceColumn: DATA_UPDATED_TIME
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Last Refreshed Date' = m
+		mode: import
+		source = ```
+				let
+				    Source = Oracle.Database(ServerName, [HierarchicalNavigation=true, 
+				    Query="SELECT DATA_UPDATED_TIME
+				    FROM MARD_PCMS.X_IFR_PCMS_EPIC_REPORT_DETAILS
+				    WHERE EPIC_ID = 10"]),
+				    #"Added Custom" = Table.AddColumn(Source, "Data Updated Text", each "Data updated: " & DateTime.ToText([DATA_UPDATED_TIME], [Format="dd MMM yyyy HH:mm tt"]) & Character.FromNumber(160))
+				in
+				    #"Added Custom"
+				```
+
+	changedProperty = IsHidden
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
+

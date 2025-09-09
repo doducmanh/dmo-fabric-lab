@@ -1,0 +1,85 @@
+table ListOfMembers
+	lineageTag: b6cdd9bd-23ce-4161-9e00-755a58d216ec
+
+	column displayName
+		dataType: string
+		lineageTag: 44697285-10b3-41c7-8d56-ae6149fdd0ae
+		summarizeBy: none
+		sourceColumn: displayName
+
+		annotation SummarizationSetBy = Automatic
+
+	column mail
+		dataType: string
+		lineageTag: e8c722b8-1a4c-4c39-8beb-084b8cdd95dc
+		summarizeBy: none
+		sourceColumn: mail
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'displayName.1'
+		dataType: string
+		lineageTag: 45e58b6b-1ee0-47d3-be00-774dba6cc7cc
+		summarizeBy: none
+		sourceColumn: displayName.1
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'mail.1'
+		dataType: string
+		lineageTag: 182f505a-b17d-4549-b2fc-30067744e8c1
+		summarizeBy: none
+		sourceColumn: mail.1
+
+		annotation SummarizationSetBy = Automatic
+
+	column userPrincipalName
+		dataType: string
+		lineageTag: 669734a2-e958-4673-afb4-036737d33d5e
+		summarizeBy: none
+		sourceColumn: userPrincipalName
+
+		annotation SummarizationSetBy = Automatic
+
+	column sAMAccountName
+		dataType: string
+		lineageTag: 2c620cf3-bfd1-47c6-adf8-e7d4678e14dc
+		summarizeBy: none
+		sourceColumn: sAMAccountName
+
+		annotation SummarizationSetBy = Automatic
+
+	column distinguishedName
+		dataType: string
+		lineageTag: 16fa42e4-444c-45e1-876e-fc71e2b10241
+		summarizeBy: none
+		sourceColumn: distinguishedName
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'OE Extract'
+		dataType: string
+		lineageTag: 4df1fca6-a0e7-4d18-b289-a3cba072f99b
+		summarizeBy: none
+		sourceColumn: OE Extract
+
+		annotation SummarizationSetBy = Automatic
+
+	partition ListOfMembers = m
+		mode: import
+		source =
+				let
+				    WORKSPACE_ID = if DL_ActiveDirectory_Workspace = "Test" then "515614a6-02fa-4759-985f-b43ff63ff345" else "f80cb63f-a7d9-4cfa-888d-1b6a63e9306a",
+				    DATAFLOW_ID = if DL_ActiveDirectory_Workspace = "Test" then "d556c0db-e4db-4d3f-92d6-10efe9a814e0" else "ab7b470b-0f18-44d7-8b32-1004ad9b0d34",
+				    Source = PowerPlatform.Dataflows(null),
+				    Workspaces = Source{[Id="Workspaces"]}[Data],
+				    #"Workspace ID" = Workspaces{[workspaceId=WORKSPACE_ID]}[Data],
+				    #"Dataflow ID" = #"Workspace ID"{[dataflowId=DATAFLOW_ID]}[Data],
+				    ListOfMembers_ = #"Dataflow ID"{[entity="ListOfMembers",version=""]}[Data]
+				in
+				    ListOfMembers_
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

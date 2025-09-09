@@ -1,0 +1,65 @@
+table ThemeImages
+	lineageTag: 19214204-bfff-401a-aa51-9e2b8b228b3e
+
+	column Name
+		dataType: string
+		sourceProviderType: nvarchar(max)
+		lineageTag: c4ebe62e-4c11-48e6-b0d4-60f3186771c3
+		summarizeBy: none
+		sourceColumn: Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column Pic
+		dataType: string
+		sourceProviderType: nvarchar(max)
+		lineageTag: 9e638341-00ad-49e0-996a-c9fc169c3725
+		summarizeBy: none
+		sourceColumn: Pic
+
+		annotation SummarizationSetBy = Automatic
+
+	column Index
+		dataType: double
+		sourceProviderType: double
+		lineageTag: e52fef13-28b4-4062-8a65-6ff2fad28c3e
+		summarizeBy: sum
+		sourceColumn: Index
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Column = ThemeImages[Index] + 1
+		lineageTag: 268eaa38-3291-4e9e-b236-61da207e7d99
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column ManhTestTransform
+		dataType: string
+		lineageTag: a9239ba9-9ba1-46f4-92ac-b5e79f5cf745
+		summarizeBy: none
+		sourceColumn: ManhTestTransform
+
+		annotation SummarizationSetBy = Automatic
+
+	partition ThemeImages = m
+		mode: directQuery
+		source =
+				let
+				    Source = PowerPlatform.Dataflows(null),
+				    Workspaces = Source{[Id="Workspaces"]}[Data],
+				    #"b84ef42a-824e-4486-99b3-f30d1f16d9a8" = Workspaces{[workspaceId="b84ef42a-824e-4486-99b3-f30d1f16d9a8"]}[Data],
+				    #"d720cb6f-6772-4d61-b9e5-21a800f841c7" = #"b84ef42a-824e-4486-99b3-f30d1f16d9a8"{[dataflowId="d720cb6f-6772-4d61-b9e5-21a800f841c7"]}[Data],
+				    ThemeImages_ = #"d720cb6f-6772-4d61-b9e5-21a800f841c7"{[entity="ThemeImages",version=""]}[Data],
+				    #"Added Custom" = Table.AddColumn(ThemeImages_, "ManhTestTransform", each [Index] + 2)
+				in
+				    #"Added Custom"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

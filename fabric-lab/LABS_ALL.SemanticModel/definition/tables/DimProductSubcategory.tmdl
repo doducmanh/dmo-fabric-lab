@@ -1,0 +1,77 @@
+table DimProductSubcategory
+	lineageTag: 390e8cb3-b4e4-49c8-a09d-aa3776471e65
+
+	column ProductSubcategoryKey
+		dataType: int64
+		formatString: 0
+		lineageTag: 9330e3e7-a95d-42b5-8cf6-a4658ce6bc41
+		summarizeBy: none
+		sourceColumn: ProductSubcategoryKey
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column ProductSubcategoryAlternateKey
+		dataType: int64
+		formatString: 0
+		lineageTag: e584ea0f-079c-49cd-a1b9-3a44bc10b122
+		summarizeBy: count
+		sourceColumn: ProductSubcategoryAlternateKey
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column EnglishProductSubcategoryName
+		dataType: string
+		lineageTag: 7fef9ec8-2818-4579-962a-8f61cf631bce
+		summarizeBy: none
+		sourceColumn: EnglishProductSubcategoryName
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column SpanishProductSubcategoryName
+		dataType: string
+		lineageTag: 8a599d44-8ea1-4766-90f3-dce1e25d8e52
+		summarizeBy: none
+		sourceColumn: SpanishProductSubcategoryName
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column FrenchProductSubcategoryName
+		dataType: string
+		lineageTag: fe1ef37d-c564-4c65-a406-1e76d5b05451
+		summarizeBy: none
+		sourceColumn: FrenchProductSubcategoryName
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column ProductCategoryKey
+		dataType: int64
+		formatString: 0
+		lineageTag: 44969fab-5f09-43e2-95c9-e8a2e997d312
+		summarizeBy: none
+		sourceColumn: ProductCategoryKey
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	partition DimProductSubcategory-2ddf435f-2cd2-41ee-b827-c8963246a8f3 = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database(PRServerName, PRDatabaseName),
+				    dbo_DimProductSubcategory = Source{[Schema="dbo",Item="DimProductSubcategory"]}[Data]
+				in
+				    dbo_DimProductSubcategory
+
+	annotation PBI_ResultType = Table
+
