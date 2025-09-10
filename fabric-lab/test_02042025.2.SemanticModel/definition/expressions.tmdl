@@ -1,5 +1,0 @@
-expression 'Detect language' = AIFunctions.Contents(){[Key = "CognitiveServices.DetectLanguagetext"]}[Data]
-	lineageTag: 57780e1c-18ae-4204-b315-0defb725344b
-
-	annotation PBI_ResultType = Function
-

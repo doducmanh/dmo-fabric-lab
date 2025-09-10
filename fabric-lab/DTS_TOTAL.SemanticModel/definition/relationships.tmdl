@@ -1,7 +1,0 @@
-relationship 1102cf37-a28f-4728-8942-9f61eadd8526
-	crossFilteringBehavior: bothDirections
-	securityFilteringBehavior: none
-	toCardinality: many
-	fromColumn: 'Data 2'.'Buyer ID'
-	toColumn: Data.'Buyer ID'
-
