@@ -1,0 +1,109 @@
+table E10_UNPIVOT_PHASE
+	lineageTag: a3207e85-d3a8-4e91-a911-5e182a08174a
+
+	column RID
+		dataType: string
+		lineageTag: aae6bcf7-7bf5-4f87-8bd1-0959573c0db0
+		summarizeBy: none
+		sourceColumn: RID
+
+		annotation SummarizationSetBy = Automatic
+
+	column ID
+		dataType: string
+		lineageTag: e322e854-553d-4d19-883d-5d68053c1c62
+		summarizeBy: none
+		sourceColumn: ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column BU_CODE
+		dataType: string
+		lineageTag: 9f295ae4-1e66-48a0-964b-a343486fdac3
+		summarizeBy: none
+		sourceColumn: BU_CODE
+
+		annotation SummarizationSetBy = Automatic
+
+	column PC_CHECK_NAME
+		dataType: string
+		lineageTag: a193c17c-c0a5-4f16-a76e-707d53659f27
+		summarizeBy: none
+		sourceColumn: PC_CHECK_NAME
+
+		annotation SummarizationSetBy = Automatic
+
+	column PC_CHECK_YEAR
+		dataType: int64
+		formatString: 0
+		lineageTag: fd34a389-d848-4cf2-978e-7c476e11b4d9
+		summarizeBy: sum
+		sourceColumn: PC_CHECK_YEAR
+
+		annotation SummarizationSetBy = Automatic
+
+	column QUESTION_ID
+		dataType: string
+		lineageTag: cd8124ff-fd7d-419f-853d-c9c605db7c99
+		summarizeBy: none
+		sourceColumn: QUESTION_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column RATING
+		dataType: string
+		lineageTag: 342c2327-f9dc-47cb-99fa-65bbcf7e1641
+		summarizeBy: none
+		sourceColumn: RATING
+
+		annotation SummarizationSetBy = Automatic
+
+	column RID_QUESTIONID
+		dataType: string
+		lineageTag: b70cc7f5-7dec-4ef0-9f05-f7c1278d11de
+		summarizeBy: none
+		sourceColumn: RID_QUESTIONID
+
+		annotation SummarizationSetBy = Automatic
+
+	column PHASES
+		dataType: string
+		lineageTag: 42b5beb7-13af-4b7c-bed1-e2b848a71252
+		summarizeBy: none
+		sourceColumn: PHASES
+
+		annotation SummarizationSetBy = Automatic
+
+	column OE
+		dataType: string
+		lineageTag: e47fe981-70e5-45bf-95b5-4470d66ba7d1
+		summarizeBy: none
+		sourceColumn: OE
+
+		annotation SummarizationSetBy = Automatic
+
+	column COUNTRY_ISO_CODE
+		dataType: string
+		lineageTag: ff1b5b98-252b-4adb-8cfd-2f6b70c96b6a
+		summarizeBy: none
+		sourceColumn: COUNTRY_ISO_CODE
+
+		annotation SummarizationSetBy = Automatic
+
+	partition E10_UNPIVOT_PHASE = m
+		mode: import
+		source =
+				let
+				    Source = E10_PC_CHECKS,
+				    #"Removed Other Columns" = Table.SelectColumns(Source,{"RID", "ID", "OE", "BU_CODE", "COUNTRY_ISO_CODE", "PC_CHECK_NAME", "PC_CHECK_YEAR", "QUESTION_ID", "HLCP_PHASE_1", "HLCP_PHASE_2", "HLCP_PHASE_3", "HLCP_PHASE_4", "HLCP_PHASE_5", "RATING", "RID_QUESTIONID"}),
+				    #"Unpivoted Columns" = Table.UnpivotOtherColumns(#"Removed Other Columns", {"RID", "ID", "OE", "BU_CODE", "COUNTRY_ISO_CODE", "PC_CHECK_NAME", "PC_CHECK_YEAR", "QUESTION_ID", "RATING", "RID_QUESTIONID"}, "Attribute", "Value"),
+				    #"Renamed Columns" = Table.RenameColumns(#"Unpivoted Columns",{{"Attribute", "PHASES"}, {"Value", "VALUE"}}),
+				    #"Filtered Rows" = Table.SelectRows(#"Renamed Columns", each [VALUE] = "true"),
+				    #"Removed Columns" = Table.RemoveColumns(#"Filtered Rows",{"VALUE"})
+				in
+				    #"Removed Columns"
+
+	annotation PBI_ResultType = Exception
+
+	annotation PBI_NavigationStepName = Navigation
+

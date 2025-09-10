@@ -1,0 +1,136 @@
+table Sales
+	lineageTag: aa3cfbf3-538e-4ffe-8a3f-fe32713f171b
+
+	column 'Order Number'
+		dataType: string
+		lineageTag: a539a9f0-d42e-4c58-b2f4-98e2b7c99cc9
+		summarizeBy: none
+		sourceColumn: Order Number
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Order Date'
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 3a5eb9fb-ccf2-4fc5-85c1-0480f1696cb3
+		summarizeBy: none
+		sourceColumn: Order Date
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'Customer Name Index'
+		dataType: int64
+		formatString: 0
+		lineageTag: 81bea69b-ba37-43d9-86fc-62a55d7c4c51
+		summarizeBy: none
+		sourceColumn: Customer Name Index
+
+		annotation SummarizationSetBy = Automatic
+
+	column Channel
+		dataType: string
+		lineageTag: 4282e883-f212-4838-968b-d5b7ddbb6ed1
+		summarizeBy: none
+		sourceColumn: Channel
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Currency Code'
+		dataType: string
+		lineageTag: 992c8f81-212b-4e86-9127-e0695b8ca8cb
+		summarizeBy: none
+		sourceColumn: Currency Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Warehouse Code'
+		dataType: string
+		lineageTag: f9636c40-0ec1-4bda-9125-f5c9d8d6797e
+		summarizeBy: none
+		sourceColumn: Warehouse Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Delivery Region Index'
+		dataType: int64
+		formatString: 0
+		lineageTag: de7fa79d-b1d0-4c9e-977f-a24511c6be41
+		summarizeBy: none
+		sourceColumn: Delivery Region Index
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Product Description Index'
+		dataType: int64
+		formatString: 0
+		lineageTag: c879a92b-b838-40e8-bf61-6854a31e22f4
+		summarizeBy: none
+		sourceColumn: Product Description Index
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Order Quantity'
+		dataType: int64
+		formatString: 0
+		lineageTag: a5d94709-9942-4aae-b49e-073579344ae3
+		summarizeBy: sum
+		sourceColumn: Order Quantity
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Unit Price'
+		dataType: double
+		lineageTag: ec7bc045-6b68-4d10-84ca-c9563d9db31c
+		summarizeBy: sum
+		sourceColumn: Unit Price
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Revenue
+		dataType: double
+		lineageTag: 15f0c6c7-10d6-4fc3-8ff3-0e012d66fb34
+		summarizeBy: sum
+		sourceColumn: Revenue
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Total Unit Cost'
+		dataType: double
+		lineageTag: 99dd7f6c-5e7e-441e-9480-1b6936dca28e
+		summarizeBy: sum
+		sourceColumn: Total Unit Cost
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Customer Name' = LOOKUPVALUE( Customers[Customer Names] , Customers[Customer Index] , Sales[Customer Name Index] )
+		lineageTag: ed151e90-ae10-4ce5-b8e2-88d47bd370e5
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Sales-3b49caa2-1f9c-4ecc-a771-c9274fe4e941 = m
+		mode: import
+		queryGroup: 'Data Model'
+		source =
+				let
+				    Source = Excel.Workbook(File.Contents("D:\DOCUMENTS\DNA Enterprise\Financial Reporting Resources\Financial Reporting resource pack\Financial Dataset - Harsh.xlsx"), null, true),
+				    Sales_Data_Table = Source{[Item="Sales_Data",Kind="Table"]}[Data],
+				    #"Changed Type" = Table.TransformColumnTypes(Sales_Data_Table,{{"OrderNumber", type text}, {"OrderDate", type date}, {"Customer Name Index", Int64.Type}, {"Channel", type text}, {"Currency Code", type text}, {"Warehouse Code", type text}, {"Delivery Region Index", Int64.Type}, {"Product Description Index", Int64.Type}, {"Order Quantity", Int64.Type}, {"Unit Price", type number}, {"Line Total", type number}, {"Total Unit Cost", type number}}),
+				    #"Renamed Columns" = Table.RenameColumns(#"Changed Type",{{"OrderNumber", "Order Number"}, {"OrderDate", "Order Date"}, {"Line Total", "Revenue"}})
+				in
+				    #"Renamed Columns"
+
+	annotation PBI_Id = 005d062f-d7e1-4220-8be5-dd28fe58d1be
+
+	annotation LinkedQueryName = Sales
+
+	annotation PBI_ResultType = Table
+

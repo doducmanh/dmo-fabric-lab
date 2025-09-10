@@ -1,0 +1,364 @@
+table 'Training Survey'
+	lineageTag: da0ce510-ac49-4e15-a4bb-6b1430d20a41
+
+	column EXPORT_DATE
+		dataType: dateTime
+		formatString: dd/mm/yyyy
+		lineageTag: d0a0941c-fecf-4e67-b84a-4ad5943ee09e
+		summarizeBy: none
+		sourceColumn: EXPORT_DATE
+
+		variation Variation
+			isDefault
+			relationship: 4273bf6f-75de-4bca-8ece-63006490de37
+			defaultHierarchy: LocalDateTable_a4365c4e-158f-402b-9f68-5c28be20c133.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+		annotation PBI_FormatHint = {"isDateTimeCustom":true}
+
+	column ITEM_ID
+		dataType: string
+		lineageTag: d5689895-99db-4804-b8d6-0a23a2686d0b
+		summarizeBy: none
+		sourceColumn: ITEM_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column ITEM_TITLE
+		dataType: string
+		lineageTag: a2236827-b349-4701-abae-c52fe8773ab7
+		summarizeBy: none
+		sourceColumn: ITEM_TITLE
+
+		annotation SummarizationSetBy = Automatic
+
+	column ITEM_REVISION_DATE
+		dataType: dateTime
+		formatString: dddd\, d mmmm\, yyyy
+		lineageTag: d4812ea2-531e-44a8-9a53-590fa84d46f2
+		summarizeBy: none
+		sourceColumn: ITEM_REVISION_DATE
+
+		variation Variation
+			isDefault
+			relationship: 6e8f9132-4ab0-4f9d-af8f-b683a44df8c3
+			defaultHierarchy: LocalDateTable_84b7a5f5-0faf-41e7-be78-fa54ffe05aa3.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isDateTimeCustom":true}
+
+	column ORG_AREA
+		dataType: string
+		lineageTag: 0b3b7959-def4-4aba-a891-d4f7bdaa9642
+		summarizeBy: none
+		sourceColumn: ORG_AREA
+
+		annotation SummarizationSetBy = Automatic
+
+	column BU_EXTENDED
+		dataType: string
+		lineageTag: 9b1a9aa9-b1f0-416d-9fe2-c26c40ff6c6e
+		summarizeBy: none
+		sourceColumn: BU_EXTENDED
+
+		annotation SummarizationSetBy = Automatic
+
+	column CONTINENT_CODE
+		dataType: string
+		lineageTag: 7c353ac6-a8c9-40dd-b00b-1e7dda7919d3
+		summarizeBy: none
+		sourceColumn: CONTINENT_CODE
+
+		annotation SummarizationSetBy = Automatic
+
+	column CONTINENT
+		dataType: string
+		lineageTag: 48ddb746-8161-4d15-a6f2-5a66ab06d637
+		summarizeBy: none
+		sourceColumn: CONTINENT
+
+		annotation SummarizationSetBy = Automatic
+
+	column COUNTRY_GROUP_CODE
+		dataType: string
+		lineageTag: ac1e1de6-3792-4274-a2d8-6bf8f055bf7d
+		summarizeBy: none
+		sourceColumn: COUNTRY_GROUP_CODE
+
+		annotation SummarizationSetBy = Automatic
+
+	column COUNTRY_GROUP
+		dataType: string
+		lineageTag: 50519db2-c547-4d6c-93e9-cc618069ab6e
+		summarizeBy: none
+		sourceColumn: COUNTRY_GROUP
+
+		annotation SummarizationSetBy = Automatic
+
+	column COUNTRY
+		dataType: string
+		lineageTag: e299b7d1-cdfc-46a0-b5fa-107f850ab55a
+		summarizeBy: none
+		sourceColumn: COUNTRY
+
+		annotation SummarizationSetBy = Automatic
+
+	column COUNTRY_ISO_CODE
+		dataType: string
+		lineageTag: 69b473c4-54e4-4acc-9381-d9229cfff961
+		summarizeBy: none
+		sourceColumn: COUNTRY_ISO_CODE
+
+		annotation SummarizationSetBy = Automatic
+
+	column COUNTRY_DISPLAY_TEXT
+		dataType: string
+		lineageTag: c5ef5d04-55dd-4ad6-bb0a-fca4e469e5c0
+		summarizeBy: none
+		sourceColumn: COUNTRY_DISPLAY_TEXT
+
+		annotation SummarizationSetBy = Automatic
+
+	column ACTIVE_SURVEY
+		dataType: string
+		lineageTag: 8394fb44-8a39-4840-b61a-ffd67e60c878
+		summarizeBy: none
+		sourceColumn: ACTIVE_SURVEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column FROM_DATE
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 8a7f29b8-1888-4157-b5c0-ef91be9a627c
+		summarizeBy: none
+		sourceColumn: FROM_DATE
+
+		variation Variation
+			isDefault
+			relationship: 67cc2941-2b18-4f0b-9a01-f85794483cb3
+			defaultHierarchy: LocalDateTable_b990f395-b002-47e6-974b-7637864a0ae1.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column TO_DATE
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 12af3b07-5312-42fe-b7ac-1c5491aebf2e
+		summarizeBy: none
+		sourceColumn: TO_DATE
+
+		variation Variation
+			isDefault
+			relationship: 562fdc59-5084-48a3-89ff-82c336160901
+			defaultHierarchy: LocalDateTable_7209ad63-bde7-44e1-ada6-e5f5c8b7adde.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column MEAN_SCORE
+		dataType: double
+		lineageTag: 544cdbb0-5ff6-4bb1-bb2f-675beb45ef7c
+		summarizeBy: sum
+		sourceColumn: MEAN_SCORE
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column COMPLETED_SURVEYS
+		dataType: int64
+		formatString: 0
+		lineageTag: 1f44af78-e2f2-4b8b-9f57-b26c9b5f9eca
+		summarizeBy: sum
+		sourceColumn: COMPLETED_SURVEYS
+
+		annotation SummarizationSetBy = Automatic
+
+	column TOTAL_SURVEYS
+		dataType: int64
+		formatString: 0
+		lineageTag: f3040c94-d26b-47d3-a4e8-1ebd5edc0287
+		summarizeBy: sum
+		sourceColumn: TOTAL_SURVEYS
+
+		annotation SummarizationSetBy = Automatic
+
+	column ITEM_TYPE_ID
+		dataType: string
+		lineageTag: f5796b72-fed4-4cb9-9cdb-ce10071d1155
+		summarizeBy: none
+		sourceColumn: ITEM_TYPE_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column CLASSES
+		dataType: int64
+		formatString: 0
+		lineageTag: cee7e0ec-8d50-4929-a823-1f40f4c4f377
+		summarizeBy: sum
+		sourceColumn: CLASSES
+
+		annotation SummarizationSetBy = Automatic
+
+	column ITEM_MEAN_SCORE
+		dataType: double
+		lineageTag: 3260285d-977a-4f69-98c5-553de922592f
+		summarizeBy: sum
+		sourceColumn: ITEM_MEAN_SCORE
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column COMPLETED_ITEMS
+		dataType: int64
+		formatString: 0
+		lineageTag: 61228217-7508-4a3d-9943-a2a090abefe1
+		summarizeBy: sum
+		sourceColumn: COMPLETED_ITEMS
+
+		annotation SummarizationSetBy = Automatic
+
+	column TOTAL_ITEMS
+		dataType: int64
+		formatString: 0
+		lineageTag: 9a7b0f24-9768-4179-b972-b1a20090bf9f
+		summarizeBy: sum
+		sourceColumn: TOTAL_ITEMS
+
+		annotation SummarizationSetBy = Automatic
+
+	column PAGE
+		dataType: int64
+		formatString: 0
+		lineageTag: 22c9fa6d-1b70-4242-9086-be45e2abb17f
+		summarizeBy: sum
+		sourceColumn: PAGE
+
+		annotation SummarizationSetBy = Automatic
+
+	column PAGE_TITLE
+		dataType: string
+		lineageTag: 3485f4d5-ee67-4e62-b7dc-7b05fc526a95
+		summarizeBy: none
+		sourceColumn: PAGE_TITLE
+
+		annotation SummarizationSetBy = Automatic
+
+	column PAGE_MEAN_SCORE
+		dataType: string
+		lineageTag: b761a8ca-ea76-4883-bc5e-3b40f5f0b940
+		summarizeBy: none
+		sourceColumn: PAGE_MEAN_SCORE
+
+		annotation SummarizationSetBy = Automatic
+
+	column QUESTION
+		dataType: int64
+		formatString: 0
+		lineageTag: 6ba528a2-e7ef-41b2-a216-62920215bf97
+		summarizeBy: sum
+		sourceColumn: QUESTION
+
+		annotation SummarizationSetBy = Automatic
+
+	column QUESTION_TYPE
+		dataType: string
+		lineageTag: 1dd5500e-95c0-4c25-96d3-95a7db4227d6
+		summarizeBy: none
+		sourceColumn: QUESTION_TYPE
+
+		annotation SummarizationSetBy = Automatic
+
+	column QUESTION_TEXT
+		dataType: string
+		lineageTag: b315215a-081a-474f-a9ef-974be7cd8dae
+		summarizeBy: none
+		sourceColumn: QUESTION_TEXT
+
+		annotation SummarizationSetBy = Automatic
+
+	column ANSWER
+		dataType: string
+		lineageTag: c881fc19-b581-4882-8699-0bd7d319508b
+		summarizeBy: none
+		sourceColumn: ANSWER
+
+		annotation SummarizationSetBy = Automatic
+
+	column TOTAL_RESPONDENTS
+		dataType: int64
+		formatString: 0
+		lineageTag: 64912bdd-b3ec-4050-9698-14334b0908e1
+		summarizeBy: sum
+		sourceColumn: TOTAL_RESPONDENTS
+
+		annotation SummarizationSetBy = Automatic
+
+	column RESPONDENTS
+		dataType: int64
+		formatString: 0
+		lineageTag: b29bd646-09b0-4560-ae12-d4c09891a434
+		summarizeBy: sum
+		sourceColumn: RESPONDENTS
+
+		annotation SummarizationSetBy = Automatic
+
+	column DISCOUNT_PERCENTAGE
+		dataType: double
+		lineageTag: c81c700e-4ab4-4b80-98d1-4aac3fbc0135
+		summarizeBy: sum
+		sourceColumn: DISCOUNT_PERCENTAGE
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column COMMENTS
+		dataType: string
+		lineageTag: e9f22d91-0408-465f-8cac-7f62f52a1e0a
+		summarizeBy: none
+		sourceColumn: COMMENTS
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Detect language.Detected Language Name'
+		dataType: string
+		lineageTag: a76818ed-cbde-4efb-9363-8affc1788565
+		summarizeBy: none
+		sourceColumn: Detect language.Detected Language Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Detect language.Detected Language ISO Code'
+		dataType: string
+		lineageTag: dbdd26df-128f-4afb-98a8-90cbf7df432a
+		summarizeBy: none
+		sourceColumn: Detect language.Detected Language ISO Code
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Training Survey' = m
+		mode: import
+		source =
+				let
+				    Source = Excel.Workbook(Web.Contents("https://bosch-my.sharepoint.com/personal/dmo5hc_bosch_com/Documents/XAB3_TEAM/OTHERS/TRAINING_SURVEY_01012024_30062024.xlsx"), null, true),
+				    Sheet1_Sheet = Source{[Item="Sheet1",Kind="Sheet"]}[Data],
+				    #"Promoted Headers" = Table.PromoteHeaders(Sheet1_Sheet, [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"EXPORT_DATE", type date}, {"ITEM_ID", type text}, {"ITEM_TITLE", type text}, {"ITEM_REVISION_DATE", type datetime}, {"ORG_AREA", type text}, {"BU_EXTENDED", type text}, {"CONTINENT_CODE", type text}, {"CONTINENT", type text}, {"COUNTRY_GROUP_CODE", type text}, {"COUNTRY_GROUP", type text}, {"COUNTRY", type text}, {"COUNTRY_ISO_CODE", type text}, {"COUNTRY_DISPLAY_TEXT", type text}, {"ACTIVE_SURVEY", type text}, {"FROM_DATE", type date}, {"TO_DATE", type date}, {"MEAN_SCORE", type number}, {"COMPLETED_SURVEYS", Int64.Type}, {"TOTAL_SURVEYS", Int64.Type}, {"ITEM_TYPE_ID", type text}, {"CLASSES", Int64.Type}, {"ITEM_MEAN_SCORE", type number}, {"COMPLETED_ITEMS", Int64.Type}, {"TOTAL_ITEMS", Int64.Type}, {"PAGE", Int64.Type}, {"PAGE_TITLE", type text}, {"PAGE_MEAN_SCORE", type text}, {"QUESTION", Int64.Type}, {"QUESTION_TYPE", type text}, {"QUESTION_TEXT", type text}, {"ANSWER", type text}, {"TOTAL_RESPONDENTS", Int64.Type}, {"RESPONDENTS", Int64.Type}, {"DISCOUNT_PERCENTAGE", type number}, {"COMMENTS", type text}}),
+				    #"Applied Detect language" = AIFunctions.PostProcess(Table.AddColumn(#"Changed Type", "Detect language", each #"Detect language"([ANSWER])), "Detect language", "CognitiveServices.DetectLanguagetext") meta [FunctionBrowser="TextAnalytics"]
+				in
+				    #"Applied Detect language"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

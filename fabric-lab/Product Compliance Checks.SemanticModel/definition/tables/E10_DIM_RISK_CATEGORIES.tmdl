@@ -1,0 +1,107 @@
+table E10_DIM_RISK_CATEGORIES
+	lineageTag: 3871c3bb-4f27-4a16-a2f6-68eb1a8dec77
+
+	column L1_COLOR
+		dataType: string
+		lineageTag: eea73ace-ffad-4082-ba89-b8b1b7ec7429
+		summarizeBy: none
+		sourceColumn: L1_COLOR
+
+		annotation SummarizationSetBy = Automatic
+
+	column L0_ID
+		dataType: double
+		lineageTag: 58ed5c9a-b1e8-4475-a2a9-2c83d9f5da60
+		summarizeBy: none
+		sourceColumn: L0_ID
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column L0_VALUE
+		dataType: string
+		lineageTag: 0794a962-9841-4aa6-8cc4-d2092df49afa
+		summarizeBy: none
+		sourceColumn: L0_VALUE
+
+		annotation SummarizationSetBy = Automatic
+
+	column L1_ID
+		dataType: int64
+		formatString: 0
+		lineageTag: 7acbe236-a79a-42fa-b3dc-b591177c60fa
+		summarizeBy: none
+		sourceColumn: L1_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column L1_VALUE
+		dataType: string
+		lineageTag: 2bfd46cd-0871-4c3a-b954-84d506db0d0a
+		summarizeBy: none
+		sourceColumn: L1_VALUE
+
+		annotation SummarizationSetBy = Automatic
+
+	column L2_ID
+		dataType: double
+		lineageTag: 7c15376c-0c50-4eb2-9a67-0a880bea9798
+		summarizeBy: none
+		sourceColumn: L2_ID
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column L2_VALUE
+		dataType: string
+		lineageTag: 93f1111e-e0a8-47b7-8b49-edf5bba37eb7
+		summarizeBy: none
+		sourceColumn: L2_VALUE
+
+		annotation SummarizationSetBy = Automatic
+
+	column VALID_YEAR
+		dataType: int64
+		formatString: 0
+		lineageTag: fa3aec30-5816-47c9-9910-f36135d33dea
+		summarizeBy: none
+		sourceColumn: VALID_YEAR
+
+		annotation SummarizationSetBy = Automatic
+
+	column L2_NUMBER
+		dataType: string
+		lineageTag: f4258eb4-af09-45aa-8053-0ef253e2bc5e
+		summarizeBy: none
+		sourceColumn: L2_NUMBER
+
+		annotation SummarizationSetBy = Automatic
+
+	partition E10_DIM_RISK_CATEGORIES = m
+		mode: import
+		source = ```
+				let
+				    Source = Oracle.Database(ServerName, [HierarchicalNavigation=true, Query="
+				    SELECT 
+				        DECODE(L2_VALUE, 'Other', 999 , L0_ID) AS ""L0_ID"", 
+				        DECODE(L2_VALUE, 'Other', 'Other' , L0_VALUE) AS ""L0_VALUE"",
+				        DECODE(L2_VALUE, 'Other', 999 , L1_ID) AS ""L1_ID"", 
+				        DECODE(L2_VALUE, 'Other', 'Other' , L1_VALUE) AS ""L1_VALUE"", 
+				        DECODE(L2_VALUE, 'Other', '#808080' , L1_COLOR) AS ""L1_COLOR"",
+				        L2_ID, 
+				        L2_VALUE, 
+				        VALID_YEAR
+				    FROM MARD_PCMS.X_IFR_PCMS_LEVEL2_RISK_CATEGORIES"]),
+				    #"Changed Type" = Table.TransformColumnTypes(Source,{{"L1_ID", Int64.Type}}),
+				    #"Inserted Text Before Delimiter" = Table.AddColumn(#"Changed Type", "L2_NUMBER", each Text.BeforeDelimiter([L2_VALUE], " "), type text),
+				    #"Trimmed Text" = Table.TransformColumns(#"Inserted Text Before Delimiter",{{"L2_NUMBER", Text.Trim, type text}})
+				in
+				    #"Trimmed Text"
+				```
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
+

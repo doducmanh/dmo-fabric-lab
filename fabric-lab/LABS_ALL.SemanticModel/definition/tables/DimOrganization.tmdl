@@ -1,0 +1,67 @@
+table DimOrganization
+	lineageTag: c7d9f392-40a1-462c-af56-f3682894d2d1
+
+	column OrganizationKey
+		dataType: int64
+		formatString: 0
+		lineageTag: b1c093ad-3e18-45f4-9b51-f398bc7c5cbb
+		summarizeBy: none
+		sourceColumn: OrganizationKey
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column ParentOrganizationKey
+		dataType: int64
+		formatString: 0
+		lineageTag: dd2050c3-35ff-4f4e-98bb-79b3d6646fa1
+		summarizeBy: count
+		sourceColumn: ParentOrganizationKey
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column PercentageOfOwnership
+		dataType: string
+		lineageTag: c6ae89ab-6b30-44b0-8f3b-1f12644692c8
+		summarizeBy: none
+		sourceColumn: PercentageOfOwnership
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column OrganizationName
+		dataType: string
+		lineageTag: 9eb0c5aa-8d5c-4d02-bc5f-e7b1c58b9116
+		summarizeBy: none
+		sourceColumn: OrganizationName
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column CurrencyKey
+		dataType: int64
+		formatString: 0
+		lineageTag: f523bd15-5df7-43d3-a3e0-1f4a72f9b164
+		summarizeBy: none
+		sourceColumn: CurrencyKey
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	partition DimOrganization-6e116b13-b5b7-4cce-a0dd-18da7f36e98c = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database(PRServerName, PRDatabaseName),
+				    dbo_DimOrganization = Source{[Schema="dbo",Item="DimOrganization"]}[Data]
+				in
+				    dbo_DimOrganization
+
+	annotation PBI_ResultType = Table
+

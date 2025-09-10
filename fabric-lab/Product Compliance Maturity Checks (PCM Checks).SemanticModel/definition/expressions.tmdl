@@ -1,0 +1,14 @@
+expression ServerName = "REDLake_ZeusD_OpsDevSup_CI.world" meta [IsParameterQuery=true, List={"REDLake_ZeusD_OpsDevSup_CI.world", "REDLake_ZeusQ_OpsDevSup_CI.world", "REDLake_ZeusP_OpsDevSup_CI.world"}, DefaultValue="REDLake_ZeusD_OpsDevSup_CI.world", Type="Text", IsParameterQueryRequired=true]
+	lineageTag: 08a0d8cc-c27d-4e04-98a3-f1fc54163ee4
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Text
+
+expression DL_ActiveDirectory_Workspace = "Test" meta [IsParameterQuery=true, List={"Test", "Production"}, DefaultValue="Production", Type="Text", IsParameterQueryRequired=true]
+	lineageTag: 2ea47be2-ead9-43c9-9421-99f174d4aa75
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Text
+

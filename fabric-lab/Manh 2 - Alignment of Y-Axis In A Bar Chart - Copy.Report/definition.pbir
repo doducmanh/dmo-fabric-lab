@@ -1,0 +1,9 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definitionProperties/2.0.0/schema.json",
+  "version": "4.0",
+  "datasetReference": {
+    "byPath": {
+      "path": "../Manh 2 - Alignment of Y-Axis In A Bar Chart - Copy.SemanticModel"
+    }
+  }
+}

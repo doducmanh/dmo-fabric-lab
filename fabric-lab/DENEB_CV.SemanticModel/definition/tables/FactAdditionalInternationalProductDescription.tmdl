@@ -1,0 +1,39 @@
+table FactAdditionalInternationalProductDescription
+	lineageTag: e372fc47-2286-492f-8d94-28ae843e48e3
+
+	column ProductKey
+		dataType: int64
+		formatString: 0
+		lineageTag: 54ac1ed2-ef6d-4392-a1c8-838dbd8a6360
+		summarizeBy: count
+		sourceColumn: ProductKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column CultureName
+		dataType: string
+		lineageTag: d567550b-7255-4be9-9d55-fba6b1cd980f
+		summarizeBy: none
+		sourceColumn: CultureName
+
+		annotation SummarizationSetBy = Automatic
+
+	column ProductDescription
+		dataType: string
+		lineageTag: e7942132-8260-4875-bd0d-15a7502c2f9b
+		summarizeBy: none
+		sourceColumn: ProductDescription
+
+		annotation SummarizationSetBy = Automatic
+
+	partition FactAdditionalInternationalProductDescription = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("HC-C-006F8\XAB_MANH_DEV", "AdventureWorksDW2022"),
+				    dbo_FactAdditionalInternationalProductDescription = Source{[Schema="dbo",Item="FactAdditionalInternationalProductDescription"]}[Data]
+				in
+				    dbo_FactAdditionalInternationalProductDescription
+
+	annotation PBI_ResultType = Table
+

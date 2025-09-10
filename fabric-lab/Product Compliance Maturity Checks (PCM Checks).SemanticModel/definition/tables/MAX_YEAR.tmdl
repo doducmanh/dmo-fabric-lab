@@ -1,0 +1,24 @@
+table MAX_YEAR
+	lineageTag: 013b57be-6084-4911-bdc1-8908296df87c
+
+	column MAX_YEAR
+		dataType: string
+		lineageTag: 5a33ffdd-e93b-4ae5-938a-d568a34beba6
+		summarizeBy: none
+		sourceColumn: MAX_YEAR
+
+		annotation SummarizationSetBy = Automatic
+
+	partition MAX_YEAR = m
+		mode: import
+		source =
+				let
+				    Source = Oracle.Database(ServerName, [HierarchicalNavigation=true, Query="SELECT#(lf)    TO_DATE('31-12-' || (MAX(PCM_CHECK_YEAR) +2), 'DD-MM-YYYY') as MAX_YEAR#(lf)FROM#(lf)    MARD_PCMS.X_IFR_GRC_EPIC9_PCMC"]),
+				    MAX_YEAR1 = Source[MAX_YEAR]
+				in
+				    MAX_YEAR1
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = List
+

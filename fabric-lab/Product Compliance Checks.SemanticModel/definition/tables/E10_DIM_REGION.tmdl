@@ -1,0 +1,74 @@
+table E10_DIM_REGION
+	lineageTag: a8f03c9a-d491-4369-9673-e7e589fca908
+
+	column CONTINENT_CODE
+		dataType: string
+		lineageTag: 74ebeff1-c3d7-494c-a7e0-f6f4844513f7
+		summarizeBy: none
+		sourceColumn: CONTINENT_CODE
+
+		annotation SummarizationSetBy = Automatic
+
+	column CONTINENT
+		dataType: string
+		lineageTag: 4bc43c59-e3e6-4875-a1bb-19669884a858
+		summarizeBy: none
+		sourceColumn: CONTINENT
+
+		annotation SummarizationSetBy = Automatic
+
+	column COUNTRY_GROUP_CODE
+		dataType: string
+		lineageTag: 5f24e8ec-39e0-4ea3-a4c6-afcbc70de924
+		summarizeBy: none
+		sourceColumn: COUNTRY_GROUP_CODE
+
+		annotation SummarizationSetBy = Automatic
+
+	column COUNTRY_ISO_CODE
+		dataType: string
+		lineageTag: f60002c6-7395-4c9a-80c7-860ec0e57e05
+		summarizeBy: none
+		sourceColumn: COUNTRY_ISO_CODE
+
+		annotation SummarizationSetBy = Automatic
+
+	column COUNTRY_DISPLAY_TEXT
+		dataType: string
+		lineageTag: 0795ca08-41bc-4f85-9891-84a765535347
+		summarizeBy: none
+		sourceColumn: COUNTRY_DISPLAY_TEXT
+
+		annotation SummarizationSetBy = Automatic
+
+	column COUNTRY_GROUP
+		dataType: string
+		lineageTag: b4c3ea05-8ca0-4a82-aff5-0197b4ca74f7
+		summarizeBy: none
+		sourceColumn: COUNTRY_GROUP
+
+		annotation SummarizationSetBy = Automatic
+
+	partition E10_DIM_REGION = m
+		mode: import
+		source = ```
+				let
+				    Source = Oracle.Database(ServerName, [HierarchicalNavigation=true, Query="
+				    SELECT DISTINCT 
+				    COUNTRY_DISPLAY_TEXT,
+				    COUNTRY_ISO_CODE,
+				    COUNTRY_GROUP_CODE,
+				    COUNTRY_GROUP,
+				    CONTINENT_CODE,
+				    CONTINENT
+				    FROM MARD_PCMS.X_IFR_GRC_EPIC10_PCC"]),
+				    #"Removed Blank Rows" = Table.SelectRows(Source, each not List.IsEmpty(List.RemoveMatchingItems(Record.FieldValues(_), {"", null})))
+				
+				in
+				    #"Removed Blank Rows"
+				```
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
+

@@ -1,0 +1,49 @@
+model Model
+	culture: en-US
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: en-US
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation __PBI_TimeIntelligenceEnabled = 0
+
+annotation PBIDesktopVersion = 2.140.1205.0 (25.02)+2ab3defe107764e1cf486b42122d9362df7f34ea
+
+annotation PBI_QueryOrder = ["ServerName","DL_ActiveDirectory_Workspace","MAX_YEAR","MIN_YEAR","NUMBER_OF_CHECKS","NUMBER_OF_QUESTION","E9_THEME","GeneralInfo","ThemeFilter","Last Refreshed Date","ListOfMembers","E9_PCM_CHECK","E9_PCM_CHECK_UNPIVOT_BU","E9_DIM_DATE","E9_DIM_REGION","E9_DIM_BU","E9_PARA_PREVIOUS_YEAR","E9_SORT_BY","E9_SORT","E9_DIM_RISK_CATEGORIES","E9_PCM_CHECKS_L2_CATEGORIES","E9_DIM_RATING","RATING_ORDER","E9_DIM_LE","E9_PCM_LE_UNPIVOT","E9_PCM_LE_OE","E9_DIM_OE"]
+
+ref table GeneralInfo
+ref table ThemeFilter
+ref table E9_THEME
+ref table 'Last Refreshed Date'
+ref table ListOfMembers
+ref table E9_MEASURES
+ref table E9_PCM_CHECK
+ref table MAX_YEAR
+ref table MIN_YEAR
+ref table E9_DIM_DATE
+ref table E9_DIM_REGION
+ref table E9_PARA_PREVIOUS_YEAR
+ref table E9_DISTINCT_PCM_CHECK_YEAR
+ref table NUMBER_OF_CHECKS
+ref table NUMBER_OF_QUESTION
+ref table E9_SORT_BY
+ref table E9_SORT
+ref table E9_DIM_RISK_CATEGORIES
+ref table E9_PCM_CHECKS_L2_CATEGORIES
+ref table E9_DIM_RATING
+ref table RATING_ORDER
+ref table L2R_VALID_YEAR
+ref table E9_PCM_CHECK_UNPIVOT_BU
+ref table E9_DIM_BU
+ref table E9_DIM_LE
+ref table E9_PCM_LE_UNPIVOT
+ref table E9_ATTRIBUTE_LIST
+ref table TOOLTIP
+ref table E9_PCM_LE_OE
+ref table E9_DIM_OE
+
+ref role 'Organizational Role'
+
+ref cultureInfo en-US
+

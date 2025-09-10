@@ -1,0 +1,107 @@
+table FactSurveyResponse
+	lineageTag: 8f5adfa2-4058-4468-aeb4-c9250d9f3f08
+
+	column SurveyResponseKey
+		dataType: int64
+		formatString: 0
+		lineageTag: a78b4bb5-922e-4d43-96c4-0233c806aeb5
+		summarizeBy: count
+		sourceColumn: SurveyResponseKey
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column DateKey
+		dataType: int64
+		formatString: 0
+		lineageTag: d55ee35e-2aa1-4711-9aa0-2b8698dfc2cd
+		summarizeBy: none
+		sourceColumn: DateKey
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column CustomerKey
+		dataType: int64
+		formatString: 0
+		lineageTag: 00a4c3a2-6d82-4b6c-a11b-85ddc6647fb7
+		summarizeBy: none
+		sourceColumn: CustomerKey
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column ProductCategoryKey
+		dataType: int64
+		formatString: 0
+		lineageTag: e6cf52bc-68f1-40b7-9c60-7428666c0666
+		summarizeBy: count
+		sourceColumn: ProductCategoryKey
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column EnglishProductCategoryName
+		dataType: string
+		lineageTag: 028fdb4f-ad84-4680-a88c-373e909640c0
+		summarizeBy: none
+		sourceColumn: EnglishProductCategoryName
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column ProductSubcategoryKey
+		dataType: int64
+		formatString: 0
+		lineageTag: 1d560a77-d3f7-472d-ba39-c653a9cf3a14
+		summarizeBy: count
+		sourceColumn: ProductSubcategoryKey
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column EnglishProductSubcategoryName
+		dataType: string
+		lineageTag: a4aece76-286e-47c7-8614-8f7db100f58c
+		summarizeBy: none
+		sourceColumn: EnglishProductSubcategoryName
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Date
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: ab3bb2f2-1537-4e0b-bc9b-8d5c40c70793
+		summarizeBy: none
+		sourceColumn: Date
+
+		variation Variation
+			isDefault
+			relationship: 2cdf3e28-908c-4d9c-8edb-474263042a55
+			defaultHierarchy: LocalDateTable_63e3cae5-c39d-4c58-9964-352ff93497bf.'Date Hierarchy'
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	partition FactSurveyResponse-fa56ed59-e578-4705-8984-b9700e59bb83 = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database(PRServerName, PRDatabaseName),
+				    dbo_FactSurveyResponse = Source{[Schema="dbo",Item="FactSurveyResponse"]}[Data]
+				in
+				    dbo_FactSurveyResponse
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

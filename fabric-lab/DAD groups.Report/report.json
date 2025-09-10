@@ -1,0 +1,51 @@
+{
+  "config": "{\"version\":\"5.55\",\"themeCollection\":{\"baseTheme\":{\"name\":\"CY24SU06\",\"version\":\"5.55\",\"type\":2}},\"activeSectionIndex\":0,\"defaultDrillFilterOtherVisuals\":true,\"linguisticSchemaSyncVersion\":2,\"settings\":{\"useNewFilterPaneExperience\":true,\"allowChangeFilterTypes\":true,\"useStylableVisualContainerHeader\":true,\"queryLimitOption\":6,\"exportDataMode\":1,\"useDefaultAggregateDisplayName\":true,\"useEnhancedTooltips\":true},\"objects\":{\"section\":[{\"properties\":{\"verticalAlignment\":{\"expr\":{\"Literal\":{\"Value\":\"'Top'\"}}}}}],\"outspacePane\":[{\"properties\":{\"expanded\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}}]}}",
+  "layoutOptimization": 0,
+  "resourcePackages": [
+    {
+      "resourcePackage": {
+        "disabled": false,
+        "items": [
+          {
+            "name": "CY24SU06",
+            "path": "BaseThemes/CY24SU06.json",
+            "type": 202
+          }
+        ],
+        "name": "SharedResources",
+        "type": 2
+      }
+    }
+  ],
+  "sections": [
+    {
+      "config": "{}",
+      "displayName": "Active Directory source",
+      "displayOption": 1,
+      "filters": "[]",
+      "height": 900.00,
+      "name": "e466d2b7a25eb6d184a7",
+      "visualContainers": [
+        {
+          "config": "{\"name\":\"1874d5e33b8a0c54aadd\",\"layouts\":[{\"id\":0,\"position\":{\"x\":0,\"y\":0,\"width\":1182,\"height\":417,\"z\":1,\"tabOrder\":1}}],\"singleVisual\":{\"visualType\":\"card\",\"projections\":{\"Values\":[{\"queryRef\":\"Min(group.displayName)\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"g\",\"Entity\":\"group\",\"Type\":0}],\"Select\":[{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"g\"}},\"Property\":\"displayName\"}},\"Function\":2},\"Name\":\"Min(group.displayName)\",\"NativeReferenceName\":\"Count of displayName\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"g\"}},\"Property\":\"displayName\"}},\"Function\":2}}}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true}}",
+          "filters": "[]",
+          "height": 417.00,
+          "width": 1182.00,
+          "x": 0.00,
+          "y": 0.00,
+          "z": 1.00
+        },
+        {
+          "config": "{\"name\":\"a16fd13fa50c3c64d04a\",\"layouts\":[{\"id\":0,\"position\":{\"x\":0,\"y\":483.0693172718727,\"z\":0,\"width\":1181.8264108902272,\"height\":417.1152038436096,\"tabOrder\":0}}],\"singleVisual\":{\"visualType\":\"tableEx\",\"projections\":{\"Values\":[{\"queryRef\":\"group.group.member.displayName\"},{\"queryRef\":\"group.group.member.userPrincipalName\"},{\"queryRef\":\"group.securityPrincipal.sAMAccountName\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"g\",\"Entity\":\"group\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"g\"}},\"Property\":\"group.member.displayName\"},\"Name\":\"group.group.member.displayName\",\"NativeReferenceName\":\"group.member.displayName\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"g\"}},\"Property\":\"group.member.userPrincipalName\"},\"Name\":\"group.group.member.userPrincipalName\",\"NativeReferenceName\":\"group.member.userPrincipalName\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"g\"}},\"Property\":\"securityPrincipal.sAMAccountName\"},\"Name\":\"group.securityPrincipal.sAMAccountName\",\"NativeReferenceName\":\"securityPrincipal.sAMAccountName\"}],\"OrderBy\":[{\"Direction\":1,\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"g\"}},\"Property\":\"securityPrincipal.sAMAccountName\"}}}]},\"drillFilterOtherVisuals\":true,\"objects\":{\"columnWidth\":[{\"properties\":{\"value\":{\"expr\":{\"Literal\":{\"Value\":\"489.04284643735934D\"}}}},\"selector\":{\"metadata\":\"group.group.member.displayName\"}},{\"properties\":{\"value\":{\"expr\":{\"Literal\":{\"Value\":\"238.4502583906254D\"}}}},\"selector\":{\"metadata\":\"group.group.member.userPrincipalName\"}},{\"properties\":{\"value\":{\"expr\":{\"Literal\":{\"Value\":\"381.62757747295933D\"}}}},\"selector\":{\"metadata\":\"group.securityPrincipal.sAMAccountName\"}}],\"values\":[{\"properties\":{\"fontSize\":{\"expr\":{\"Literal\":{\"Value\":\"12D\"}}}}}]},\"vcObjects\":{\"title\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'OE'\"}}}}}],\"border\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 417.12,
+          "width": 1181.83,
+          "x": 0.00,
+          "y": 483.07,
+          "z": 0.00
+        }
+      ],
+      "width": 1600.00
+    }
+  ]
+}

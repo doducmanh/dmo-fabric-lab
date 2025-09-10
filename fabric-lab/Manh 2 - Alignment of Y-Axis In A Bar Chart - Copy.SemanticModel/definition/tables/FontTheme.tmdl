@@ -1,0 +1,32 @@
+table FontTheme
+	lineageTag: b5a3989d-dc58-419c-a2c5-54383200e278
+
+	column Theme
+		dataType: string
+		lineageTag: c36bd8e7-e310-45c8-bf6b-5267bc28a558
+		summarizeBy: none
+		sourceColumn: Theme
+
+		annotation SummarizationSetBy = Automatic
+
+	column Font
+		dataType: string
+		lineageTag: fdf7085d-1012-4907-aef8-1aa346a925a0
+		summarizeBy: none
+		sourceColumn: Font
+
+		annotation SummarizationSetBy = Automatic
+
+	partition FontTheme = m
+		mode: import
+		source =
+				let
+				    Source = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("i45W8slMzyhR0lFSdnMzMHBzU4rViVZySSzKhgkZGCjFxgIA", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [Theme = _t, Font = _t]),
+				    #"Changed Type" = Table.TransformColumnTypes(Source,{{"Theme", type text}, {"Font", type text}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
+

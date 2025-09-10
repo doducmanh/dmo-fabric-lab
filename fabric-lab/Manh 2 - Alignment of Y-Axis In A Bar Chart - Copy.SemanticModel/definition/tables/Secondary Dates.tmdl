@@ -1,0 +1,330 @@
+table 'Secondary Dates'
+	lineageTag: 67b30997-fb82-4c62-a894-73600c049744
+
+	column Date
+		formatString: Long Date
+		lineageTag: f94b9c12-d281-49a9-8a3c-f4c9faf41f73
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: Dates[Date]
+
+		changedProperty = DataType
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column Year
+		formatString: 0
+		lineageTag: a9cf7e55-23dd-4a16-b0f9-9d66bf94966a
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: Dates[Year]
+
+		annotation SummarizationSetBy = Automatic
+
+	column QuarterOfYear
+		formatString: 0
+		lineageTag: 33cb5b17-d6e4-407a-aef0-17ad4bddcf73
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: Dates[QuarterOfYear]
+
+		annotation SummarizationSetBy = Automatic
+
+	column MonthOfYear
+		formatString: 0
+		lineageTag: 9c5168ee-bab6-44f3-a2ef-e4b85c9dab35
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: Dates[MonthOfYear]
+
+		annotation SummarizationSetBy = Automatic
+
+	column DayOfMonth
+		formatString: 0
+		lineageTag: 040221cf-adad-495f-9869-0e7e2a3c8069
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: Dates[DayOfMonth]
+
+		annotation SummarizationSetBy = Automatic
+
+	column DateInt
+		formatString: 0
+		lineageTag: 046f9d12-dbff-4181-aad5-2aa3f2efac82
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: Dates[DateInt]
+
+		annotation SummarizationSetBy = Automatic
+
+	column DayOfWeekName
+		lineageTag: ca7e47f6-d056-4725-ad3f-db957f3f5f3f
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: Dates[DayOfWeekName]
+
+		annotation SummarizationSetBy = Automatic
+
+	column WeekEnding
+		formatString: General Date
+		lineageTag: 6baa1b3f-604a-41a1-beff-2156cd229592
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: Dates[WeekEnding]
+
+		annotation SummarizationSetBy = Automatic
+
+	column MonthnYear
+		formatString: 0
+		lineageTag: 0acbc292-48f4-4347-a94d-d9f56b6f27c6
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: Dates[MonthnYear]
+
+		annotation SummarizationSetBy = Automatic
+
+	column QuarternYear
+		formatString: 0
+		lineageTag: c8f2d810-8fdb-44f9-861d-510fbbbc2647
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: Dates[QuarternYear]
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Month Name'
+		lineageTag: a33ea04e-f8ec-416d-a490-b12778710bbd
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: Dates[Month Name]
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Month & Year'
+		lineageTag: 16f41253-f19b-48b0-be93-4c2453e26516
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: Dates[Month & Year]
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Quarter & Year'
+		lineageTag: d74c50cb-7b17-404d-a050-3c0c253d94b9
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: Dates[Quarter & Year]
+
+		annotation SummarizationSetBy = Automatic
+
+	column DayOfWeek
+		formatString: 0
+		lineageTag: a862c36e-73b8-4ea9-a2dc-304ccb9eab6f
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: Dates[DayOfWeek]
+
+		annotation SummarizationSetBy = Automatic
+
+	column MonthEnding
+		formatString: General Date
+		lineageTag: cc96de14-263f-44eb-b4d5-e1772fbde94d
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: Dates[MonthEnding]
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'ISO Weeknumber'
+		formatString: 0
+		lineageTag: 6aa4b3bb-448b-455f-b4a4-46adf8bed307
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: Dates[ISO Weeknumber]
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'ISO Year'
+		formatString: 0
+		lineageTag: 5b9ac9cd-bb6e-4f0c-8a3e-62d6322e4be5
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: Dates[ISO Year]
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'ISO Day of Year'
+		formatString: 0
+		lineageTag: c0ef7d21-6537-496b-92ae-25d213f337f7
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: Dates[ISO Day of Year]
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Week & Year'
+		lineageTag: 13d80ec7-bfa9-4ff0-a248-29f9977ecc87
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: Dates[Week & Year]
+
+		annotation SummarizationSetBy = Automatic
+
+	column WeeknYear
+		formatString: 0
+		lineageTag: 25541426-f186-4cd3-a0c5-d40746e18c7d
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: Dates[WeeknYear]
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Fiscal Year'
+		lineageTag: 6130c017-f6a1-42db-ae98-317537f5965a
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: Dates[Fiscal Year]
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Fiscal Quarter'
+		lineageTag: 2bc04981-0094-4a10-ae73-e08f6d92724d
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: Dates[Fiscal Quarter]
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Fiscal Period'
+		formatString: 0
+		lineageTag: 72a01556-2d01-4445-ad2e-d8b79c9a2722
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: Dates[Fiscal Period]
+
+		annotation SummarizationSetBy = Automatic
+
+	column IsAfterToday
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 0ace52dc-57e8-4019-8c96-ca41bad314cd
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: Dates[IsAfterToday]
+
+		annotation SummarizationSetBy = Automatic
+
+	column IsWorkingDay
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: cb128448-7af5-437c-b1d2-ec315f984a0d
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: Dates[IsWorkingDay]
+
+		annotation SummarizationSetBy = Automatic
+
+	column IsHoliday
+		lineageTag: ccd5f6c9-5f6a-41a9-a3ba-73952e37fc80
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: Dates[IsHoliday]
+
+		annotation SummarizationSetBy = Automatic
+
+	column IsBusinessDay
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 0ddef5de-2c3e-45ac-8873-0a3b0723c337
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: Dates[IsBusinessDay]
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Day Type'
+		lineageTag: f27f0abe-b871-40c2-b34c-beb79fc8d3ac
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: Dates[Day Type]
+
+		annotation SummarizationSetBy = Automatic
+
+	column WeekOffset
+		formatString: 0
+		lineageTag: 6c9274ed-0c56-4b81-b4c8-e8ecb8a20507
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: Dates[WeekOffset]
+
+		annotation SummarizationSetBy = Automatic
+
+	column MonthOffset
+		formatString: 0
+		lineageTag: ae4248e8-7122-4863-b8e8-732f4fd902dc
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: Dates[MonthOffset]
+
+		annotation SummarizationSetBy = Automatic
+
+	column QuarterOffset
+		formatString: 0
+		lineageTag: 0d011bd1-d9eb-4c69-b6b9-bb0e7e9aad72
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: Dates[QuarterOffset]
+
+		annotation SummarizationSetBy = Automatic
+
+	column YearOffset
+		formatString: 0
+		lineageTag: 10e94501-0b09-4ef7-aac9-5eff4b0f8e8c
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: Dates[YearOffset]
+
+		annotation SummarizationSetBy = Automatic
+
+	column FiscalYearOffset
+		formatString: 0
+		lineageTag: 6aabf587-4401-4760-a4a3-45a3416449e2
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: Dates[FiscalYearOffset]
+
+		annotation SummarizationSetBy = Automatic
+
+	column WeekCompleted
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 1fdb0f55-5b24-45f1-9e49-adbe049a79d8
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: Dates[WeekCompleted]
+
+		annotation SummarizationSetBy = Automatic
+
+	column MonthCompleted
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: a113b8c9-8162-482e-8acb-820fa63669d7
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: Dates[MonthCompleted]
+
+		annotation SummarizationSetBy = Automatic
+
+	column QuarterCompleted
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: dc6a04f5-7a2b-4a55-be77-18ec6a01cdb1
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: Dates[QuarterCompleted]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Secondary Dates-5f6fa69b-989d-43e9-b555-927b871ddcde' = calculated
+		mode: import
+		source =
+				
+				Dates
+
+	annotation PBI_Id = 8c8efbc3961d4da3bc5d446deb2d3e7e
+

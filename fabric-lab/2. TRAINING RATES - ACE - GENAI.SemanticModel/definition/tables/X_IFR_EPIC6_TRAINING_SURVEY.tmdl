@@ -1,0 +1,461 @@
+table X_IFR_EPIC6_TRAINING_SURVEY
+	lineageTag: 2888585f-7a96-45a4-9892-b52083f67ebe
+
+	column EXPORT_DATE
+		dataType: dateTime
+		formatString: Short Date
+		lineageTag: cfa1d214-2134-45f0-8f83-6b887e46e392
+		summarizeBy: none
+		sourceColumn: EXPORT_DATE
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column ITEM_ID
+		dataType: string
+		lineageTag: cd4e77dd-05ff-4557-b681-18210e842052
+		summarizeBy: none
+		sourceColumn: ITEM_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column ITEM_TITLE
+		dataType: string
+		lineageTag: b69a3281-4b5d-4f3b-94ef-3af0dad5d837
+		summarizeBy: none
+		sourceColumn: ITEM_TITLE
+
+		annotation SummarizationSetBy = Automatic
+
+	column ITEM_REVISION_DATE
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 5e5a2233-db13-4f6b-9957-c4b91cd8e14c
+		summarizeBy: none
+		sourceColumn: ITEM_REVISION_DATE
+
+		annotation SummarizationSetBy = Automatic
+
+	column ACTIVE_SURVEY
+		dataType: string
+		lineageTag: c5b8c4e9-4b03-4c82-b1d5-b602d7cce902
+		summarizeBy: none
+		sourceColumn: ACTIVE_SURVEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column FROM_DATE
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 161c9181-013f-42a1-890d-d61cceab416b
+		summarizeBy: none
+		sourceColumn: FROM_DATE
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column TO_DATE
+		dataType: dateTime
+		formatString: Short Date
+		lineageTag: 27e2d91b-fe2a-4395-90ff-bf4f68ceb883
+		summarizeBy: none
+		sourceColumn: TO_DATE
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column MEAN_SCORE
+		dataType: double
+		lineageTag: 5ad92c7e-e6ea-4bc3-959f-b49c59ee216e
+		summarizeBy: sum
+		sourceColumn: MEAN_SCORE
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column COMPLETED_SURVEYS
+		dataType: int64
+		formatString: 0
+		lineageTag: c0b60968-9806-4050-8f2e-33e9e714b5dc
+		summarizeBy: sum
+		sourceColumn: COMPLETED_SURVEYS
+
+		annotation SummarizationSetBy = Automatic
+
+	column TOTAL_SURVEYS
+		dataType: int64
+		formatString: 0
+		lineageTag: ff53d523-78ac-418c-b321-94e472df1470
+		summarizeBy: sum
+		sourceColumn: TOTAL_SURVEYS
+
+		annotation SummarizationSetBy = Automatic
+
+	column ITEM_TYPE_ID
+		dataType: string
+		lineageTag: b527d46d-87a0-46d8-bbe5-38c66b4991a3
+		summarizeBy: none
+		sourceColumn: ITEM_TYPE_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column CLASSES
+		dataType: int64
+		formatString: 0
+		lineageTag: e8fedd7f-48bc-40cf-9410-72b6cccd1f06
+		summarizeBy: sum
+		sourceColumn: CLASSES
+
+		annotation SummarizationSetBy = Automatic
+
+	column ITEM_MEAN_SCORE
+		dataType: double
+		lineageTag: 617f56ee-4781-45de-8e79-dec0f22df31a
+		summarizeBy: sum
+		sourceColumn: ITEM_MEAN_SCORE
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column COMPLETED_ITEMS
+		dataType: int64
+		formatString: 0
+		lineageTag: 5c7e3bd3-7c3e-4445-b712-802d53635d08
+		summarizeBy: sum
+		sourceColumn: COMPLETED_ITEMS
+
+		annotation SummarizationSetBy = Automatic
+
+	column TOTAL_ITEMS
+		dataType: int64
+		formatString: 0
+		lineageTag: 33c16137-80c0-483e-a98f-01990d823522
+		summarizeBy: sum
+		sourceColumn: TOTAL_ITEMS
+
+		annotation SummarizationSetBy = Automatic
+
+	column PAGE
+		dataType: int64
+		formatString: 0
+		lineageTag: c7c42ad7-b664-495f-b301-d4613cffea37
+		summarizeBy: sum
+		sourceColumn: PAGE
+
+		annotation SummarizationSetBy = Automatic
+
+	column PAGE_TITLE
+		dataType: string
+		lineageTag: e670261d-db41-4f41-961c-06e50d9fc48d
+		summarizeBy: none
+		sourceColumn: PAGE_TITLE
+
+		annotation SummarizationSetBy = Automatic
+
+	column PAGE_MEAN_SCORE
+		dataType: double
+		lineageTag: 735c51b2-b2e7-4318-8751-6e494bcd8f83
+		summarizeBy: sum
+		sourceColumn: PAGE_MEAN_SCORE
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column QUESTION
+		dataType: int64
+		formatString: 0
+		lineageTag: 4803e8e7-1d5c-4515-80b9-137126e50547
+		summarizeBy: sum
+		sourceColumn: QUESTION
+
+		annotation SummarizationSetBy = Automatic
+
+	column QUESTION_TYPE
+		dataType: string
+		lineageTag: b071b4b3-69a2-479a-aff7-191dec1659cb
+		summarizeBy: none
+		sourceColumn: QUESTION_TYPE
+
+		annotation SummarizationSetBy = Automatic
+
+	column QUESTION_TEXT
+		dataType: string
+		lineageTag: d362e82e-9145-446a-aed1-83d1bd3bd99a
+		summarizeBy: none
+		sourceColumn: QUESTION_TEXT
+		sortByColumn: QUESTION
+
+		changedProperty = SortByColumn
+
+		annotation SummarizationSetBy = Automatic
+
+	column ANSWER
+		dataType: string
+		lineageTag: 9eb28afe-da23-4d70-8c3a-083040f8dd87
+		summarizeBy: none
+		sourceColumn: ANSWER
+
+		annotation SummarizationSetBy = Automatic
+
+	column TOTAL_RESPONDENTS
+		dataType: int64
+		formatString: 0
+		lineageTag: 2fc36f8e-4843-443c-8f10-6e2945e1d7eb
+		summarizeBy: sum
+		sourceColumn: TOTAL_RESPONDENTS
+
+		annotation SummarizationSetBy = Automatic
+
+	column RESPONDENTS
+		dataType: int64
+		formatString: 0
+		lineageTag: 37d943ae-1ed7-444f-bdfd-e4cf73cac65b
+		summarizeBy: sum
+		sourceColumn: RESPONDENTS
+
+		annotation SummarizationSetBy = Automatic
+
+	column DISCOUNT_PERCENTAGE
+		dataType: double
+		lineageTag: 4446a5ff-e709-47ab-86ec-f0d2248b4b09
+		summarizeBy: sum
+		sourceColumn: DISCOUNT_PERCENTAGE
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column COMMENTS
+		dataType: string
+		lineageTag: 81ede5be-1c53-43a0-9c91-702c952edbb4
+		summarizeBy: none
+		sourceColumn: COMMENTS
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Year Month'
+		dataType: string
+		lineageTag: 4fc87b4a-718c-4c97-8e37-38d5daa6e302
+		summarizeBy: none
+		sourceColumn: Year Month
+
+		annotation SummarizationSetBy = Automatic
+
+	column ROWID
+		dataType: string
+		lineageTag: 611f6bce-9dd4-4d77-8cd7-55cc01d1d5ac
+		summarizeBy: none
+		sourceColumn: ROWID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'RATING NUMBER'
+		dataType: string
+		lineageTag: c2d403c6-bd7f-488e-b03a-6996cb68568a
+		summarizeBy: none
+		sourceColumn: RATING NUMBER
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'QUESTION COMBINE'
+		dataType: string
+		lineageTag: bef9124b-810d-457e-8f90-175b574a59a5
+		summarizeBy: none
+		sourceColumn: QUESTION COMBINE
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'RATING TEXT'
+		dataType: string
+		lineageTag: e2592e98-4862-4066-9ec9-d507c569206a
+		summarizeBy: none
+		sourceColumn: RATING TEXT
+		sortByColumn: 'RATING NUMBER'
+
+		changedProperty = SortByColumn
+
+		annotation SummarizationSetBy = Automatic
+
+	column ITEM_TITLE_SHORT
+		dataType: string
+		lineageTag: 6e338aef-cdbb-4007-9aae-e370b2921b01
+		summarizeBy: none
+		sourceColumn: ITEM_TITLE_SHORT
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Year Month 2'
+		dataType: string
+		lineageTag: f7dd797a-4fbe-439c-a2dd-77d146252db2
+		summarizeBy: none
+		sourceColumn: Year Month 2
+		sortByColumn: 'Year Month'
+
+		changedProperty = SortByColumn
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Quarter Year'
+		dataType: string
+		lineageTag: 46128b43-a1ed-4b45-82d2-28320388ea91
+		summarizeBy: none
+		sourceColumn: Quarter Year
+
+		annotation SummarizationSetBy = Automatic
+
+	column ANSWER_TEXT
+		dataType: string
+		lineageTag: be9874df-6cf2-4cfc-a7a3-c10a797af8cf
+		summarizeBy: none
+		sourceColumn: ANSWER_TEXT
+
+		annotation SummarizationSetBy = Automatic
+
+	column Year
+		dataType: string
+		lineageTag: 1bf874c9-e034-4b60-8ade-2be1dd3c77e0
+		summarizeBy: none
+		sourceColumn: Year
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Quarter nunmber'
+		dataType: int64
+		formatString: 0
+		lineageTag: 68489825-7539-4fa9-b60b-7e92637158b3
+		summarizeBy: sum
+		sourceColumn: Quarter nunmber
+
+		annotation SummarizationSetBy = Automatic
+
+	column Month
+		dataType: int64
+		formatString: 0
+		lineageTag: a90d937d-33b1-468d-b987-360669f53287
+		summarizeBy: sum
+		sourceColumn: Month
+
+		annotation SummarizationSetBy = Automatic
+
+	column ITEM_GROUP
+		dataType: string
+		lineageTag: 971bdcdb-f614-4a99-84c1-f64615c561c0
+		summarizeBy: none
+		sourceColumn: ITEM_GROUP
+
+		annotation SummarizationSetBy = Automatic
+
+	column PREFIX_ID
+		dataType: string
+		lineageTag: 732e89d6-6a07-4465-b7ba-35371cf71f96
+		summarizeBy: none
+		sourceColumn: PREFIX_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column PREFIX_TITLE
+		dataType: string
+		lineageTag: c30625d5-b026-4338-ae2d-dc67afbee6ac
+		summarizeBy: none
+		sourceColumn: PREFIX_TITLE
+
+		annotation SummarizationSetBy = Automatic
+
+	column SURVEY_ID
+		dataType: string
+		lineageTag: 34cf565e-2e2e-479f-a676-381e671cd155
+		summarizeBy: none
+		sourceColumn: SURVEY_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column SURVEY_NAME
+		dataType: string
+		lineageTag: 73143e5d-74f2-4df0-8afa-e790ec17468a
+		summarizeBy: none
+		sourceColumn: SURVEY_NAME
+
+		annotation SummarizationSetBy = Automatic
+
+	partition X_IFR_EPIC6_TRAINING_SURVEY = m
+		mode: import
+		source = ```
+				let
+				    NumberOfRow = if RowLimit > 0 then " FETCH FIRST " & Number.ToText(RowLimit) & " ROWS ONLY" else "",
+				    Source = Oracle.Database(ServerName, [HierarchicalNavigation=true, 
+				    Query= "SELECT
+				    ITEM_ID,
+				    ITEM_TYPE_ID,
+				    ITEM_GROUP,
+				    PREFIX_ID,
+				    PREFIX_TITLE,
+				    ITEM_TITLE,
+				    SURVEY_ID,
+				    SURVEY_NAME,
+				    ACTIVE_SURVEY,
+				    MEAN_SCORE,
+				    COMPLETED_SURVEYS,
+				    TOTAL_SURVEYS,
+				    FROM_DATE,
+				    TO_DATE,
+				    ITEM_REVISION_DATE,
+				    CLASSES,
+				    ITEM_MEAN_SCORE,
+				    COMPLETED_ITEMS,
+				    TOTAL_ITEMS,
+				    PAGE,
+				    PAGE_TITLE,
+				    PAGE_MEAN_SCORE,
+				    QUESTION,
+				    QUESTION_TYPE,
+				    QUESTION_TEXT,
+				    ANSWER,
+				    TOTAL_RESPONDENTS,
+				    RESPONDENTS,
+				    DISCOUNT_PERCENTAGE,
+				    COMMENTS,
+				    EXPORT_DATE
+				FROM
+				    MARD_PCMS.X_IFR_TRAINM_ACE_EPIC6_TRAINING_SURVEY" & NumberOfRow]),
+				    #"Changed Type1" = Table.TransformColumnTypes(Source,{{"FROM_DATE", type date}, {"TO_DATE", type date}, {"EXPORT_DATE", type date}}),
+				    #"Added Custom Column" = Table.AddColumn(#"Changed Type1", "Year Month", each Text.Combine({Date.ToText([FROM_DATE], "yyyy"), Date.ToText([FROM_DATE], "MM")}), type text),
+				    #"Added Custom" = Table.AddColumn(#"Added Custom Column", "Custom", each if [QUESTION_TYPE]= "RATING SCALE" then if
+				    Text.Middle([ANSWER], 0, 1) >= "0" and Text.Middle([ANSWER], 0, 1) <= "9" then Text.Start([ANSWER], 1) else "N/A" else null , type text),
+				    #"Renamed Columns" = Table.RenameColumns(#"Added Custom",{{"Custom", "RATING NUMBER"}}),
+				    #"Inserted Text After Delimiter" = Table.AddColumn(#"Renamed Columns", "Text After Delimiter", each if [QUESTION_TYPE]= "RATING SCALE" then if 
+				    Text.Middle([ANSWER], 0, 1) >= "0" and Text.Middle([ANSWER], 0, 1) <= "9" then Text.AfterDelimiter([ANSWER], "- ") else  "N/A" else  null, type text),
+				    #"Renamed Columns1" = Table.RenameColumns(#"Inserted Text After Delimiter",{{"Text After Delimiter", "RATING TEXT"}}),
+				    #"Added Custom2" = Table.AddColumn(#"Renamed Columns1", "ANSWER_TEXT", each if [QUESTION_TYPE]= "RATING SCALE" then if 
+				    Text.Middle([ANSWER], 0, 1) >= "0" and Text.Middle([ANSWER], 0, 1) <= "9" then Text.AfterDelimiter([ANSWER], "- ") else  "N/A" else  [ANSWER], type text),
+				    #"Inserted Merged Column" = Table.AddColumn(#"Added Custom2", "QUESTION COMBINE", each Text.Combine({Text.From([QUESTION], "en-US"), [QUESTION_TEXT]}, ". "), type text),
+				    #"Inserted Text Between Delimiters" = Table.AddColumn(#"Inserted Merged Column", "Text Between Delimiters", each Text.BetweenDelimiters([ITEM_TITLE], "[", "]"), type text),
+				    #"Added Prefix" = Table.TransformColumns(#"Inserted Text Between Delimiters", {{"Text Between Delimiters", each "[" & _, type text}}),
+				    #"Added Suffix" = Table.TransformColumns(#"Added Prefix", {{"Text Between Delimiters", each _ & "]", type text}}),
+				    #"Renamed Columns2" = Table.RenameColumns(#"Added Suffix",{{"Text Between Delimiters", "ITEM_TITLE_SHORT"}}),
+				    #"Capitalized Each Word" = Table.TransformColumns(#"Renamed Columns2",{{"QUESTION_TYPE", Text.Proper, type text}}),
+				    #"Added Custom Column 2" = Table.AddColumn(#"Capitalized Each Word", "Year Month 2", each if Date.ToText([FROM_DATE], "yyyy") = Date.ToText([TO_DATE], "yyyy") and Date.ToText([FROM_DATE], "MM") = Date.ToText([TO_DATE], "MM")
+				                        then Text.Combine({Date.ToText([FROM_DATE], "MM"),"." , Date.ToText([FROM_DATE], "yyyy")}) 
+				                            else if [TO_DATE] = null 
+				                                then Text.Combine({Date.ToText([FROM_DATE], "MM"),"." , Date.ToText([FROM_DATE], "yyyy")})
+				                                    else if [FROM_DATE] = null 
+				                                    then null else Text.Combine({Date.ToText([FROM_DATE], "MM"),"." , Date.ToText([FROM_DATE], "yyyy")," - ", Date.ToText([TO_DATE], "MM"),"." , Date.ToText([TO_DATE], "yyyy")}), type text ),
+				    #"Added Custom1" = Table.AddColumn(#"Added Custom Column 2", "ROWID", each Text.Combine({Date.ToText([FROM_DATE], "yyyy"), Date.ToText([FROM_DATE], "MM"),
+				    Date.ToText([TO_DATE], "yyyy"), Date.ToText([TO_DATE], "MM"), [ITEM_ID]}), type text),
+				    #"Added quarter column" = Table.AddColumn(#"Added Custom1", "Quarter Year", each Text.Combine({"Q" & Text.From(Date.QuarterOfYear([FROM_DATE])) & "-" & Text.From(Date.Year([FROM_DATE]))}), type text),
+				    #"Added Custom3" = Table.AddColumn(#"Added quarter column", "Year", each Text.From(Date.Year([FROM_DATE]))),
+				    #"Added Custom4" = Table.AddColumn(#"Added Custom3", "Quarter nunmber", each Date.QuarterOfYear([FROM_DATE]), Int64.Type),
+				    #"Added Custom5" = Table.AddColumn(#"Added Custom4", "Month", each Date.Month([FROM_DATE]), Int64.Type)
+				in
+				    #"Added Custom5"
+				```
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
+

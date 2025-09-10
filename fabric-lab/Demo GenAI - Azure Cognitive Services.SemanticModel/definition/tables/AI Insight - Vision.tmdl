@@ -1,0 +1,80 @@
+table 'AI Insight - Vision'
+	excludeFromModelRefresh
+	lineageTag: 36b718a1-ea48-4ec9-a0f7-e864f689e8ee
+
+	column Index
+		dataType: int64
+		formatString: 0
+		lineageTag: b0d4f725-3346-4a10-a115-806b22f68fad
+		summarizeBy: sum
+		sourceColumn: Index
+
+		annotation SummarizationSetBy = Automatic
+
+	column URL
+		dataType: string
+		lineageTag: 1247ca91-9db9-4431-8c00-cf2344086bfe
+		dataCategory: ImageUrl
+		summarizeBy: none
+		sourceColumn: URL
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Tag images.Tags'
+		dataType: string
+		lineageTag: 5d6ff92a-0d8d-43e3-a2e9-feccdac47e1b
+		summarizeBy: none
+		sourceColumn: Tag images.Tags
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Tag images.Json'
+		dataType: string
+		lineageTag: e53358d8-4876-4014-8e6d-66cef8874733
+		summarizeBy: none
+		sourceColumn: Tag images.Json
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Tag images.Tag'
+		dataType: string
+		lineageTag: c124d071-d27c-4f15-8c80-e75272e1f01c
+		summarizeBy: none
+		sourceColumn: Tag images.Tag
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Tag images.Confidence'
+		dataType: double
+		lineageTag: 13d04483-5c8f-468f-8e5d-546b157861ec
+		summarizeBy: sum
+		sourceColumn: Tag images.Confidence
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Tag images.ErrorMessage'
+		dataType: string
+		lineageTag: d320731e-537a-4d72-835d-22bc82f61f9c
+		summarizeBy: none
+		sourceColumn: Tag images.ErrorMessage
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'AI Insight - Vision' = m
+		mode: import
+		source =
+				let
+				    Source = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("1ZJNS8NAEIb/S8Gbm85+zewKQSrF9tKrIrXIJtm1kcTEfJD4722tIu29UGEOM++cHp53vZ5su65ub6bTuujbqH9v68K12yitymnd+DLvy5d6W3UV42gQLChlBQDTJBBTRCEd3n7EBp57AIFDLIB+dtd3VRyqpnTdIQh5F6dNVR+ufCzyJG4SpiKI5G+WZ/FKDuPqbSbD/M6sluPgFhaSTz48PWZFWI4mLB76/e97n13J+W4mm+s/krx0r/6U5cBA3BhprRSSOCOXuaB9llp0RwzckrpgBsGFkGZPQiz1ilRwHrw0/4mB7ySQAOTasNRl2iOR3pXrbF26P4cHrqUQ2ipkKjEeEpFwF/DEA16wBzRgDSpBWhGDhLQIijDL+EV0afMF", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [URL = _t]),
+				    #"Changed Type" = Table.TransformColumnTypes(Source,{{"URL", type text}}),
+				    #"Added Index" = Table.AddIndexColumn(#"Changed Type", "Index", 1, 1, Int64.Type),
+				    #"Reordered Columns" = Table.ReorderColumns(#"Added Index",{"Index", "URL"}),
+				    #"Applied Tag images" = AIFunctions.PostProcess(Table.AddColumn(#"Reordered Columns", "Tag images", each #"Tag images"([URL], null)), "Tag images", "CognitiveServices.TagImagesanytext") meta [FunctionBrowser="Vision"]
+				in
+				    #"Applied Tag images"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

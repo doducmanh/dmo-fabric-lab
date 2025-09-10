@@ -1,0 +1,36 @@
+table E5_OUTCOME_SORT
+	lineageTag: 05877380-290c-4612-8d6c-c5e698107003
+
+	column Outcome
+		dataType: string
+		lineageTag: acd85d64-4df0-4442-830e-411a4a30d77c
+		summarizeBy: none
+		sourceColumn: Outcome
+		sortByColumn: Index
+
+		changedProperty = SortByColumn
+
+		annotation SummarizationSetBy = Automatic
+
+	column Index
+		dataType: int64
+		formatString: 0
+		lineageTag: ad02b0e9-b755-478c-ad13-aa6fe943750a
+		summarizeBy: none
+		sourceColumn: Index
+
+		annotation SummarizationSetBy = Automatic
+
+	partition E5_OUTCOME_SORT = m
+		mode: import
+		source =
+				let
+				    Source = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("HY27DsIwDEV/xcrchecPgBBLGRCwVB3c1kUWwY4SB6l8PSHjPUc6t+vclYJGgzNO0FJkc41bub7p3EFl5vimCUxhIDB8kYB+KMKwAEIKNDJ6TgYanyj8RWMV9JClZtY1c8zB84hGhWwqaTnl9J/bOu+Cgye4KTzK/7wUsaviUgirr1U4aZapqL3r+x8=", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [Outcome = _t, Index = _t]),
+				    #"Changed Type" = Table.TransformColumnTypes(Source,{{"Outcome", type text}, {"Index", Int64.Type}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

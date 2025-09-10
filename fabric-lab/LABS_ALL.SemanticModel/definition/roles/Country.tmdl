@@ -1,0 +1,9 @@
+role Country
+	modelPermission: read
+
+	tablePermission DimGeography = [EnglishCountryRegionName] == "Australia"
+
+	tablePermission DimProductCategory = [EnglishProductCategoryName] == "clothing"
+
+	annotation PBI_Id = b69645ea824d46d3a45250962a9c8405
+

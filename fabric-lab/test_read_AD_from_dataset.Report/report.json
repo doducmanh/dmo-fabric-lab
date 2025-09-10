@@ -1,0 +1,42 @@
+{
+  "config": "{\"version\":\"5.55\",\"themeCollection\":{\"baseTheme\":{\"name\":\"CY24SU06\",\"version\":\"5.55\",\"type\":2}},\"activeSectionIndex\":0,\"defaultDrillFilterOtherVisuals\":true,\"settings\":{\"useNewFilterPaneExperience\":true,\"allowChangeFilterTypes\":true,\"useStylableVisualContainerHeader\":true,\"queryLimitOption\":6,\"exportDataMode\":1,\"useDefaultAggregateDisplayName\":true},\"objects\":{\"section\":[{\"properties\":{\"verticalAlignment\":{\"expr\":{\"Literal\":{\"Value\":\"'Top'\"}}}}}]}}",
+  "layoutOptimization": 0,
+  "resourcePackages": [
+    {
+      "resourcePackage": {
+        "disabled": false,
+        "items": [
+          {
+            "name": "CY24SU06",
+            "path": "BaseThemes/CY24SU06.json",
+            "type": 202
+          }
+        ],
+        "name": "SharedResources",
+        "type": 2
+      }
+    }
+  ],
+  "sections": [
+    {
+      "config": "{}",
+      "displayName": "Page 1",
+      "displayOption": 1,
+      "filters": "[]",
+      "height": 720.00,
+      "name": "9960b3bf365657e916bc",
+      "visualContainers": [
+        {
+          "config": "{\"name\":\"c3462e45161b39497c56\",\"layouts\":[{\"id\":0,\"position\":{\"x\":143.85561936013124,\"y\":187.95734208367514,\"z\":0,\"width\":676.2264150943396,\"height\":407.4159146841673,\"tabOrder\":0}}],\"singleVisual\":{\"visualType\":\"tableEx\",\"projections\":{\"Values\":[{\"queryRef\":\"group.displayName\"},{\"queryRef\":\"group.securityPrincipal.sAMAccountName\"},{\"queryRef\":\"group.group.member.userPrincipalName\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"g\",\"Entity\":\"group\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"g\"}},\"Property\":\"displayName\"},\"Name\":\"group.displayName\",\"NativeReferenceName\":\"displayName\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"g\"}},\"Property\":\"securityPrincipal.sAMAccountName\"},\"Name\":\"group.securityPrincipal.sAMAccountName\",\"NativeReferenceName\":\"securityPrincipal.sAMAccountName\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"g\"}},\"Property\":\"group.member.userPrincipalName\"},\"Name\":\"group.group.member.userPrincipalName\",\"NativeReferenceName\":\"group.member.userPrincipalName\"}]},\"drillFilterOtherVisuals\":true}}",
+          "filters": "[]",
+          "height": 407.42,
+          "width": 676.23,
+          "x": 143.86,
+          "y": 187.96,
+          "z": 0.00
+        }
+      ],
+      "width": 1280.00
+    }
+  ]
+}

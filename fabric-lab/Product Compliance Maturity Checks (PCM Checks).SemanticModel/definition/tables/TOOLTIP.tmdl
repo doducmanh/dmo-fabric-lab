@@ -1,0 +1,49 @@
+table TOOLTIP
+	lineageTag: 66b88882-3f6b-44cd-9e28-df5286238d55
+
+	column OE_CONTINENT
+		lineageTag: fa5b5f9b-6796-40bf-8dd5-90c6356a8cff
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: E9_PCM_LE_OE[OE_CONTINENT]
+
+		annotation SummarizationSetBy = Automatic
+
+	column OE_VALID_FROM
+		formatString: General Date
+		lineageTag: 29e02cea-56fe-4b5c-9984-0a4327fdbd8e
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [OE_VALID_FROM]
+
+		annotation SummarizationSetBy = Automatic
+
+	column LE_CONTINENT
+		lineageTag: c46dbeea-86af-46ee-bbfc-edb2c1f8d2cf
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: E9_PCM_LE_OE[LE_CONTINENT]
+
+		annotation SummarizationSetBy = Automatic
+
+	column OE_ABBR
+		lineageTag: 566d989b-09eb-4dd5-8084-5ad6fc5c7847
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: E9_PCM_LE_OE[OE_ABBR]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition TOOLTIP = calculated
+		mode: import
+		source = ```
+				
+				    SUMMARIZE(E9_PCM_LE_OE, 
+				        E9_PCM_LE_OE[OE_CONTINENT], 
+				        E9_PCM_LE_OE[LE_CONTINENT],
+				        E9_PCM_LE_OE[OE_ABBR],
+				        "OE_VALID_FROM", MIN(E9_PCM_LE_OE[OE_VALID_FROM]))
+				```
+
+	annotation PBI_Id = fa5dbb1376724fdd907d32fe36caf2e2
+

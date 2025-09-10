@@ -1,0 +1,100 @@
+table FactProductInventory
+	lineageTag: 5cbc7697-7e68-459e-9e79-2555cd009335
+
+	column ProductKey
+		dataType: int64
+		formatString: 0
+		lineageTag: 70e12155-3a98-4c44-9abb-afe51e8d84b1
+		summarizeBy: none
+		sourceColumn: ProductKey
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column DateKey
+		dataType: int64
+		formatString: 0
+		lineageTag: aa8bd943-f3a1-4860-9ea0-1547b256c702
+		summarizeBy: none
+		sourceColumn: DateKey
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column MovementDate
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: ce019694-2167-4962-be69-f452023ef32d
+		summarizeBy: none
+		sourceColumn: MovementDate
+
+		variation Variation
+			isDefault
+			relationship: 1ae1de69-1cef-4bb0-aefb-2db5fd8231e5
+			defaultHierarchy: LocalDateTable_2508eccb-5f62-4221-b53a-7ec38816bb30.'Date Hierarchy'
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column UnitCost
+		dataType: decimal
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: ecf48b1b-dce3-4079-82a7-6ccee67c8192
+		summarizeBy: sum
+		sourceColumn: UnitCost
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column UnitsIn
+		dataType: int64
+		formatString: 0
+		lineageTag: 9a018ecc-00c6-40e0-a4e5-996cfb7dc2dc
+		summarizeBy: sum
+		sourceColumn: UnitsIn
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column UnitsOut
+		dataType: int64
+		formatString: 0
+		lineageTag: 74fdeb6c-319a-4f77-8a82-207dc18001d9
+		summarizeBy: sum
+		sourceColumn: UnitsOut
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column UnitsBalance
+		dataType: int64
+		formatString: 0
+		lineageTag: 2ade0a94-639e-4b39-9f61-5006fdae77c3
+		summarizeBy: sum
+		sourceColumn: UnitsBalance
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	partition FactProductInventory-83acaee2-426c-48b9-b6a8-167084cbd8fd = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database(PRServerName, PRDatabaseName),
+				    dbo_FactProductInventory = Source{[Schema="dbo",Item="FactProductInventory"]}[Data]
+				in
+				    dbo_FactProductInventory
+
+	annotation PBI_ResultType = Table
+

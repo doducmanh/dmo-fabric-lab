@@ -1,0 +1,71 @@
+table group
+	lineageTag: 7daa03b9-0a1b-4487-83d1-1b85df32e006
+
+	column displayName
+		dataType: string
+		lineageTag: 54d4c9b1-eb62-4952-9410-1ad186f71dbd
+		summarizeBy: none
+		sourceColumn: displayName
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'group.member.displayName'
+		dataType: string
+		lineageTag: d12a631e-2dcc-477b-9295-167cb6ae3508
+		summarizeBy: none
+		sourceColumn: group.member.displayName
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'group.member.userPrincipalName'
+		dataType: string
+		lineageTag: 8f009296-c28a-4a22-8994-c4601b46d0ab
+		summarizeBy: none
+		sourceColumn: group.member.userPrincipalName
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'securityPrincipal.sAMAccountName'
+		dataType: string
+		lineageTag: 796bd5f1-bb5d-4891-a8b5-dd3cd0a38c67
+		summarizeBy: none
+		sourceColumn: securityPrincipal.sAMAccountName
+
+		annotation SummarizationSetBy = Automatic
+
+	column distinguishedName
+		dataType: string
+		lineageTag: 7e601a54-1827-41e9-9f93-a6b088551359
+		summarizeBy: none
+		sourceColumn: distinguishedName
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'mailRecipient.mail'
+		dataType: string
+		lineageTag: b59b9d80-42a7-4f04-ac24-5e3dc0352a01
+		summarizeBy: none
+		sourceColumn: mailRecipient.mail
+
+		annotation SummarizationSetBy = Automatic
+
+	partition group = m
+		mode: import
+		source =
+				let
+				    Source = ActiveDirectory.Domains("apac.bosch.com"),
+				    de.bosch.com = Source{[Domain="bosch.com"]}[#"Object Categories"],
+				    group1 = de.bosch.com{[Category="group"]}[Objects],
+				    #"Expanded securityPrincipal" = Table.ExpandRecordColumn(group1, "securityPrincipal", {"sAMAccountName"}, {"securityPrincipal.sAMAccountName"}),
+				    #"Expanded mailRecipient" = Table.ExpandRecordColumn(#"Expanded securityPrincipal", "mailRecipient", {"mail"}, {"mailRecipient.mail"}),
+				    #"Filtered Rows" = Table.SelectRows(#"Expanded mailRecipient", each Text.StartsWith([securityPrincipal.sAMAccountName], "WOM.BD_DAD-")),
+				    #"Expanded group" = Table.ExpandRecordColumn(#"Filtered Rows", "group", {"member"}, {"group.member"}),
+				    #"Expanded group.member" = Table.ExpandListColumn(#"Expanded group", "group.member"),
+				    #"Expanded group.member1" = Table.ExpandRecordColumn(#"Expanded group.member", "group.member", {"displayName", "userPrincipalName"}, {"group.member.displayName", "group.member.userPrincipalName"})
+				in
+				    #"Expanded group.member1"
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
+

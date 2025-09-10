@@ -1,0 +1,47 @@
+table DIM_REGION
+	lineageTag: 829ab9fb-cc22-4e03-9adb-e8e3ef560f05
+
+	column REGION_FIX_LEN
+		dataType: string
+		lineageTag: 3b7d9ff0-cb59-4c33-b3d4-115c3af8621a
+		summarizeBy: none
+		sourceColumn: REGION_FIX_LEN
+
+		annotation SummarizationSetBy = Automatic
+
+	column CONTINENT_CODE
+		dataType: string
+		lineageTag: 1cf0c7eb-738f-4465-9553-2ff63f1f67b2
+		summarizeBy: none
+		sourceColumn: CONTINENT_CODE
+
+		annotation SummarizationSetBy = Automatic
+
+	column REGION
+		dataType: string
+		lineageTag: e6bce248-fb19-4954-bd14-8c53ba6c2d97
+		summarizeBy: none
+		sourceColumn: REGION
+
+		annotation SummarizationSetBy = Automatic
+
+	partition DIM_REGION = m
+		mode: import
+		source = ```
+				let
+				    Source = Oracle.Database(ServerName, [HierarchicalNavigation=true, Query="SELECT DISTINCT CONTINENT_CODE, CONTINENT#(lf)FROM MARD_PCMS.X_IFR_TRAINM_ACE_EPIC6_TRAINING_RATE"]),
+				    #"Renamed Columns" = Table.RenameColumns(Source,{{"CONTINENT", "REGION"}}),
+				    #"Replaced Value" = Table.ReplaceValue(#"Renamed Columns",null," ",Replacer.ReplaceValue,{"REGION"}),
+				    #"Replaced Value1" = Table.ReplaceValue(#"Replaced Value",null," ",Replacer.ReplaceValue,{"CONTINENT_CODE"}),
+				    #"Added Custom" = Table.AddColumn(#"Replaced Value1", "REGION_FIX_LEN", 
+				        each if Text.Length([REGION])> 18 then 
+				                Text.Start([REGION],18) 
+				            else Text.End(Text.Repeat(Character.FromNumber (8192), 18) & [REGION],18))
+				in
+				    #"Added Custom"
+				```
+
+	annotation PBI_ResultType = Exception
+
+	annotation PBI_NavigationStepName = Navigation
+

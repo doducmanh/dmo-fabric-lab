@@ -1,0 +1,25 @@
+table SOM_MIN_IMPORTATION_DATE
+	lineageTag: b7845c26-bb24-4815-bda5-f097ae9b3c31
+
+	column SOM_MIN_IMPORTATION_DATE
+		dataType: string
+		lineageTag: 886e7d77-2c6d-4bb2-9461-38ad5c416f04
+		summarizeBy: none
+		sourceColumn: SOM_MIN_IMPORTATION_DATE
+
+		annotation SummarizationSetBy = Automatic
+
+	partition SOM_MIN_IMPORTATION_DATE = m
+		mode: import
+		source =
+				let
+				    Source = Oracle.Database(ServerName, [HierarchicalNavigation=true, Query="SELECT MIN(SOM_MIN_IMPORTATION_DATE) ""SOM_MIN_IMPORTATION_DATE""#(lf)FROM#(lf)(SELECT#(lf)    TRUNC(MIN(EXPORT_DATE), 'MM') AS ""SOM_MIN_IMPORTATION_DATE""#(lf)FROM MARD_PCMS.X_IFR_TRAINM_ACE_EPIC6_TRAINING_RATE#(lf)UNION #(lf)SELECT#(lf)    TRUNC(MIN(FROM_DATE), 'MM') AS ""SOM_MIN_IMPORTATION_DATE""#(lf)FROM MARD_PCMS.X_IFR_TRAINM_ACE_EPIC6_TRAINING_SURVEY)"]),
+				    #"Changed Type" = Table.TransformColumnTypes(Source,{{"SOM_MIN_IMPORTATION_DATE", type date}}),
+				    SOM_MIN_IMPORTATION_DATE1 = #"Changed Type"[SOM_MIN_IMPORTATION_DATE]
+				in
+				    SOM_MIN_IMPORTATION_DATE1
+
+	annotation PBI_ResultType = Exception
+
+	annotation PBI_NavigationStepName = Navigation
+

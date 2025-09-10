@@ -1,0 +1,31 @@
+table E9_DIM_BU
+	lineageTag: 3c01a1b1-20a7-4a0a-be42-cb76252170aa
+
+	column BU
+		dataType: string
+		lineageTag: 33b48795-1d19-4148-8fe6-4f5eec9c28d7
+		summarizeBy: none
+		sourceColumn: BU
+
+		annotation SummarizationSetBy = Automatic
+
+	partition E9_DIM_BU = m
+		mode: import
+		source =
+				let
+				    Source = Oracle.Database(ServerName, [HierarchicalNavigation=true, Query="SELECT DISTINCT RID, BU_CODE#(lf)FROM MARD_PCMS.X_IFR_GRC_EPIC9_PCMC"]),
+				    #"Replaced Value" = Table.ReplaceValue(Source,null,"Not mapped to BU",Replacer.ReplaceValue,{"BU_CODE"}),
+				    #"Split Column by Delimiter" = Table.SplitColumn(#"Replaced Value", "BU_CODE", Splitter.SplitTextByDelimiter(";", QuoteStyle.Csv), {"BU_CODE.1", "BU_CODE.2", "BU_CODE.3", "BU_CODE.4"}),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Split Column by Delimiter",{{"BU_CODE.1", type text}, {"BU_CODE.2", type text}, {"BU_CODE.3", type text}, {"BU_CODE.4", type text}}),
+				    #"Unpivoted Columns" = Table.UnpivotOtherColumns(#"Changed Type", {"RID"}, "Attribute", "Value"),
+				    #"Removed Columns" = Table.RemoveColumns(#"Unpivoted Columns",{"Attribute", "RID"}),
+				    #"Renamed Columns" = Table.RenameColumns(#"Removed Columns",{{"Value", "BU"}}),
+				    #"Trimmed Text" = Table.TransformColumns(#"Renamed Columns",{{"BU", Text.Trim, type text}}),
+				    #"Removed Duplicates" = Table.Distinct(#"Trimmed Text")
+				in
+				    #"Removed Duplicates"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,62 @@
+table 'Number of question'
+	isHidden
+	lineageTag: 13b02f1f-0bac-41f0-89f2-2fe8de4b60fe
+
+	column TOPIC_ID
+		dataType: string
+		isHidden
+		lineageTag: 87c2cd95-9e5d-45f0-8a55-0b3583366840
+		summarizeBy: none
+		sourceColumn: TOPIC_ID
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column PC_CHECK_YEAR
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 73f088f1-e995-4346-94c4-3f0b0fddd6f4
+		summarizeBy: sum
+		sourceColumn: PC_CHECK_YEAR
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Count
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 8f13059e-a685-4b7b-8efb-58197580d61a
+		summarizeBy: sum
+		sourceColumn: Count
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Number of question' = m
+		mode: import
+		source = ```
+				let
+				    Source = Oracle.Database(ServerName, [HierarchicalNavigation=true, Query="
+				    SELECT 
+				         PC_CHECK_YEAR,
+				         TOPIC_ID,
+				         QUESTION_ID,
+				         QUESTION
+				    FROM MARD_PCMS.X_IFR_GRC_EPIC10_PCC"]),
+				    #"Grouped Rows" = Table.Group(Source, {"TOPIC_ID", "PC_CHECK_YEAR", "QUESTION"}, {{"Count", each Table.RowCount(_), Int64.Type}}),
+				    #"Grouped Rows1" = Table.Group(#"Grouped Rows", {"TOPIC_ID", "PC_CHECK_YEAR"}, {{"Count", each Table.RowCount(_), Int64.Type}})
+				in
+				    #"Grouped Rows1"
+				```
+
+	changedProperty = IsHidden
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
+

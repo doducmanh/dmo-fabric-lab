@@ -1,0 +1,14 @@
+expression ServerName = "REDLake_ZeusD_OpsDevSup_CI.world" meta [IsParameterQuery=true, List={"REDLake_ZeusD_OpsDevSup_CI.world", "REDLake_ZeusQ_OpsDevSup_CI.world", "REDLake_ZeusP_OpsDevSup_CI.world"}, DefaultValue="REDLake_ZeusP_OpsDevSup_CI.world", Type="Text", IsParameterQueryRequired=true]
+	lineageTag: ce9f3b96-c3f4-4251-a7d6-9b633e45637b
+
+	annotation PBI_ResultType = Text
+
+	annotation PBI_NavigationStepName = Navigation
+
+expression RowLimit = 1000 meta [IsParameterQuery=true, Type="Number", IsParameterQueryRequired=true]
+	lineageTag: cfdf584b-a031-4ab2-9186-12bdbdc45565
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Number
+

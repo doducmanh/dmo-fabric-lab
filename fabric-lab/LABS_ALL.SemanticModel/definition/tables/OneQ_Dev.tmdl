@@ -1,0 +1,91 @@
+table OneQ_Dev
+	lineageTag: 5da0a7ea-d690-4333-ad0e-0b1420979375
+
+	column displayName
+		dataType: string
+		lineageTag: 83a63a92-fa2d-4f40-87a8-88edbae5a70d
+		summarizeBy: none
+		sourceColumn: displayName
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'group.member.displayName'
+		dataType: string
+		lineageTag: f770fe1d-d2c2-4e16-b3c7-6b2ea427a729
+		summarizeBy: none
+		sourceColumn: group.member.displayName
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'group.member.mail'
+		dataType: string
+		lineageTag: f4f23699-e0ad-4ab2-925e-861719cc092c
+		summarizeBy: none
+		sourceColumn: group.member.mail
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'group.member.userPrincipalName'
+		dataType: string
+		lineageTag: 9dc35c65-82fd-4dc2-aaf3-e3ea92fafcaf
+		summarizeBy: none
+		sourceColumn: group.member.userPrincipalName
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'mailRecipient.mail'
+		dataType: string
+		lineageTag: a5515e14-d823-4b42-9549-31192919b154
+		summarizeBy: none
+		sourceColumn: mailRecipient.mail
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'securityPrincipal.sAMAccountName'
+		dataType: string
+		lineageTag: c40858d7-f0da-4210-b4cc-314405e6f30c
+		summarizeBy: none
+		sourceColumn: securityPrincipal.sAMAccountName
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column distinguishedName
+		dataType: string
+		lineageTag: c8c7a33d-1a30-4f43-8ef5-6d2593a58c2d
+		summarizeBy: none
+		sourceColumn: distinguishedName
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	partition OneQ_Dev-fd0f4cdf-6b61-4072-b91e-9de9dbfd62f2 = m
+		mode: import
+		source =
+				let
+				    Source = ActiveDirectory.Domains("apac.bosch.com"),
+				    #"de bosch com" = Source{[Domain="de.bosch.com"]}[Object Categories],
+				    group1 = #"de bosch com"{[Category="group"]}[Objects],
+				    #"Expanded securityPrincipal" = Table.ExpandRecordColumn(group1, "securityPrincipal", {"sAMAccountName"}, {"securityPrincipal.sAMAccountName"}),
+				    #"Filtered Rows" = Table.SelectRows(#"Expanded securityPrincipal", each ([securityPrincipal.sAMAccountName] = "idm2bcd_BBM-OneQ-Dashboard_developer")),
+				    #"Expanded group" = Table.ExpandRecordColumn(#"Filtered Rows", "group", {"member"}, {"group.member"}),
+				    #"Expanded group.member" = Table.ExpandListColumn(#"Expanded group", "group.member"),
+				    #"Expanded group.member1" = Table.ExpandRecordColumn(#"Expanded group.member", "group.member", {"displayName", "mail", "userPrincipalName"}, {"group.member.displayName", "group.member.mail", "group.member.userPrincipalName"}),
+				    #"Expanded mailRecipient" = Table.ExpandRecordColumn(#"Expanded group.member1", "mailRecipient", {"mail"}, {"mailRecipient.mail"})
+				in
+				    #"Expanded mailRecipient"
+
+	annotation PBI_ResultType = Table
+

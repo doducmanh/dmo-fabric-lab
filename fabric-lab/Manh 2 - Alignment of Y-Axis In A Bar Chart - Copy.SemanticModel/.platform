@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "SemanticModel",
+    "displayName": "Manh 2 - Alignment of Y-Axis In A Bar Chart - Copy"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "f5aafcee-da90-9e27-475b-da1bb04ea2f3"
+  }
+}

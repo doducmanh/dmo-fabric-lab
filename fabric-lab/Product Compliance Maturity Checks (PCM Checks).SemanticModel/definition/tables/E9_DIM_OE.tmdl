@@ -1,0 +1,141 @@
+table E9_DIM_OE
+	lineageTag: b11b0abf-4e78-4017-893e-a6703890ab38
+
+	column OE_ID
+		dataType: string
+		lineageTag: 0dc21a79-122f-4f71-ac98-63f9757e88c6
+		summarizeBy: none
+		sourceColumn: OE_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column OE_NAME
+		dataType: string
+		lineageTag: 9272deb8-7c80-4dbe-abc8-91895d6a715c
+		summarizeBy: none
+		sourceColumn: OE_NAME
+
+		annotation SummarizationSetBy = Automatic
+
+	column OE_LOCATION
+		dataType: string
+		lineageTag: 9b3cb30b-5599-4fe8-b71e-bca4eec8950e
+		summarizeBy: none
+		sourceColumn: OE_LOCATION
+
+		annotation SummarizationSetBy = Automatic
+
+	column OE_COUNTRY_ISO_CODE
+		dataType: string
+		lineageTag: c4f398a9-44c0-40c8-83b4-09d4caf885b2
+		summarizeBy: none
+		sourceColumn: OE_COUNTRY_ISO_CODE
+
+		annotation SummarizationSetBy = Automatic
+
+	column OE_COUNTRY
+		dataType: string
+		lineageTag: 245d5bc6-2e3a-4e93-8a76-f55e42da7da1
+		summarizeBy: none
+		sourceColumn: OE_COUNTRY
+
+		annotation SummarizationSetBy = Automatic
+
+	column OE_COUNTRY_DISPLAY_TEXT
+		dataType: string
+		lineageTag: 84e73f82-d808-4232-a27b-c7b8934b21d8
+		summarizeBy: none
+		sourceColumn: OE_COUNTRY_DISPLAY_TEXT
+
+		annotation SummarizationSetBy = Automatic
+
+	column OE_COUNTRY_GROUP_CODE
+		dataType: string
+		lineageTag: 6023fa5e-3e4b-4e03-a2db-5967746f1e32
+		summarizeBy: none
+		sourceColumn: OE_COUNTRY_GROUP_CODE
+
+		annotation SummarizationSetBy = Automatic
+
+	column OE_COUNTRY_GROUP
+		dataType: string
+		lineageTag: 4c258bf5-449b-4f92-a015-95560da916ab
+		summarizeBy: none
+		sourceColumn: OE_COUNTRY_GROUP
+
+		annotation SummarizationSetBy = Automatic
+
+	column OE_CONTINENT_CODE
+		dataType: string
+		lineageTag: c96c8139-20c6-4e92-83b2-cd40b46957e7
+		summarizeBy: none
+		sourceColumn: OE_CONTINENT_CODE
+
+		annotation SummarizationSetBy = Automatic
+
+	column OE_CONTINENT
+		dataType: string
+		lineageTag: a7753460-2880-4f6d-8289-4db958af54ee
+		summarizeBy: none
+		sourceColumn: OE_CONTINENT
+
+		annotation SummarizationSetBy = Automatic
+
+	column OE_VALID_FROM
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 9e35fedd-79dd-45e5-8915-af25ea3674af
+		summarizeBy: none
+		sourceColumn: OE_VALID_FROM
+
+		changedProperty = DataType
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column LE_CONTINENT_CODE
+		dataType: string
+		lineageTag: d64f869c-6833-427c-bb3c-5330586eb819
+		summarizeBy: none
+		sourceColumn: LE_CONTINENT_CODE
+
+		annotation SummarizationSetBy = Automatic
+
+	column OE_REGION_ID
+		dataType: string
+		lineageTag: 156845e5-50c1-40f8-a22b-97caf41bf599
+		summarizeBy: none
+		sourceColumn: OE_REGION_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column OE_ABBR
+		dataType: string
+		lineageTag: 7cf31a99-07a0-40fc-bd8f-4d6983f30f43
+		summarizeBy: none
+		sourceColumn: OE_ABBR
+
+		annotation SummarizationSetBy = Automatic
+
+	column OE_DESCRIPTION
+		dataType: string
+		lineageTag: 33b0431b-ab2b-4b98-854b-b27080a6f9af
+		summarizeBy: none
+		sourceColumn: OE_DESCRIPTION
+
+		annotation SummarizationSetBy = Automatic
+
+	partition E9_DIM_OE = m
+		mode: import
+		source =
+				let
+				    Source = Oracle.Database(ServerName, [HierarchicalNavigation=true, Query="SELECT DISTINCT#(lf)OE_ID,#(lf)    OE_ABBR,#(lf)    OE_NAME,#(lf)    OE_DESCRIPTION,#(lf)    OE_LOCATION,#(lf)    OE_COUNTRY_ISO_CODE,#(lf)    OE_COUNTRY,#(lf)    OE_COUNTRY_DISPLAY_TEXT,#(lf)    OE_COUNTRY_GROUP_CODE,#(lf)    OE_COUNTRY_GROUP,#(lf)    OE_CONTINENT_CODE,#(lf)    OE_CONTINENT,#(lf)    OE_VALID_FROM,#(lf)    LE_CONTINENT_CODE#(lf)#(lf)FROM#(lf)    MARD_PCMS.X_IFR_GRC_MD_LE_OE"]),
+				    #"Added Custom" = Table.AddColumn(Source, "OE_REGION_ID", each [OE_ABBR]&[LE_CONTINENT_CODE])
+				in
+				    #"Added Custom"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

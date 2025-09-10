@@ -1,0 +1,192 @@
+table DimPromotion
+	lineageTag: 23b5616f-6b4a-499e-8a88-3d79781fdbdc
+
+	column PromotionKey
+		dataType: int64
+		formatString: 0
+		lineageTag: 21d83d91-f6fd-4f38-bf39-da65505203d2
+		summarizeBy: none
+		sourceColumn: PromotionKey
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column PromotionAlternateKey
+		dataType: int64
+		formatString: 0
+		lineageTag: e11b40dc-36f1-466f-b7c1-87636cc6cdde
+		summarizeBy: count
+		sourceColumn: PromotionAlternateKey
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column EnglishPromotionName
+		dataType: string
+		lineageTag: 240cfb16-1565-4b6b-893a-d94dc642f72d
+		summarizeBy: none
+		sourceColumn: EnglishPromotionName
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column SpanishPromotionName
+		dataType: string
+		lineageTag: 388f9474-83a8-45f9-8f7d-384f2337e5e4
+		summarizeBy: none
+		sourceColumn: SpanishPromotionName
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column FrenchPromotionName
+		dataType: string
+		lineageTag: f22eb436-6bb4-4d89-a9df-4703e5efc2aa
+		summarizeBy: none
+		sourceColumn: FrenchPromotionName
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column DiscountPct
+		dataType: double
+		lineageTag: f1046f70-16f2-44ce-88a7-75bd032164e7
+		summarizeBy: sum
+		sourceColumn: DiscountPct
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column EnglishPromotionType
+		dataType: string
+		lineageTag: 78b08a4b-7933-4486-93ac-e5f63f67a1e9
+		summarizeBy: none
+		sourceColumn: EnglishPromotionType
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column SpanishPromotionType
+		dataType: string
+		lineageTag: 57db9bfc-16ff-4825-bc53-1dcf12b633d0
+		summarizeBy: none
+		sourceColumn: SpanishPromotionType
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column FrenchPromotionType
+		dataType: string
+		lineageTag: c4d53508-cd91-4534-af1a-2d42145916ca
+		summarizeBy: none
+		sourceColumn: FrenchPromotionType
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column EnglishPromotionCategory
+		dataType: string
+		lineageTag: c8f66e62-8711-4ae1-aaf7-be5a70bce2b5
+		summarizeBy: none
+		sourceColumn: EnglishPromotionCategory
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column SpanishPromotionCategory
+		dataType: string
+		lineageTag: 9d8dc832-6616-422e-86af-13a1871cb602
+		summarizeBy: none
+		sourceColumn: SpanishPromotionCategory
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column FrenchPromotionCategory
+		dataType: string
+		lineageTag: 8dea4bbb-950f-441b-a550-f765f4dd220f
+		summarizeBy: none
+		sourceColumn: FrenchPromotionCategory
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column StartDate
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: bf7dabd1-05fc-40b0-b404-3c727bc9d899
+		summarizeBy: none
+		sourceColumn: StartDate
+
+		variation Variation
+			isDefault
+			relationship: 59b466c3-4c0b-42ee-b521-e6cd9bacd4ef
+			defaultHierarchy: LocalDateTable_aac9e295-c798-4f4b-8225-c65cc6dbe9f2.'Date Hierarchy'
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column EndDate
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: bc338eb9-efb7-43f3-9899-326d4ebd9ec9
+		summarizeBy: none
+		sourceColumn: EndDate
+
+		variation Variation
+			isDefault
+			relationship: da21e468-52a2-473b-bbbb-f31e2dee0975
+			defaultHierarchy: LocalDateTable_c34eaf39-3597-4d0f-bdda-6cdb0b839834.'Date Hierarchy'
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column MinQty
+		dataType: int64
+		formatString: 0
+		lineageTag: e18abbcc-06e9-4967-b425-5effd8a4e60d
+		summarizeBy: sum
+		sourceColumn: MinQty
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column MaxQty
+		dataType: int64
+		formatString: 0
+		lineageTag: 64cdb044-29db-4dda-96a7-b8ffaa00dd3e
+		summarizeBy: sum
+		sourceColumn: MaxQty
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	partition DimPromotion-e2781ede-9fd4-48c8-9aef-8edc0a247bf2 = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database(PRServerName, PRDatabaseName),
+				    dbo_DimPromotion = Source{[Schema="dbo",Item="DimPromotion"]}[Data]
+				in
+				    dbo_DimPromotion
+
+	annotation PBI_ResultType = Table
+

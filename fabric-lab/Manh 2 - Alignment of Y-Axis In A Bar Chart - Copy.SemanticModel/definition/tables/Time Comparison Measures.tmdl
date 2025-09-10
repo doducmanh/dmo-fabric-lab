@@ -1,0 +1,68 @@
+table 'Time Comparison Measures'
+	lineageTag: 723fdd0f-2765-4a29-9efb-d59aa208bcf8
+
+	measure 'Running Total for Products M-O-M 1' = ```
+			
+			IF( ISBLANK( [Total Sales] ) , 
+			    BLANK() , 
+			        CALCULATE( [Total Sales] , 
+			            DATESMTD( Dates[Date] ) ) )
+			```
+		lineageTag: b1851bd4-1f70-4567-8248-d8be911c8366
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Running Total for Products M-O-M 2' = ```
+			
+			IF( ISBLANK( [Total Sales] ) , 
+			    BLANK() , 
+			        TOTALMTD( [Total Sales] , Dates[Date] ) )
+			```
+		lineageTag: 6feffc2a-f791-45b0-9d64-5be83b3fff4c
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Running Total' = ```
+			
+			IF( ISBLANK( [Total Sales] ) , 
+			    BLANK() , 
+			        CALCULATE( [Total Sales] , 
+			            FILTER( ALL( Dates[Date] ) , 
+			                Dates[Date] > MAX( Dates[Date] ) - 30 &&
+			                Dates[Date] <= MAX( Dates[Date] ) ) ) )
+			```
+		lineageTag: b5523036-e2c8-4638-902e-b36ebc8923c3
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Total Sales LY' = ```
+			
+			CALCULATE( [Total Sales] , 
+			    DATEADD( Dates[Date] , -1 , YEAR ) )
+			```
+		lineageTag: 53d4e36e-60cb-4e56-ad7d-db40138d6d0e
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Column1
+		dataType: string
+		isHidden
+		lineageTag: 06b491c7-119f-42b0-811e-6c4a3e8e6552
+		summarizeBy: none
+		sourceColumn: Column1
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Time Comparison Measures-26cd543f-f694-49ca-b586-ed15b3186e02' = m
+		mode: import
+		source =
+				let
+				    Source = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("i44FAA==", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [Column1 = _t]),
+				    #"Changed Type" = Table.TransformColumnTypes(Source,{{"Column1", type text}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_ResultType = Table
+

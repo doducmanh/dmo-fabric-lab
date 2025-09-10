@@ -1,0 +1,17 @@
+table 'Table 2'
+	lineageTag: 3c2fea0b-3ce5-4cf8-a99e-d89f8fcaa0a5
+
+	column EnglishProductSubcategoryName
+		lineageTag: 6ee01093-c77a-4f87-aaae-8d3507e5b70d
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: DimProductSubcategory[EnglishProductSubcategoryName]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Table 2-992871f6-f91a-4dee-a9d6-9aa97f31f720' = calculated
+		mode: import
+		source = CALCULATETABLE(VALUES(DimProductSubcategory[EnglishProductSubcategoryName]),DimProductSubcategory[ProductCategoryKey] = 2)
+
+	annotation PBI_Id = a8b68fcb6d614331a53eff30b346c79a
+

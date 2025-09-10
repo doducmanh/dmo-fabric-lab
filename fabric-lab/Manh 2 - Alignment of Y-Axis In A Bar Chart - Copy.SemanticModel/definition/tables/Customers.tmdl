@@ -1,0 +1,37 @@
+table Customers
+	lineageTag: d533aa69-e5d8-4c65-aa20-4e998f1aa6d8
+
+	column 'Customer Index'
+		dataType: int64
+		formatString: 0
+		lineageTag: e8ba4dc4-a7ec-4590-ac1a-34de20c83bae
+		summarizeBy: none
+		sourceColumn: Customer Index
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Customer Names'
+		dataType: string
+		lineageTag: d34dbea2-575e-4c56-b9cb-0c8aa6c08bcd
+		summarizeBy: none
+		sourceColumn: Customer Names
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Customers-7b7b9b42-bdf0-49a6-a7d6-5399287e4f78 = m
+		mode: import
+		queryGroup: 'Data Model'
+		source =
+				let
+				    Source = Excel.Workbook(File.Contents("D:\DOCUMENTS\DNA Enterprise\Financial Reporting Resources\Financial Reporting resource pack\Financial Dataset - Harsh.xlsx"), null, true),
+				    Customer_Data_Table = Source{[Item="Customer_Data",Kind="Table"]}[Data],
+				    #"Changed Type" = Table.TransformColumnTypes(Customer_Data_Table,{{"Customer Index", Int64.Type}, {"Customer Names", type text}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_Id = 62d4b213-9221-4837-acc8-9a3e701c9a7f
+
+	annotation LinkedQueryName = Customers
+
+	annotation PBI_ResultType = Table
+

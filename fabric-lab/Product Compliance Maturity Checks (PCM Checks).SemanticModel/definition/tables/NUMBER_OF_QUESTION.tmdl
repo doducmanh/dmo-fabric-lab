@@ -1,0 +1,54 @@
+table NUMBER_OF_QUESTION
+	isHidden
+	lineageTag: 85046b17-b406-4c8e-949a-0e18d3cf9bdc
+
+	column PCM_CHECK_YEAR
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 1ed970b2-279b-40e5-a670-d905cbde71b1
+		summarizeBy: sum
+		sourceColumn: PCM_CHECK_YEAR
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column TOPIC_ID
+		dataType: string
+		isHidden
+		lineageTag: 9fbb2f31-7d19-4247-82cd-9a1b505e1185
+		summarizeBy: none
+		sourceColumn: TOPIC_ID
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column NUMBER_OF_QUESTION
+		dataType: double
+		isHidden
+		lineageTag: 35836eeb-bec1-4395-9304-14998382151d
+		summarizeBy: sum
+		sourceColumn: NUMBER_OF_QUESTION
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition NUMBER_OF_QUESTION = m
+		mode: import
+		source =
+				let
+				    Source = Oracle.Database(ServerName, [HierarchicalNavigation=true, Query="SELECT PCM_CHECK_YEAR, TOPIC_ID, COUNT(DISTINCT QUESTION) AS NUMBER_OF_QUESTION#(lf)FROM MARD_PCMS.X_IFR_GRC_EPIC9_PCMC#(lf)GROUP BY PCM_CHECK_YEAR, TOPIC_ID#(lf)ORDER BY PCM_CHECK_YEAR, TOPIC_ID#(lf)"])
+				in
+				    Source
+
+	changedProperty = IsHidden
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,35 @@
+table DimScenario
+	lineageTag: a2aa8855-4c89-46ec-a900-80d8e95125c6
+
+	column ScenarioKey
+		dataType: int64
+		formatString: 0
+		lineageTag: f31bf929-bada-4889-933f-ccd174cf8939
+		summarizeBy: none
+		sourceColumn: ScenarioKey
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column ScenarioName
+		dataType: string
+		lineageTag: 25c46d5e-4215-4b6b-9a3d-479b33360b4b
+		summarizeBy: none
+		sourceColumn: ScenarioName
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	partition DimScenario-90dd79e2-7f2a-4375-a4fa-7b29a2b8e3ec = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database(PRServerName, PRDatabaseName),
+				    dbo_DimScenario = Source{[Schema="dbo",Item="DimScenario"]}[Data]
+				in
+				    dbo_DimScenario
+
+	annotation PBI_ResultType = Table
+

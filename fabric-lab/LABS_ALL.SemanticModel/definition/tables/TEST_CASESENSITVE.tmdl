@@ -1,0 +1,34 @@
+table TEST_CASESENSITVE
+	lineageTag: a3ac8ead-cacb-4647-8999-282a107fa297
+
+	column Name
+		dataType: string
+		lineageTag: c3771ecf-268d-453a-8953-c67994d30468
+		summarizeBy: none
+		sourceColumn: Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column Index
+		dataType: int64
+		formatString: 0
+		lineageTag: 7e07322e-5a4b-4d3b-86fe-27cd05dffa1d
+		summarizeBy: sum
+		sourceColumn: Index
+
+		annotation SummarizationSetBy = Automatic
+
+	partition TEST_CASESENSITVE-ed0d23a8-1d1e-4757-a5c5-408a7a6f11ce = m
+		mode: import
+		source =
+				let
+				    Source = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("i45W8nX081CK1YlWyk3MywAzfGEMn0w4ww/CyIGJlGTAFIVAWLEA", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [Name = _t]),
+				    #"Changed Type" = Table.TransformColumnTypes(Source,{{"Name", type text}}),
+				    #"Added Index" = Table.AddIndexColumn(#"Changed Type", "Index", 1, 1, Int64.Type)
+				in
+				    #"Added Index"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

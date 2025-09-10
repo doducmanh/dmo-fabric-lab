@@ -1,0 +1,31 @@
+table E9_DIM_LE
+	lineageTag: ff5ea8e5-93a0-4c7f-b32e-fcd4e30ee031
+
+	column LE_NAME
+		dataType: string
+		lineageTag: e510d45c-b35d-42a4-b756-b1c97299de3a
+		summarizeBy: none
+		sourceColumn: LE_NAME
+
+		annotation SummarizationSetBy = Automatic
+
+	column LE_NUMBER
+		dataType: string
+		lineageTag: f7b940de-ebb3-4276-a416-ea96b8bcdeea
+		summarizeBy: none
+		sourceColumn: LE_NUMBER
+
+		annotation SummarizationSetBy = Automatic
+
+	partition E9_DIM_LE = m
+		mode: import
+		source =
+				let
+				    Source = Oracle.Database(ServerName, [HierarchicalNavigation=true, Query="SELECT DISTINCT LE_NUMBER, LE_NAME#(lf)FROM MARD_PCMS.X_IFR_GRC_MD_LE_OE"])
+				in
+				    Source
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

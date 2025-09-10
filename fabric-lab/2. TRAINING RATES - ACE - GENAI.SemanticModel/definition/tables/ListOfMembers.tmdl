@@ -1,0 +1,93 @@
+table ListOfMembers
+	lineageTag: 4043cfe8-b120-4ae9-b3a7-419045c11e91
+
+	column displayName
+		dataType: string
+		sourceProviderType: nvarchar(max)
+		lineageTag: 1b0194fa-fd14-413d-a9a1-bf7dd8103751
+		summarizeBy: none
+		sourceColumn: displayName
+
+		annotation SummarizationSetBy = Automatic
+
+	column mail
+		dataType: string
+		sourceProviderType: nvarchar(max)
+		lineageTag: d95fe292-c51d-4919-9430-07a897091711
+		summarizeBy: none
+		sourceColumn: mail
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'displayName.1'
+		dataType: string
+		sourceProviderType: nvarchar(max)
+		lineageTag: b0902dfa-fe17-4439-9dc1-1708fc6c9403
+		summarizeBy: none
+		sourceColumn: displayName.1
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'mail.1'
+		dataType: string
+		sourceProviderType: nvarchar(max)
+		lineageTag: 72cdb552-7e45-4d04-b548-4ca5a27fa011
+		summarizeBy: none
+		sourceColumn: mail.1
+
+		annotation SummarizationSetBy = Automatic
+
+	column userPrincipalName
+		dataType: string
+		sourceProviderType: nvarchar(max)
+		lineageTag: 0718d8b7-9d43-4071-bd17-f60397c3305d
+		summarizeBy: none
+		sourceColumn: userPrincipalName
+
+		annotation SummarizationSetBy = Automatic
+
+	column sAMAccountName
+		dataType: string
+		sourceProviderType: nvarchar(max)
+		lineageTag: ef0936fc-4d17-487c-ad97-92ccaca3fb5c
+		summarizeBy: none
+		sourceColumn: sAMAccountName
+
+		annotation SummarizationSetBy = Automatic
+
+	column distinguishedName
+		dataType: string
+		sourceProviderType: nvarchar(max)
+		lineageTag: a35dce82-e33c-4444-b84a-b301cda2f7cf
+		summarizeBy: none
+		sourceColumn: distinguishedName
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'OE Extract'
+		dataType: string
+		sourceProviderType: nvarchar(max)
+		lineageTag: 62f0c816-023c-4e73-8a8a-11f45616d177
+		summarizeBy: none
+		sourceColumn: OE Extract
+
+		annotation SummarizationSetBy = Automatic
+
+	partition ListOfMembers = m
+		mode: directQuery
+		source =
+				let
+				    WORKSPACE_ID = if DL_ActiveDirectory_Workspace = "Test" then "515614a6-02fa-4759-985f-b43ff63ff345" else "f80cb63f-a7d9-4cfa-888d-1b6a63e9306a",
+				    DATAFLOW_ID = if DL_ActiveDirectory_Workspace = "Test" then "d556c0db-e4db-4d3f-92d6-10efe9a814e0" else "ab7b470b-0f18-44d7-8b32-1004ad9b0d34",
+				    Source = PowerPlatform.Dataflows(null),
+				    Workspaces = Source{[Id="Workspaces"]}[Data],
+				    #"Workspace ID" = Workspaces{[workspaceId=WORKSPACE_ID]}[Data],
+				    #"Dataflow ID" = #"Workspace ID"{[dataflowId=DATAFLOW_ID]}[Data],
+				    ListOfMembers_ = #"Dataflow ID"{[entity="ListOfMembers",version=""]}[Data]
+				in
+				    ListOfMembers_
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

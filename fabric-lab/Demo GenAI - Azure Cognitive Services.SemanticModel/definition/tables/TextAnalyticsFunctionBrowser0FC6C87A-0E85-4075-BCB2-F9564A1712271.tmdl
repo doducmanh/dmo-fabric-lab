@@ -1,0 +1,110 @@
+table TextAnalyticsFunctionBrowser0FC6C87A-0E85-4075-BCB2-F9564A1712271
+	lineageTag: 861420a4-682a-46ca-88f2-2c8ed88a2aac
+
+	column Name
+		dataType: string
+		lineageTag: 3a458f01-6f8f-46dd-913e-93febd4d342a
+		summarizeBy: none
+		sourceColumn: Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column Key
+		dataType: string
+		lineageTag: 60ee7017-4e07-4e7d-834c-9832ca12b45f
+		summarizeBy: none
+		sourceColumn: Key
+
+		annotation SummarizationSetBy = Automatic
+
+	column ItemKind
+		dataType: string
+		lineageTag: 04033cb4-a487-4300-ae56-a3ffa6154169
+		summarizeBy: none
+		sourceColumn: ItemKind
+
+		annotation SummarizationSetBy = Automatic
+
+	column ItemName
+		dataType: string
+		lineageTag: 48a1f607-e923-4ee3-b28b-9e7f69fef529
+		summarizeBy: none
+		sourceColumn: ItemName
+
+		annotation SummarizationSetBy = Automatic
+
+	column IsLeaf
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 925555ad-9ceb-4399-8f3f-34199f019a98
+		summarizeBy: none
+		sourceColumn: IsLeaf
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'MetadataColumn.Publish.Category'
+		dataType: string
+		lineageTag: 7e0b1668-3f8e-4210-be17-cdca7be3b698
+		summarizeBy: none
+		sourceColumn: MetadataColumn.Publish.Category
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'MetadataColumn.Publish.Description'
+		dataType: string
+		lineageTag: 8d39a1ce-10b4-4c69-9def-2833a5854360
+		summarizeBy: none
+		sourceColumn: MetadataColumn.Publish.Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'MetadataColumn.Publish.ButtonText'
+		dataType: string
+		lineageTag: 12a6454a-eb4d-45d1-ad68-2c35f196ae55
+		summarizeBy: none
+		sourceColumn: MetadataColumn.Publish.ButtonText
+
+		annotation SummarizationSetBy = Automatic
+
+	partition TextAnalyticsFunctionBrowser0FC6C87A-0E85-4075-BCB2-F9564A1712271 = m
+		mode: import
+		source =
+				let
+				            Uncategorize = (functionTable as table) =>
+				                let
+				                    TableMetadata = Value.Metadata(Value.Type(functionTable)),
+				                    TableKey = Table.Keys(functionTable){0},
+				                    MetadataColumn = Table.AddColumn(functionTable, "MetadataColumn", each Value.Metadata([Data])),
+				                    ExpandedMetadataColumn = Table.ExpandRecordColumn(MetadataColumn, "MetadataColumn", {"Publish"}, {"MetadataColumn.Publish"}),
+				                    ExpandedMetadataColumn.Publish = Table.ExpandRecordColumn(
+				                        ExpandedMetadataColumn,
+				                        "MetadataColumn.Publish",
+				                        {"Category", "Description", "ButtonText"},
+				                        {"MetadataColumn.Publish.Category", "MetadataColumn.Publish.Description", "MetadataColumn.Publish.ButtonText"}),
+				                    ReplacedName = Table.ReplaceValue(
+				                        ExpandedMetadataColumn.Publish,
+				                        each [Name],
+				                        each if [MetadataColumn.Publish.ButtonText] <> null then [MetadataColumn.Publish.ButtonText] else [Name], Text.Replace, {"Name"}),
+				                    FilteredRows = Table.SelectRows(ReplacedName, each ([MetadataColumn.Publish.Category] <> null)),
+				                    NewTableType = Value.ReplaceMetadata(Value.Type(FilteredRows), TableMetadata),
+				                    TableWithMetadata = Value.ReplaceType(FilteredRows, NewTableType),
+				                    FunctionsNavigationTable = Table.AddKey(TableWithMetadata, TableKey[Columns], TableKey[Primary]),
+				                    MetadataType = Value.Type(FunctionsNavigationTable)meta
+				                    [
+				                        NavigationTable.NameColumn = "Name",
+				                        NavigationTable.DataColumn = "Data",
+				                        NavigationTable.ItemKindColumn = "ItemKind",
+				                        Preview.DelayColumn = "ItemName",
+				                        NavigationTable.IsLeafColumn = "IsLeaf"
+				                    ],
+				                    NavigationTable = Value.ReplaceType(FunctionsNavigationTable, MetadataType)
+				                in
+				                    NavigationTable,
+				            Source = Uncategorize(Table.SelectRows(AIFunctions.Contents(), each [Key] = "CognitiveServices.DetectLanguagetext" or [Key] = "CognitiveServices.ExtractKeyPhrasestexttext" or [Key] = "CognitiveServices.ScoreSentimenttexttext"))
+				        in
+				            Source
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Exception
+

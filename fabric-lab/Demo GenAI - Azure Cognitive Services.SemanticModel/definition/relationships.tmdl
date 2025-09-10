@@ -1,0 +1,38 @@
+relationship 0fb4f745-3ed8-4a0c-bb27-74213035917c
+	fromColumn: X_IFR_EPIC6_TRAINING_RATE.ORG_AREA
+	toColumn: DIM_ORG_AREA.ORG_AREA
+
+relationship 55ad21fe-1fd9-45d8-b4ec-de189d8f04e0
+	fromColumn: X_IFR_EPIC6_TRAINING_RATE.ITEM_ID
+	toColumn: DIM_ITEM.ITEM_ID
+
+relationship c089ad96-e1dc-4c8d-91fc-7f60b8cee128
+	fromColumn: X_IFR_EPIC6_TRAINING_RATE_UNPIVOT.ROWID
+	toColumn: X_IFR_EPIC6_TRAINING_RATE.ROWID
+
+relationship c985a163-d333-40d7-ade6-2e926ec95337
+	crossFilteringBehavior: bothDirections
+	toCardinality: many
+	fromColumn: DIM_DATE.'Year Month'
+	toColumn: X_IFR_EPIC6_TRAINING_RATE.'Year Month'
+
+relationship ed342ad0-0171-4fb0-aa6a-e0b9250fa710
+	fromColumn: X_IFR_EPIC6_TRAINING_RATE.COUNTRY
+	toColumn: DIM_COUNTRY.COUNTRY
+
+relationship f45549bd-9b00-49f1-84d4-ae68f6f930e3
+	fromColumn: X_IFR_EPIC6_TRAINING_RATE.REGION
+	toColumn: DIM_REGION.REGION
+
+relationship AutoDetected_3c1ccb34-9648-4bf3-96ce-858b13eda643
+	fromColumn: TextAnalyticsFunctionBrowser0FC6C87A-0E85-4075-BCB2-F9564A1712271.ItemKind
+	toColumn: VisionFunctionBrowser1.ItemKind
+
+relationship AutoDetected_af1ac98c-cd6c-4610-bb37-db557f3fd816
+	fromColumn: TextAnalyticsFunctionBrowser0FC6C87A-0E85-4075-BCB2-F9564A1712271.ItemKind
+	toColumn: VisionFunctionBrowser7627975D-7227-43A2-B854-D79B0B15D0901.ItemKind
+
+relationship AutoDetected_60ca7b10-02c9-4fe3-b74f-054d1b38a46d
+	fromColumn: TextAnalyticsFunctionBrowser0FC6C87A-0E85-4075-BCB2-F9564A1712271.ItemKind
+	toColumn: VisionFunctionBrowser0FC6C87A-0E85-4075-BCB2-F9564A1712271.ItemKind
+

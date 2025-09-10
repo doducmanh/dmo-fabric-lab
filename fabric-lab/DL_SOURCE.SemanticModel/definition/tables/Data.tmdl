@@ -1,0 +1,111 @@
+table Data
+	lineageTag: 4847998c-b8cc-4f7d-a175-f6c0bfc32198
+
+	column 'Order ID'
+		dataType: int64
+		formatString: 0
+		lineageTag: a45c2805-ad21-483c-bc71-445ae37bed03
+		summarizeBy: count
+		sourceColumn: Order ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Seller ID'
+		dataType: int64
+		formatString: 0
+		lineageTag: 321e35d7-a630-4753-9684-17104b264b8e
+		summarizeBy: count
+		sourceColumn: Seller ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Buyer ID'
+		dataType: int64
+		formatString: 0
+		lineageTag: ed916ac6-4ef3-455f-a159-758d7fda7305
+		summarizeBy: count
+		sourceColumn: Buyer ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Order value'
+		dataType: int64
+		formatString: 0
+		lineageTag: 6417c788-0a47-41f9-ad81-0a0649bf48f2
+		summarizeBy: sum
+		sourceColumn: Order value
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Seller Province'
+		dataType: string
+		lineageTag: 9ed60728-5eba-4184-93ad-9943d44562bd
+		summarizeBy: none
+		sourceColumn: Seller Province
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Buyer Province'
+		dataType: string
+		lineageTag: 50f72861-246d-4487-9f5a-3ac623f5936d
+		summarizeBy: none
+		sourceColumn: Buyer Province
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Seller Region'
+		dataType: string
+		lineageTag: cc3aabe2-c6d1-4383-b079-f5b418599d0f
+		summarizeBy: none
+		sourceColumn: Seller Region
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Buyer Region'
+		dataType: string
+		lineageTag: f3509875-f97d-466e-8fb4-b30ebb2b2c85
+		summarizeBy: none
+		sourceColumn: Buyer Region
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Recipient shipping address'
+		dataType: string
+		lineageTag: 2c466bcc-8e3d-43e6-b375-a03c6a9af67b
+		summarizeBy: none
+		sourceColumn: Recipient shipping address
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Buyer Type'
+		dataType: string
+		lineageTag: bd7e29f4-d4cf-4645-92be-307a524bf394
+		summarizeBy: none
+		sourceColumn: Buyer Type
+
+		annotation SummarizationSetBy = Automatic
+
+	column Route
+		dataType: string
+		lineageTag: 14fd18d8-644a-4a90-b6e1-0165c0622971
+		summarizeBy: none
+		sourceColumn: Route
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Data-7b9989a0-4fd5-4102-88c5-475c823938b7 = m
+		mode: import
+		source =
+				let
+				    Source = PowerPlatform.Dataflows(null),
+				    Workspaces = Source{[Id="Workspaces"]}[Data],
+				    #"a0e5d209-46ca-4ad9-bbf1-85ade94b6614" = Workspaces{[workspaceId="a0e5d209-46ca-4ad9-bbf1-85ade94b6614"]}[Data],
+				    #"e406929f-e6e6-4064-9366-b5f1cd16370d" = #"a0e5d209-46ca-4ad9-bbf1-85ade94b6614"{[dataflowId="e406929f-e6e6-4064-9366-b5f1cd16370d"]}[Data],
+				    Data_ = #"e406929f-e6e6-4064-9366-b5f1cd16370d"{[entity="Data",version=""]}[Data]
+				in
+				    Data_
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,22 @@
+expression EOM_MAX_CREATION_DATE =
+		let
+		    Source = Oracle.Database("REDLake_ZeusD_OpsDevSup_CI.world", [HierarchicalNavigation=true, Query="SELECT #(lf)LAST_DAY(MAX(CREATION_DATE)) AS ""EOM_MAX_CREATION_DATE""#(lf)FROM MARD_PCMS.X_IFR_EPIC5_BKMS_COM_CASE#(lf)"]),
+		    #"Changed Type" = Table.TransformColumnTypes(Source,{{"EOM_MAX_CREATION_DATE", type date}}),
+		    EOM_MAX_CREATION_DATE1 = #"Changed Type"[EOM_MAX_CREATION_DATE]
+		in
+		    EOM_MAX_CREATION_DATE1
+	lineageTag: 3005b186-f94b-4533-a7b4-0bb799504b25
+
+	annotation PBI_ResultType = List
+
+expression SOM_MIN_CREATION_DATE =
+		let
+		    Source = Oracle.Database("REDLake_ZeusD_OpsDevSup_CI.world", [HierarchicalNavigation=true, Query="SELECT #(lf)TRUNC(MIN(CREATION_DATE), 'MM') AS ""SOM_MIN_CREATION_DATE""#(lf)FROM MARD_PCMS.X_IFR_EPIC5_BKMS_COM_CASE#(lf)"]),
+		    #"Changed Type" = Table.TransformColumnTypes(Source,{{"SOM_MIN_CREATION_DATE", type date}}),
+		    SOM_MIN_CREATION_DATE1 = #"Changed Type"[SOM_MIN_CREATION_DATE]
+		in
+		    SOM_MIN_CREATION_DATE1
+	lineageTag: 4980ebd4-a752-4469-ab2c-6926c74c099b
+
+	annotation PBI_ResultType = List
+
